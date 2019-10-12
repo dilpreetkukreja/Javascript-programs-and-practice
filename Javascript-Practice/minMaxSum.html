@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let arr = [1,2,3,4,5];
+
+		/*
+		Math.max(1, 2, 3, 4); // 4
+		Math.min(1, 2, 3, 4); // 1
+		*/
+
+		let maxElem = Math.max(...arr);//4
+		let minElem = Math.min(...arr);//1
+		console.log(maxElem)
+		console.log(minElem)
+
+		arr.every((elem)=>elem===arr[0])?arr.pop():null;
+		//console.log(arr);
+
+		let newArrWithoutMax = arr.map((elem)=>{
+			if(arr.every((e)=>e===arr[0]))
+				return elem;
+			else if(!(elem===maxElem))
+				return elem;
+		})
+		let newArrWithoutMin = arr.map((elem)=>{
+			if(arr.every((e)=>e===arr[0]))
+				return elem;
+			else if(!(elem===minElem))
+				return elem;
+		})
+		console.log(newArrWithoutMax);
+		console.log(newArrWithoutMin);
+
+		function findUndefinedNum(num){
+			return isNaN(num)? 0: num;
+		}
+
+		let maxSum = arr.every((elem)=>elem===arr[0])? arr.reduce(
+		 		(a, b) => findUndefinedNum(a) + findUndefinedNum(b)
+		 	): newArrWithoutMin.reduce(
+		 		(a, b) => findUndefinedNum(a) + findUndefinedNum(b)
+		 	);
+		let minSum = arr.every((elem)=>elem===arr[0])?arr.reduce(
+		 		(a, b) => findUndefinedNum(a) + findUndefinedNum(b)
+		 	):newArrWithoutMax.reduce(
+		 		(a, b) => findUndefinedNum(a) + findUndefinedNum(b)
+		 	);
+
+		 console.log(minSum, maxSum);
+		 /*console.log( 
+		 	newArrWithoutMax.reduce(
+		 		(a, b) => findUndefinedNum(a) + findUndefinedNum(b)
+		 	), 
+		 	newArrWithoutMin.reduce(
+		 		(a, b) => findUndefinedNum(a) + findUndefinedNum(b)
+		 	)
+		 );*/
+	</script>
+
+</body>
+</html>

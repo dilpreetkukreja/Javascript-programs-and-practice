@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+	/*There are two patterns which are used to implement inheritance in javascript
+	method 1: Prototype Object oriented pattern
+	method 2: Constructor Object oriented pattern*/
+	
+	/////method 1 /////////////////////
+	console.log("method1");
+	
+	function Person(age){ 
+    this.age = age;
+    this.getAge = function () { return this.age;}
+	};
+
+	//function Student(){};
+
+	//Creating Person instance
+	var person = new Person(23);
+
+	console.log("Old Person age is " + person.age);
+
+	//Creating a student instance and inheriting it from person instance
+	//Object.create method creates a object whose __proto__ point to the object passed
+	//Thus student will be an object having a property __proto__ that would point to person instance
+	//This assosciation allows the instance of student to access insatnce of Person
+	var student = Object.create(person);
+
+	//Change age of person through student
+	student.__proto__.age = 24;
+
+	console.log("New Person age is " + person.age);
+	console.log("New student age is " + student.age);
+
+	console.log("We can also call parent object methods from child" + " for e.g calling getAge from student: " + student.getAge());
+
+	
+	//////method 2//////////////////////////////////////////////
+	console.log("method2");
+
+	function Person1(age){ 
+    this.age=age;
+	}
+
+	function Student1(){}
+
+	//Create person instance
+	var person1 = new Person1(27);
+
+	console.log("Old age of person is " + person1.age);
+
+	//Inherit the person instance
+	Student1.prototype = person1;
+	Student1.prototype.constructor = Student1;
+
+	//create a student object
+	var student1 = new Student1();
+
+	//Change the person instance age value
+	//this change is possible because we
+	//can access person object through
+	//student.__proto__.
+	student1.__proto__.age = 30;
+
+	console.log("New age of person is " + person1.age);
+	</script>
+
+</body>
+</html>

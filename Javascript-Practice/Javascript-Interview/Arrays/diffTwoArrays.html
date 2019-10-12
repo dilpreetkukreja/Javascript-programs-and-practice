@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		 function diffArray(arr1, arr2) {
+	      var newArr = [];
+
+	      function onlyInFirst(first, second) {
+	      // Looping through an array to find elements that don't exist in another array
+	        for (var i=0;i<first.length;i++) {
+	          if (second.indexOf(first[i]) === -1) {
+	            // Pushing the elements unique to first to newArr
+	            newArr.push(first[i]);
+	          }
+	        }
+	      }
+
+	      onlyInFirst(arr1, arr2);
+	      onlyInFirst(arr2, arr1);
+
+	      return newArr;
+	    }
+
+	    diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+    ///////////////////////////////////////////
+	    function diffArray(arr1, arr2) {
+	      return arr1
+	        .concat(arr2)
+	        .filter(
+	            item => !arr1.includes(item) || !arr2.includes(item)
+	        )
+	    }
+
+	    diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+		
+		/////////////////////////////
+		let arr1 = [1, 2, 2, 3, 5, 6];
+		let arr2 = [1, 1, 2, 3, 4, 5];
+		let dictionary = {};
+
+		arr2.forEach(elem=>{
+			dictionary[elem] = elem;
+		});
+		console.log(dictionary);
+		let removedItem = [];
+		for(let i=0;i<arr1.length;i++){
+			if(dictionary.hasOwnProperty(arr1[i])){
+				removedItem.push(arr1.splice(i,1));
+				i--;
+			}
+		}
+		console.log(arr1);
+		for(let k=0;k<removedItem.length;k++){
+			if(dictionary.hasOwnProperty(removedItem[k])){
+				delete dictionary[removedItem[k]];
+			}
+		}
+		console.log(dictionary);
+		let dictArr = Object.values(dictionary);
+		console.log(dictArr);
+		let resultArr = [...arr1, ...dictArr];
+		console.log(resultArr);//6,4
+
+
+	</script>
+
+</body>
+</html>

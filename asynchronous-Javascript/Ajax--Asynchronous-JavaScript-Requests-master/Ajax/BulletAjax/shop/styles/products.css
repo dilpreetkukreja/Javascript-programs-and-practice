@@ -1,0 +1,65 @@
+.product {
+ border-top: 6px solid #ccc;
+ width: 27%;
+ min-width: 10em;
+ padding: .5em;
+ margin: 0 .5em;
+ float: left;
+}
+.product dl.info {
+ height: 10em;
+ margin: 0;
+}
+.product dl.info dt {
+ font-family: Georgia, serif;
+ font-size: 1.6em;
+}
+.product dl.info dd {
+ font-family: Georgia, serif;
+ font-size: 1.2em;
+ letter-spacing: .1em;
+ color: #666;
+ margin-left: 1.5em;
+ text-indent: -1.5em;
+}
+.product img.cover {
+ border: 1px solid #333;
+ position: relative;
+ left: 50%;
+ margin-left: -50px;
+}
+.product form {
+ font-size: .8em;
+ padding: .5em;
+ background: #ddd;
+ border: 1px solid #ccc;
+ text-align: center;
+}
+.product input {
+ vertical-align: middle;
+}
+.product input.amount {
+ width: 2em;
+ text-align: center;
+}
+#zeldman {
+ border-top-color: #693;
+}
+#veen {
+ border-top-color: #fc3;
+}
+#krug {
+ border-top-color: #f93;
+}
+#zeldman form {
+ background: #ded;
+ border-color: #cdc;
+}
+#veen form {
+ background: #eed;
+ border-color: #ddc;
+}
+#krug form {
+ background: #edc;
+ border-color: #dcb;
+}

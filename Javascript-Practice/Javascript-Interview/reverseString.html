@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = "hi";
+		//let reverseStr = "ih";
+
+		let reverseStr = [];
+		for(let i=0;i<str.length;i++){
+			reverseStr.unshift(str[i]);
+		}
+		console.log(reverseStr);
+		////With Array methods
+
+		function reverse(str){
+			let arrayFromString = str.split("");
+			let reverseArray = arrayFromString.reverse();
+			let reverseString = reverseArray.join("");
+			return(reverseString);
+		}
+		console.log(reverse("I love javascript"));
+
+	</script>
+
+</body>
+</html>

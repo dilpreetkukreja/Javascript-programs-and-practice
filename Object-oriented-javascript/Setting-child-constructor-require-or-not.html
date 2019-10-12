@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+	/*Is it always necessary to set child constructor back to it, after inheriting using object.create() method*/
+
+	/*It's not always necessary, but it does have its uses. Suppose we wanted to make a copy method on the base Person class. Like this:*/
+
+	// define the Person Class  
+	function Person(name) {
+	    this.name = name;
+	}  
+
+	Person.prototype.copy = function() {  
+	    // return new Person(this.name); // just as bad
+	    return new this.constructor(this.name);
+	};  
+
+	// define the Student class  
+	function Student(name) {  
+	    Person.call(this, name);
+	}  
+
+	// inherit Person  
+	Student.prototype = Object.create(Person.prototype);
+	/*Now what happens when we create a new Student and copy it?*/
+
+	var student1 = new Student("trinth");  
+	console.log(student1.copy() instanceof Student); // => false
+	/*The copy is not an instance of Student. This is because (without explicit checks), we'd have no way to return a Student copy from the "base" class. We can only return a Person. However, if we had reset the constructor:*/
+
+	// correct the constructor pointer because it points to Person  
+	Student.prototype.constructor = Student;
+	/*...then everything works as expected:*/
+
+	var student1 = new Student("trinth");  
+	console.log(student1.copy() instanceof Student); // => true
+	/////////////////////////////////////////////////////////
+	function Parent() {}
+	Parent.prototype.parentMethod = function parentMethod() {};
+
+	function Child() {}
+	Child.prototype = Object.create(Parent.prototype); // re-define child prototype to Parent prototype
+
+	Child.prototype.constructor = Child; // return original constructor to Child
+	/*But when do we need to perform last line here? Unfortunately the answer is - it depends.*/
+	function Parent() {};
+	function CreatedConstructor() {}
+
+	CreatedConstructor.prototype = Object.create(Parent.prototype);
+
+	CreatedConstructor.prototype.create = function create() {
+	  return new this.constructor();
+	}
+
+	new CreatedConstructor().create().create(); // TypeError undefined is not a function since constructor === Parent
+	/*In the example above the exception will be shown since constructor links to Parent.
+
+	To avoid this just assign necessary constructor which you are going to use.*/
+
+	function Parent() {}; 
+	function CreatedConstructor() {} 
+
+	CreatedConstructor.prototype = Object.create(Parent.prototype); 
+	CreatedConstructor.prototype.constructor = CreatedConstructor; // set right constructor for further using
+
+	CreatedConstructor.prototype.create = function create() { 
+	  return new this.constructor();
+	} 
+
+	new CreatedConstructor().create().create(); // it's pretty fine
+	/*Ok, now it's pretty clear why changing of the constructor can be useful.*/
+	////////////////////////////////////////////////
+	function ParentWithStatic() {}
+
+	ParentWithStatic.startPosition = { x: 0, y:0 };
+	ParentWithStatic.getStartPosition = function getStartPosition() {
+	  return this.startPosition;
+	} 
+
+	function Child(x, y) {
+	  this.position = {
+	    x: x,
+	    y: y
+	  };
+	}
+
+	Child.prototype = Object.create(ParentWithStatic.prototype); 
+	Child.prototype.constructor = Child;
+
+	Child.prototype.getOffsetByInitialPosition = function getOffsetByInitialPosition() {
+	  var position = this.position;
+	  var startPosition = this.constructor.getStartPosition(); // error undefined is not a function, since the constructor is Child
+
+	  return {
+	    offsetX: startPosition.x - position.x,
+	    offsetY: startPosition.y - position.y
+	  }
+	};
+	/*For this example we need to stay parent constructor to continue to work properly.
+
+	Summary: manually updating or setting the constructor can lead to differrent and sometimes confusing consequences. To prevent this just define the role of constructor in each specific case. In most cases constructor is not used and reassignment of it is not necessary.*/
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//You have a test string . Your task is to match the pattern  xxXxxXxxxx Here x denotes a digit character, and X denotes a non-digit character.
+		let str = '22-39-2343';
+		let regex = /^\d\d\D\d\d\D\d\d\d\d$/;
+		let result = str.match(regex);
+		console.log(result);
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let arr=""
+		for(let i=1;i<=5;i++){
+			for(let j=1;j<=i;j++){
+				arr = arr.concat("* ")
+			}
+			console.log(arr);
+			arr="";
+		}
+		////////////////////
+		let arr1=[]
+		for(let i=1;i<=5;i++){
+			for(let j=1;j<=i;j++){
+				arr1.push("* ")
+			}
+			console.log(...arr);
+			arr1=[];
+		}
+	</script>
+
+</body>
+</html>

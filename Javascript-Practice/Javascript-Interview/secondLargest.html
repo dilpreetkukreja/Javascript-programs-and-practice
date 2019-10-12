@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function getSecondLargest(nums) {
+		    // Complete the function
+		    let arrSorted = nums.sort((a,b)=> a - b);
+		    //console.log(arrSorted);
+		    let length = arrSorted.length;
+		    let largestNum = arrSorted[length - 1];
+		    //console.log(largestNum);
+		   	let filterArr = arrSorted.filter((elem)=>
+		   		elem!==largestNum);
+		   	console.log(filterArr);
+		    let secondLargest = filterArr[filterArr.length - 1];
+		    return secondLargest;
+		}
+		console.log(getSecondLargest([2,3,6,6,5]));
+		//[1,45,23,45,38]
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p id="myPara1">i will write some <em>text</em></p>
+
+
+	<script type="text/javascript">
+	
+		/*
+			beforebegin - before element
+			afterbegin - first child
+			beforeend - last child
+			afterend - after element
+		*/
+		myPara1 = document.getElementById('myPara1');
+
+		myPara1.insertAdjacentText('beforeend',' <strong>Added text</strong>');
+		myPara1.insertAdjacentText('beforeend',' hello');
+	</script>
+
+</body>
+</html>

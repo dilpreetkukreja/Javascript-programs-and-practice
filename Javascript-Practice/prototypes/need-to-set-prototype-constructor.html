@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//https://stackoverflow.com/questions/8453887/why-is-it-necessary-to-set-the-prototype-constructor
+		//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
+		function Person(isCitizen, hasPassport){
+			this.isCitizen = isCitizen;
+			this.hasPassport = hasPassport;
+		}
+
+		Person.prototype.displayIsCitizen = function(){
+			return this.isCitizen;
+		}
+		Person.prototype.displayHasPassport = function(){
+			return this.hasPassport;
+		}
+		Person.prototype.copy = function(){
+			return new this.constructor(this.isCitizen, this.hasPassport,this.jobDuty);
+		}
+
+
+		let person1 = new Person(true,true);
+
+		function Employee(isCitizen, hasPassport, jobDuty){
+			Person.call(this, isCitizen, hasPassport);
+			this.jobDuty = jobDuty;
+		}
+
+		Employee.prototype = Object.create(Person.prototype);
+		//uncomment below line, to see the effect of not setting constructor to Employee
+		Employee.prototype.constructor = Employee;
+		Employee.prototype.displayJobDuty = function(){
+			return this.jobDuty;
+		}
+
+		let employee1 = new Employee(false, false, "teaching");
+		console.log(employee1);
+		console.log(employee1.copy());
+		console.log(employee1.copy() instanceof Employee);//true
+		console.log("Display duty of copy:", employee1.copy().displayJobDuty());
+	</script>
+
+</body>
+</html>

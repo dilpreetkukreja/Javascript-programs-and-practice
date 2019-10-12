@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//random stuff
+		function Animal(){
+			this.hasFur =true
+		}
+		Animal.prototype.sleep = function(){
+			console.log("sleep");
+		}
+		function Child(){
+
+		}
+		//we should not do this, as Child.prototype and Parent.prototype refers to same object, any change in Child.prototype will change the Parent.prototype, which we dont want.
+		Child.prototype = Animal.prototype;
+
+		Child.prototype.sleep = function(){
+			console.log("my sleep is changed");
+		}
+		let child = new Child()
+		console.log(child.sleep())
+		console.log(Animal.prototype.sleep());
+		//Child.prototype = {sayHello:"heello"};
+		/**/
+	</script>
+
+</body>
+</html>

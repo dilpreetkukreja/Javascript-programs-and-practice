@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*const fruits = ["apples", "bananas", "pears"];
+		const vegetables = ["corn", "potatoes", "carrots"];
+		const produce = fruits.concat(vegetables);
+		console.log(produce);*/
+		/*
+		const produce = [fruits, vegetables];
+		console.log(produce);//Unfortunately, that doesn’t work.
+
+		Instead of combining both arrays, this code actually adds the fruits array at the first index and the vegetables array at the second index of the produce array.
+		*/
+
+		//spread operator
+		const fruits = ["apples", "bananas", "pears"];
+		const vegetables = ["corn", "potatoes", "carrots"];
+		const produce = [...fruits,...vegetables];
+		console.log(produce);
+
+		const books = ["Don Quixote", "The Hobbit", "Alice in Wonderland", "Tale of Two Cities"];
+		console.log(...books[0]);
+		console.log(...books);
+	</script>
+
+</body>
+</html>

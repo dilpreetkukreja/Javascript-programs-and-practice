@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		/*
+		 * Modify and return the array so that all even elements are doubled and all odd elements are tripled.
+		 * 
+		 * Parameter(s):
+		 * nums: An array of numbers.
+		 */
+		function modifyArray(nums) {
+		    let newArr = nums.map( elem => {
+
+		       let result = elem % 2 === 0?
+		        elem * 2 
+		        :
+		        elem * 3;
+		        return result;
+		    }
+		    
+		    );
+		    return newArr;
+		}
+		console.log(modifyArray([1,2,3]))
+
+	</script>
+
+</body>
+</html>

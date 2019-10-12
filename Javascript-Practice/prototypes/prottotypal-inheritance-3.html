@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let person = {
+			isCitizen: true,
+			hasPassport: true
+		}
+
+		let newObj = Object.create(person);
+		console.log(person.isPrototypeOf(newObj));//true
+		console.log(person.isCitizen)//true
+		console.log(newObj);
+		console.log(Object.getPrototypeOf(newObj));//{isCitizen: true, hasPassport: true}
+		/////////////////////////////////////////
+		function Person(isCitizen, hasPassport){
+			this.isCitizen = isCitizen;
+		}
+
+		Person.prototype.displayIsCitizen = function(){
+			return this.isCitizen;
+		}
+		let person1 = new Person(true);
+
+		let newObj1 = Object.create(person1);
+		console.log(person1.isPrototypeOf(newObj1));//true
+		console.log(newObj1.isCitizen)//true
+		console.log(newObj1);
+		console.log(Object.getPrototypeOf(newObj1));//Person {isCitizen: true}
+		console.log(newObj1.displayIsCitizen());//true
+
+	</script>
+
+</body>
+</html>

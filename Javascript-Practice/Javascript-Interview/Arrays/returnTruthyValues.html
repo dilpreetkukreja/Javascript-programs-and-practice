@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//1==true//returns true, becoz true evalutes to 1
+		//7==true//returns false, becoz true evalutes to
+		function bouncer(arr) {
+		  // Don't show a false ID to this bouncer.
+		  let truthy = arr.filter(elem=>{
+		      if(elem)
+		        return true;
+		   } )
+		  return truthy;
+		}
+
+		console.log(bouncer([7, "ate", "", false, 9]));
+		/////////////////////////////////////////
+		function bouncer1(arr) {
+		  // Don't show a false ID to this bouncer.
+		  let truthy = arr.filter(elem=>Boolean(elem))
+		  return truthy;
+		}
+
+		console.log(bouncer1([7, "ate", "", false, 9]));
+
+	</script>
+
+</body>
+</html>

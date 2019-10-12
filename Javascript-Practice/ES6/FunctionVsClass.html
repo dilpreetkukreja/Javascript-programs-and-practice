@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*Function*/
+
+		/*function Parent(age, address){
+			this.age = age;
+			this.address = address;
+		}
+
+		Parent.prototype.displayAge = function(){
+			console.log("I'm in parent:",this.age);
+		}
+		Parent.prototype.displayAddress = function(){
+			console.log("I'm in parent:",this.address);
+		}
+
+
+		function Child(phoneNo, age, address){
+			Parent.call(this, age, address);
+			this.phoneNo = phoneNo;
+		}
+
+		Child.prototype = Object.create(Parent.prototype);
+		Child.prototype.constructor = Child;
+
+		Child.prototype.displayAge = function(){
+			Parent.prototype.displayAge.call(this);
+			console.log("I'm in child:",this.age);
+		}
+		Child.prototype.displayPhoneNo = function(){
+			console.log("I'm in child:",this.phoneNo);
+		}
+
+		let childObj = new Child(6049689274, 31, "sanders st");
+		childObj.displayAge();
+		childObj.displayAddress();
+		childObj.displayPhoneNo();*/
+
+		/*Class*/
+
+		class Parent{
+			constructor(age, address){
+				this.age = age;
+				this.address = address;
+			}
+			displayAge(){
+				console.log("I'm in parent:",this.age);
+			}
+			displayAddress(){
+				console.log("I'm in parent:",this.address);
+			}
+
+		}
+
+		class Child extends Parent{
+			constructor(phoneNo, age, address){
+				super(age, address);
+				this.phoneNo = phoneNo;
+			}
+			displayAge(){
+				super.displayAge();
+				console.log("I'm in child:",this.age);
+			}
+			displayPhoneNo(){
+				console.log("I'm in child:",this.phoneNo);
+			}
+
+		}
+
+		let childObj = new Child(6049689274, 31, "sanders st");
+		childObj.displayAge();
+		childObj.displayAddress();
+		childObj.displayPhoneNo();
+
+
+	</script>
+
+</body>
+</html>

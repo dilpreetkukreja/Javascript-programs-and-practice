@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function getClothing(isCold) {
+		  if (isCold) {
+		    var freezing = 'Grab a jacket!';
+		  } else {
+		    var hot = 'It’s a shorts kind of day.';
+		    console.log(freezing);
+		  }
+		}
+		getClothing(false);//undefined
+		function getClothing2(isCold) {
+		  if (isCold) {
+		    let freezing = 'Grab a jacket!';
+		  } else {
+		    let hot = 'It’s a shorts kind of day.';
+		    console.log(freezing);
+		  }
+		}
+		getClothing2(false);//ReferenceError: freezing is not defined
+
+	</script>
+
+</body>
+</html>

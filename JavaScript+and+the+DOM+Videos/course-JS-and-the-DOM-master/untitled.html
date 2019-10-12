@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+	<h1 id="main-heading" class="ank-student jpk-modal">main heading<span> i m span</span></h1>
+	<h2 id="other-heading">other heading</h2>
+
+	<p id="quizzing-quizzes" style="color: red;">Howdy</p>
+	<button  style = border:2px solid red onclick = 'removeHandler()'>click to remove event listener</button>
+
+	<script>
+		const mainHeading = document.querySelector('#main-heading');
+		const otherHeading = document.querySelector('#other-heading');
+		const excitedText = document.createElement('span');
+		const newText = document.createElement('span');
+
+		const htmlTextToAdd = '<h2>Skydiving is fun!</h2>';
+		
+
+		newText.textContent = " added content "
+		excitedText.textContent = '!!!';
+
+	
+		mainHeading.insertAdjacentHTML('afterbegin', newText.textContent);
+		otherHeading.appendChild(excitedText);
+
+		
+		//document.querySelector('#quizzing-quizzes').style.cssText = 'font-size: 15px;  text-decoration: underline;';
+		const para = document.querySelector('p');
+
+		para.setAttribute('style', 'color: blue; background-color: orange; font-size: 3.5em;');
+
+		//alert("InnerHTML: " + mainHeading.innerHTML+ " ; " + "textContent: " + mainHeading.textContent )
+
+		mainHeading.nextElementSibling.style.backgroundColor = 'pink';
+		// store the list of classes in a variable
+		const listOfClasses = mainHeading.className;
+
+		// logs out the string "ank-student jpk-modal"
+		//console.log(listOfClasses);
+		//alert(listOfClasses)
+
+		const arrayOfClasses = listOfClasses.split(' ');
+
+		// logs out the array of strings ["ank-student", "jpk-modal"]
+		//console.log(arrayOfClasses);
+
+		arrayOfClasses.push("new-class-name");
+		console.log(arrayOfClasses);
+		console.log(mainHeading.className)
+		mainHeading.className = arrayOfClasses;
+		console.log(mainHeading.className)
+
+		function myEventListeningFunction() {
+		    console.log('howdy');
+		}
+
+		//adds a listener for clicks, to run the `myEventListeningFunction` function
+		//document.addEventListener('click', myEventListeningFunction);
+
+		// immediately removes the click listener that should run the `myEventListeningFunction` function
+
+		/*function removeHandler(){
+			document.removeEventListener('click', myEventListeningFunction);
+		}*/
+
+		document.addEventListener('click', function () {
+		   console.log('The document was clicked');
+		});
+
+		document.body.addEventListener('click', function (){
+		    console.log('The document body was clicked');
+		}, true);
+
+		const myCustomDiv = document.createElement('div');
+
+		function respondToTheClick(evt) {
+		    console.log('A paragraph was clicked: ' + evt.target.textContent);
+		    evt.target.style.color = 'red';
+		}
+
+		for (let i = 1; i <= 200; i++) {
+		    const newElement = document.createElement('p');
+		    newElement.textContent = 'This is paragraph number ' + i;
+
+		    myCustomDiv.appendChild(newElement);
+		}
+
+		document.body.appendChild(myCustomDiv);
+
+		myCustomDiv.addEventListener('click', respondToTheClick);
+		
+		alert(document.getElementById("quizzing-quizzes"));
+		document.write(Date());
+
+
+			
+	</script>
+</body>
+
+
+
+
+
+
+
+
+

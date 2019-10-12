@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Create Object from JSON String</h2>
+
+<p id="demo"></p>
+
+<script>
+
+/*A common use of JSON is to exchange data to/from a web server.
+
+When receiving data from a web server, the data is always a string.
+
+Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+*/
+
+/*
+Imagine we received this text from a web server:
+'{ "name":"John", "age":30, "city":"New York"}'
+*/
+
+var txt = '{"name":"John", "age":30, "city":"New York"}';//its a string
+//Make sure the text is written in JSON format, or else you will get a syntax error.
+//Use the JavaScript function JSON.parse() to convert text into a JavaScript object:
+var obj = JSON.parse(txt);
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.age;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//if any of these promises return reject then reject func is all and all other resolved promises will be rejected
+		let firstname = function(){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					resolve("dilpreet");
+				},4000);
+			});
+		};
+		let middlename = function(){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					resolve("K.");
+				},2000);
+			});
+		};
+		let lastname = function(){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					resolve("Kukreja");
+				},5000);
+			});
+		};
+
+		//only the resilt of first resolved promise is displayed.
+		//if any of these promises return reject then second func is all and all other resolved promises will be rejected
+
+		Promise.race([firstname(),middlename(),lastname()]).then(function(fullname){
+			console.log(fullname);//only middle name is displayed
+		},function(err){
+			console.log("Error: "+err);
+		});
+	</script>
+
+</body>
+</html>

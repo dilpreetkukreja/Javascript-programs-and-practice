@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const person = {
+		  isHuman: false,
+		  printIntroduction: function () {
+		    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+		  }
+		};
+
+		const me = Object.create(person);
+		/*	me
+				{}
+					__proto__: 
+					isHuman: false
+					printIntroduction: ƒ ()
+					__proto__: Object
+		*/
+
+		me.name = "Matthew"; // "name" is a property set on "me", but not on "person"
+		console.log("unchanged me.isHuman: "+me.isHuman);//false
+		me.isHuman = true; // inherited properties can be overwritten,it will not change isHuman in person 
+		console.log("changed me.isHuman: "+me.isHuman);//true
+		console.log("person.isHuman: "+person.isHuman);//false
+
+		me.printIntroduction();
+		// expected output: "My name is Matthew. Am I human? true"
+
+		//////////////////next example////////////////////////
+				// Shape - superclass
+		function Shape() {
+		  this.x = 0;
+		  this.y = 0;
+		}
+
+		// superclass method
+		Shape.prototype.color = "yellow";
+		Shape.prototype.move = function(x, y) {
+		  this.x += x;
+		  this.y += y;
+		  console.info('Shape moved.');
+		};
+
+		// Rectangle - subclass
+		function Rectangle() {
+		  Shape.call(this); // call super constructor.
+		}
+		// subclass extends superclass
+		Rectangle.prototype = Object.create(Shape.prototype);
+		Rectangle.prototype.constructor = Rectangle;
+
+		var rect = new Rectangle();
+		Shape.prototype.picture = "scenery";
+		console.log('Is rect an instance of Rectangle?',
+		  rect instanceof Rectangle); // true
+		console.log('Is rect an instance of Shape?',
+		  rect instanceof Shape); // true
+		rect.move(1, 1); // Outputs, 'Shape moved.'
+		var rect2 = new Rectangle();
+		rect2.color = "red";
+		rect2.border = "orange";
+		console.log(rect.color);//yellow
+		console.log(rect2.color);//red
+		////////////////next example////////inheriting from multiple objects
+		function SuperClass(){
+			this.name = "dilpreet";
+		}
+		SuperClass.prototype.getName = function(){
+			console.log("name is: "+this.name);
+		}
+
+		function OtherSuperClass(){
+			this.address = "address";
+		}
+		OtherSuperClass.prototype.getAddress = function(){
+			console.log("address is: "+this.address);
+		}
+
+		function MyClass() {
+		  SuperClass.call(this);
+		  OtherSuperClass.call(this);
+		}
+
+		// inherit one class
+		MyClass.prototype = Object.create(SuperClass.prototype);
+		// mixin another
+		Object.assign(MyClass.prototype, OtherSuperClass.prototype);
+		// re-assign constructor
+		MyClass.prototype.constructor = MyClass;
+
+		//const newObj = new MyClass();
+
+
+		const obj = new MyClass();
+		console.log(obj.name);
+		console.log(obj.address);
+
+		console.log(obj.getName());
+		console.log(obj.getAddress());
+		obj.__
+
+
+	</script>
+
+
+</body>
+</html>

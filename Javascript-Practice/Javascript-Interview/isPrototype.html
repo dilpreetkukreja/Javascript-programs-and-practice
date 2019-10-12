@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Dog(name) {
+		  this.name = name;
+		}
+
+		let beagle = new Dog("Snoopy");
+
+		console.log(Dog.prototype.isPrototypeOf(beagle));  // => true
+
+		// Fix the code below so that it evaluates to true
+		console.log(Object.prototype.isPrototypeOf(Dog.prototype));
+			</script>
+
+</body>
+</html>

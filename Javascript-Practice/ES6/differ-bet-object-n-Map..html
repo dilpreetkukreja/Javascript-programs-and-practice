@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//https://medium.com/front-end-weekly/es6-map-vs-object-what-and-when-b80621932373
+		//https://javascript.info/map-set
+		//Difference 1: In Object, keys MUST be simple types — either integer or string or symbols. Nothing more. But in Map it can be any data type (an object, an array, etc…). 
+		/*
+		new Map() – creates the map.
+		map.set(key, value) – stores the value by the key.
+		map.get(key) – returns the value by the key, undefined if key doesn’t exist in map.
+		map.has(key) – returns true if the key exists, false otherwise.
+		map.delete(key) – removes the value by the key.
+		map.clear() – removes everything from the map.
+		map.size – returns the current element count.
+		*/
+
+		let children = {
+			son:"Jasnoor",
+			daughter:"Seerat"
+		}
+
+		let map = new Map([["name","dilpreet"],["age",31],[children,2]]);
+		console.log(map);
+		console.log(typeof map);//object
+		console.log(typeof Map);//function
+		console.log(typeof children);//object
+		console.log(typeof Object)//function, its a constrcutor func
+
+		let obj = new Object({color:"pink"});
+		console.log(typeof obj);//object
+		console.log(obj);//{color:"pink"}
+
+		//lets see what happen when we try to set object as a property to a object 
+		let person1 = {
+			name:"john"
+		}
+		let person2 = {
+			name:"steve"
+		}
+		let personList = {
+			[person1]: "engineer",
+			[person2]: "doctor"
+		}
+		console.log(personList);//{[object Object]: "doctor"}
+		//it looks like both person has same ket [object Object], so second person overwrites the same prev key, thats why we get only 1 elememt in object
+		console.log(Object.keys(personList)); //["[object Object]"], javascript converts every key into string internally
+
+		//Diffrence 2:
+		console.log(map instanceof Object); //true
+		console.log(obj instanceof Map); //false
+
+		//Difference 3:Element order: in Map, original order of elements (pairs) is preserved, while in Object, it isn’t.
+
+		let person = {
+			3:"three",
+			alphabet:"abc",
+			status:"green",
+			appearance:"black",
+			yo:"yoyo",
+			2:"two",
+			1:"one",
+		}
+		//insertion order of strings and symbols is not preserved, but not of integers
+		//we cant use for-of in objecr
+		for(let i in person){
+			console.log("object",i);
+		}//order is not preserved for integers, but for strings is preserved
+
+		let personMap = new Map([[3,"three"],
+			["alphabet","abc"],
+			["status","green"],
+			["appearance","black"],
+			["yo","yoyo"],
+			[2,"two"],
+			[1,"one"]]);
+		//we cant use for-in in map, we can use for-of, forEach and using MapIterator
+		for(let i of personMap){
+			console.log("map",i);
+		}//order is preserved
+		//diffrence 4:
+		/*object can be created with object literal or with object constructor, map only created with map constructor*/
+
+		//difference 5:
+		//Accessing Elements
+		//in map we use map.get(key);
+		console.log(personMap.get("status"));//green, use quotation marks for string key
+		console.log(personMap.get(2));//two
+		console.log(map.get(children));//2
+
+		//in object, we dot or bracket notation
+		console.log(person[3]);//3
+		console.log(person.alphabet);//abc
+
+		//Diffrence 6:
+		//checking if key is present or not
+
+		//map
+		console.log(personMap.has("status"));//true
+
+		//object
+		console.log(person.hasOwnProperty("status"));//true,we only check a key which is not inherited for that object. 
+
+		console.log("status" in person);//true, //which will apply for inherited property as well.
+
+		var isExist = person.status !== undefined;
+		console.log(isExist);//true
+
+		//Difference 7:
+		//adding new element
+		//map
+
+		personMap.set("active", true);
+		//object
+
+		person.active = true;
+
+		console.log(personMap);
+		console.log(person);
+
+		//Difference 8:
+		//Removing/Deleting an element
+
+		//map
+		personMap.delete("yo");
+		//object
+		delete person.yo;
+		console.log(personMap);
+        console.log(person);
+
+        //Difference 9:
+        //clear() — remove ALL elements from a Map object.
+		//map.clear(); //{}
+		//In order to achieve the same capability of clear(), Object will need to iterate through its properties (keys) and delete one by one until the end. This can be tiring, especially when we feel a little bit of lazy (just a tiny bit :))
+		//In general, both Map and Object performance in removing element is pretty similar to each other, again due to its structure. Deleting a key will take O(1), while clearing out all elements will still take O(n) with n is the size of Map/Object.
+
+		//difference 10:
+		//map
+		console.log(personMap.size);//7
+		//object
+		console.log(Object.keys(person).length);//7
+
+		//difference 11:
+		//iterating
+		//Map is built-in iterable — Object is not.
+		// how do you check if a type is iterable? 
+		console.log(typeof person[Symbol.iterator]); //undefined
+		console.log(typeof personMap[Symbol.iterator]); //function
+		//Which means, in Map all elements can be iterated directly with “for… of” 
+		for (const item of personMap){
+		    console.log(item); 
+		}
+		//Or
+		for (const [key,value] of personMap){
+		    console.log(`key: ${key}, value: ${value}`);
+		}
+		//Or with its built-in forEach():
+		personMap.forEach((value, key) => console.log(`key: ${key}, value: ${value}`));
+		//But with Object, either we use “for… in”
+		for (var key in person){
+		   console.log(`key: ${key}, value: ${person[key]}`);
+		   //key: id, value: 1
+		   //key: name, value: test
+		}
+		//Or using Object.keys(obj) to get all the keys and iterate:
+		Object.keys(person).forEach((key)=> console.log(`key: ${key}, value: ${person[key]}`));
+		//key: id, value: 1
+		//key: name, value: test
+
+		/*
+		Others instance methods, such as map.keys(), map.values() and map.entries() , are also very similar to what we could get with the corresponding static Object methods, but have a major difference: they return Iterators and not Arrays. I will not get into the details here, but I’ll come back to it in the second part of this article.
+		*/
+
+		////////////////////////////////
+		let john = { name: "John" };
+		let steve = {name: "steve"}
+
+		let visitsCountObj = {}; // try to use an object
+
+		visitsCountObj[john] = 123; // try to use john object as the key
+		visitsCountObj[steve] = 345;
+
+
+		// That's what got written!
+		console.log( visitsCountObj["[object Object]"] ); // 345
+		//As visitsCountObj is an object, it converts all keys, such as john to strings, so we’ve got the string key "[object Object]". Definitely not what we want.
+
+
+		let randomObj = {
+			2:"two",
+			"2":"hello"
+		}
+
+		console.log(randomObj);//{2: "hello"}
+		console.log(randomObj["2"]);//hello
+		console.log(randomObj[2]);//hello
+		console.log(new String(randomObj))
+		console.log(new String(randomObj).toString())
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

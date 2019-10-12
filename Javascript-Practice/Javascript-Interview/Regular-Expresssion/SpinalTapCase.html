@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		spinalCase("This Is Spinal Tap") should return "this-is-spinal-tap".
+		Passed
+		spinalCase("thisIsSpinalTap") should return "this-is-spinal-tap".
+		Passed
+		spinalCase("The_Andy_Griffith_Show") should return "the-andy-griffith-show".
+		Passed
+		spinalCase("Teletubbies say Eh-oh") should return "teletubbies-say-eh-oh".
+		Passed
+		spinalCase("AllThe-small Things") should return "all-the-small-things".*/
+		let str = "TeletubbiesRubby say Eh-oh";
+		let regex = /(?<=[a-z])[\s_]+|(?<=[a-z])(?=[A-Z])/g;
+		let result = str.split(regex);
+		console.log(result);
+		let resultStr = result.join("-");
+		console.log(resultStr.toLowerCase());
+
+	</script>
+
+</body>
+</html>

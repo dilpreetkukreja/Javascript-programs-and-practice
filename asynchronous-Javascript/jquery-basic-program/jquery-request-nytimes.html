@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- adding jquery -->
+	<script
+  src="jquery.js"></script>
+</head>
+<body>
+	<div id="addArticle"></div>
+	<script type="text/javascript">
+	let searchedForText = 'hippo';
+	function addArticles (data) 
+	{
+			let htmlContent = '<ol>'+ data.response.docs.map(article=>`<li class="article"> <h2><a href="${article.web_url}">${article.headline.main}</a></h2><p>${article.snippet}</p> </li>`).join('')+'</ol>';
+			const elem = document.getElementById("addArticle");
+			elem.innerHTML= htmlContent;
+			console.log(data);
+
+	}
+
+	$.ajax({
+	    url: `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=Y9IfAGjgOeO24tcESQvCfjnJewn8VTc7`
+	}).done(addArticles);
+	</script>
+
+
+
+
+</body>
+</html>

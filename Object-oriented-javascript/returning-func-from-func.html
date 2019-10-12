@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function alertThenReturn() {
+		  console.log('Message 1!');
+
+		  return function () {
+		    console.log('Message 2!');
+		  };
+		}
+		const innerFunc = alertThenReturn();//Message 1!
+		//one way to call inner func
+		innerFunc();//Message 2!
+		//another way to call inner func
+		alertThenReturn()();//Message 1! Message 2!
+		////Another example////
+		function alertThenReturn2() {
+		  let somevar = 2;
+		  console.log('Message 1!');
+
+		  return function () {
+		    console.log(somevar);
+		  };
+		}
+		const innerFunc2 = alertThenReturn2();
+		innerFunc2();
+
+
+
+	</script>
+
+</body>
+</html>

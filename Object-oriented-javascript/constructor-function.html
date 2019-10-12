@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*To create an object we can use object literal notation or use constructor function. constructor function is similar to regular function that returns an object. but some differences—-
+
+		Difference between constructor function and regular function:
+
+		1) constructor function name always start with capital letter. 
+		2) It is always called with “new” keyword.
+		3) Regular function must create an object it return and modify that object directly. constructor function has its object created automatically and to add properties and methods of this object we use “this” keyword.
+		Example - create object using regular function:
+		function createNewPerson(name) {
+		  var obj = {};
+		  obj.name = name;
+		  obj.greeting = function() {
+		    alert('Hi! I\'m ' + obj.name + '.');
+		  };
+		  return obj;
+		}
+		var salva = createNewPerson('Salva');
+		salva.name;
+		salva.greeting();
+
+		Example - create object using constructor function:
+		function Person(name) {
+		  this.name = name;
+		  this.greeting = function() {
+		    alert('Hi! I\'m ' + this.name + '.');
+		  };
+		}
+		var person1 = new Person('Bob');
+		var person2 = new Person(‘Sarah');
+		person1.name
+		person1.greeting()
+		person2.name
+		person2.greeting()
+		*/
+		/* Now we will see diffrence between object created using object literal and object created with constructor function.*/
+
+
+		function SoftwareDeveloper() {
+		  this.favoriteLanguage = 'JavaScript';
+		}
+
+		let developer = new SoftwareDeveloper();//using constructor func
+
+		let otherDeveloper = {favoriteLanguage: 'JavaScript'};//using object literal
+
+		/*
+			developer
+				SoftwareDeveloper {favoriteLanguage: "JavaScript"}
+					favoriteLanguage: "JavaScript"
+					__proto__: 
+						constructor: ƒ SoftwareDeveloper()
+						__proto__: Object
+			otherDeveloper
+				{favoriteLanguage: "JavaScript"}
+					favoriteLanguage: "JavaScript"
+					__proto__: Object
+		*/
+		//What happens if a constructor function begins with a lower-case letter?Nothing, it will still work
+		///Constructor func can be used to create multiple objects
+		function Hero(name, role) {
+		  this.name = name;
+		  this.role = role;
+
+		  this.introduce = function () {
+		    console.log(`My name is ${this.name} and I am a ${this.role}.`);
+		  };
+		}
+
+		let taylor = new Hero('Taylor', 'mother');
+
+		let riley = new Hero('Riley', 'coach');
+
+		taylor.name;
+		riley.role;
+
+		taylor.introduce();
+		riley.introduce();
+
+		/*Omitting the new Operator ⚠️
+		What happens if you inadvertently invoke a constructor function without using the new operator?*/
+		function SoftwareDeveloper(name) {
+		   this.favoriteLanguage = 'JavaScript';
+		   this.name = name;
+		}
+
+		let coder = SoftwareDeveloper('David');
+
+		console.log(coder);//undefined
+		/*What's going on? Without using the new operator, no object was created. The function was invoked just like any other regular function. Since the function doesn't return anything (except undefined, which all functions return by default), the coder variable ended up being assigned to undefined.
+
+		One more thing to note: since this function was invoked as a regular function, the value of this is also drastically different. */
+		//this will window object, so favoriteLanguage and name properties are set on the window object
+		console.log(favoriteLanguage);//Javascript
+		console.log(name);//David
+		//Seeing the Object's Constructor (instanceof)
+		function Developer(name) {
+		  this.name = name;
+		}
+
+		let dev = new Developer('Veronika');
+
+		typeof dev
+		// "object"
+
+		dev instanceof Developer;//dont use paranthesis here
+		// true
+		/*Many times, however, it's a bit more complex: the instanceof operator actually tests whether or not that constructor appears in the prototype chain of an object. This means that we can't always check exactly which constructor created that object, but it does give us insight as to what other properties and methods an object may have access to.*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

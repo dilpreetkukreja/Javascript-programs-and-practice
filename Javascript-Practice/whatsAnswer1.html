@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//https://stackoverflow.com/questions/40675821/what-happens-when-javascript-variable-name-and-function-name-is-the-same
+
+		var employeeID = 'abc123';
+
+		function foo(){
+			//employeeID = '123abc'
+			//console.log(employeeID);
+			
+			function employeeID(){
+				console.log("hi");
+			}
+			employeeID = 'abc';
+			//employeeID();//error,employeeID is not a function
+
+
+		}
+
+		foo();
+		console.log(employeeID);//abc123
+		////////////////////////////
+		function foo1(){
+			employeeID = '123abc'
+			//console.log(employeeID);
+			return;
+			function employeeID(){
+				//console.log(typeof employeeID);
+			}
+		}
+		foo1();
+		console.log(employeeID);//abc123
+		///////////////////////////////
+		function foo2(){
+			employeeID();
+			//console.log(employeeID);
+			return;
+			function employeeID(){
+				console.log(typeof employeeID);//function
+			}
+		}
+		foo2();
+		console.log(employeeID);//abc123
+
+	</script>
+
+</body>
+</html>

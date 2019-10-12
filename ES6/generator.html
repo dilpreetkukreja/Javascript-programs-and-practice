@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function* getEmployee() {
+		    console.log('the function has started');
+
+		    const names = ['Amanda', 'Diego', 'Farrin', 'James', 'Kagure', 'Kavita', 'Orit', 'Richard'];
+
+		    for (const name of names) {
+		        console.log(name);
+		        yield;
+		    }
+
+		    console.log('the function has ended');
+		}
+
+		const generatorIterator = getEmployee();
+		generatorIterator.next();
+		/*
+		the function has started
+		Amanda
+		*/
+
+		generatorIterator.next();
+		/* Diego */
+
+		//to output result to oustside world
+
+		function* getEmployee1() {
+		    console.log('the function1 has started');
+
+		    const names = ['Amanda', 'Diego', 'Farrin', 'James', 'Kagure', 'Kavita', 'Orit', 'Richard'];
+
+		    for (const name of names) {
+		        yield name;
+		    }
+
+		    console.log('the function1 has ended');
+		}
+
+		const generatorIterator1 = getEmployee1();
+		let result = generatorIterator1.next();
+		console.log(result.value);
+
+		/*How many times will the iterator's .next() method need to be called to fully complete/"use up" the udacity generator function below:*/
+
+		function* udacity() {
+		    yield 'Richard';
+		    yield 'James'
+		}
+		//answer 3 times
+		/*
+			The first call to .next() will start the function and run to the first yield. The second call to .next() will pick up where things left off and run to the second yield. The third and final call to .next() will pick up where things left off again and run to the end of the function.
+
+		*/
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

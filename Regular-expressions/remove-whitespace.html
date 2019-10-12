@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings.
+		let hello = "   Hello, World!  dilpreet  ";
+		let wsRegex = /^\s+|\s+$/g; // Change this line
+		let result = hello.replace(wsRegex,"k");
+		console.log(result);
+
+		let reg = /html|php|css|javascript/gi;
+		let str = "First HTML appeared, then CSS, then JavaScript";
+		console.log( str.match(reg) ); // 'HTML', 'CSS', 'JavaScript'
+
+		//without global
+		let reg1 = /html|php|css|javascript/i;
+		let str1 = "First HTML appeared, then CSS, then JavaScript";
+		console.log( str1.match(reg1) );
+	</script>
+
+</body>
+</html>

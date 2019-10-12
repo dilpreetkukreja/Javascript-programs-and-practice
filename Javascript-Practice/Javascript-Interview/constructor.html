@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Dog(name) {
+		  this.name = name;
+		}
+
+		// Add your code below this line
+		function joinDogFraternity(candidate) {
+		  if(candidate.constructor===Dog){
+		    return true;
+		  }
+		  else 
+		  return false;
+		}
+
+		let candidate = new Dog("bingo");
+		console.log(joinDogFraternity(candidate));
+	</script>
+
+</body>
+</html>

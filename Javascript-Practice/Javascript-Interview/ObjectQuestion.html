@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let obj = {
+			a:1,
+			b:2,
+			getA(){
+				console.log(this.a);
+				return this;
+			},
+			getB(){
+				console.log(this.b);
+			}
+		}
+		obj.getA().getB();
+	</script>
+
+</body>
+</html>

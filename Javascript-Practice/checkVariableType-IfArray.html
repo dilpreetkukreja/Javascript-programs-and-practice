@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let arr = [1,2,3];
+		let a = 2;
+		let obj1 = {
+			name:"dilpreet"
+		}
+
+		console.log(Array.isArray(arr));//true
+		console.log(Array.isArray(a));//false
+		console.log(Object.prototype.toString.call(arr)==='[object Array]'?true:false)
+
+		function func(value){
+			//ECMAScript 5 feature
+			if(Array.isArray === 'function')
+				console.log(Array.isArray(value))
+			else
+				console.log(Object.prototype.toString.call(arr)==='[object Array]'?true:false)
+		}
+
+		func(arr);
+
+	</script>
+
+</body>
+</html>

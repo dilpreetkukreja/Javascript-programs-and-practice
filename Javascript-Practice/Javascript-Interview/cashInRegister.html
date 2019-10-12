@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Cash Register</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row mb-1">
+			<div class="col-12">
+				<h1 class="text-center">Cash Register</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="row">
+					<div class="col-12 mt-2" id="change">
+
+					</div>
+				</div>
+				<div class="row mb-2">
+					<div class="offset-4 col-4">
+						Numbers of coins
+					</div>
+					<div class="col-4">
+					(Cash in Drawer)<br>
+					Amount in dollars
+					</div>
+				</div>
+				<form class="row" id="form">
+					<div class="offset-1 col-2"> <label for="penny">Pennies</label></div>
+					<div class="col-4">  <input type="text" class="form-control" id="penny" placeholder="Enter pennies..." value=1></div>
+					<div class="col-4"><input type="text" class="form-control" id="pennyDollars" placeholder="" disabled></div> 
+
+					<div class="offset-1 col-2"> <label for="nickel">Nickels</label></div>
+					<div class="col-4">  <input type="text" class="form-control" id="nickel" placeholder="Enter nickels..." value=1 ></div>
+					<div class="col-4"><input type="text" class="form-control" id="nickelDollars" placeholder="" disabled></div> 
+
+					<div class="offset-1 col-2"> <label for="dime">Dimes</label></div>
+					<div class="col-4">  <input type="text" class="form-control" id="dime" placeholder="Enter dimes..." value=1></div>
+					<div class="col-4"><input type="text" class="form-control" id="dimeDollars" placeholder="" disabled></div> 
+
+					<div class="offset-1 col-2"> <label for="quarter">Quarters</label></div>
+					<div class="col-4">  <input type="text" class="form-control" id="quarter" placeholder="Enter quarters..." value=1></div>
+					<div class="col-4"><input type="text" class="form-control" id="quarterDollars" placeholder="" disabled></div>
+
+					<div class="offset-1 col-2"> <label for="dollars">Dollars</label></div>
+					<div class="col-4">  <input type="text" class="form-control" id="dollars" placeholder="Enter dollars..." value=1></div>
+					<div class="col-4"><input type="text" class="form-control" id="dollarDollars" placeholder="" disabled></div>
+
+					<div class="offset-1 col-2"> <label for="fiveDollars">Five Dollars</label></div>
+					<div class="col-4">  <input type="text" class="form-control" id="fiveDollars" placeholder="Enter Five dollars..." value=1></div>
+					<div class="col-4"><input type="text" class="form-control" id="fiveDollarsDollars" placeholder="" disabled></div>
+
+					<div class="offset-1 col-2"> <label for="tenDollars">Ten Dollars</label></div>
+					<div class="col-4">  <input type="text" class="form-control" id="tenDollars" placeholder="Enter Ten dollars..." value=1></div>
+					<div class="col-4"><input type="text" class="form-control" id="tenDollarsDollars" placeholder="" disabled></div>
+
+					<div class="offset-1 col-2"> <label for="twentyDollars">Twenty Dollars</label></div>
+					<div class="col-4">  <input type="text" class="form-control" id="twentyDollars" placeholder="Enter Twenty dollars..." value=1></div>
+					<div class="col-4"><input type="text" class="form-control" id="twentyDollarsDollars" placeholder="" disabled></div>
+
+					<div class="offset-1 col-2"> <label for="oneHundredDollars">One Hundred Dollars</label></div>
+					<div class="col-4">  <input type="text" class="form-control" id="oneHundredDollars" placeholder="Enter One Hundred dollars..." value=1></div>
+					<div class="col-4"><input type="text" class="form-control" id="oneHundredDollarsDollars" placeholder="" disabled></div>
+
+					
+						<div class="offset-1 col-2 mt-2"> <label for="price">Enter Price</label></div>
+						<div class="col-2 mt-1"><input type="text" class="form-control" id="price" placeholder="Enter price..."></div>	
+
+						<div class="offset-1 col-2 mt-2"> <label for="payment">Enter Payment</label></div>
+						<div class="col-2 mt-1"><input type="text" class="form-control" id="payment" placeholder="Enter payment..."></div>		
+				
+
+					<div class="text-center offset-2 col-8 mt-1">
+						<button type="submit" class="btn btn-info btn-block">Submit</button>
+					</div>
+					
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		let form = document.getElementById("form");
+		let pennies = document.getElementById("penny");
+		let nickels = document.getElementById("nickel");
+		let dimes = document.getElementById("dime");
+		let quarters = document.getElementById("quarter");
+		let dollars = document.getElementById("dollars");
+		let fiveDollars = document.getElementById("fiveDollars");
+		let tenDollars = document.getElementById("tenDollars");
+		let twentyDollars = document.getElementById("twentyDollars");
+		let oneHundredDollars = document.getElementById("oneHundredDollars");
+		function keyHandle(e){
+			//console.log(e.target.id);
+			if(e.target.id==="penny"){
+				let pennydollars = document.getElementById("pennyDollars");
+				pennydollars.value = (e.target.value*0.01).toPrecision(5);
+			}
+			if(e.target.id==="nickel"){
+				let nickeldollars = document.getElementById("nickelDollars");
+				nickeldollars.value = (e.target.value*0.05).toPrecision(5);
+			}
+			if(e.target.id==="dime"){
+				let dimedollars = document.getElementById("dimeDollars");
+				dimedollars.value = (e.target.value*0.1).toPrecision(5);
+			}
+			if(e.target.id==="quarter"){
+				let quarterdollars = document.getElementById("quarterDollars");
+				quarterdollars.value = (e.target.value*0.25).toPrecision(5);
+			}
+			if(e.target.id==="dollars"){
+				let dollarsdollars = document.getElementById("dollarDollars");
+				dollarsdollars.value = (e.target.value*1).toPrecision(5);
+			}
+			if(e.target.id==="fiveDollars"){
+				let fiveDollarsdollars = document.getElementById("fiveDollarsDollars");
+				fiveDollarsdollars.value = (e.target.value*5).toPrecision(5);
+			}
+			if(e.target.id==="tenDollars"){
+				let tenDollarsdollars = document.getElementById("tenDollarsDollars");
+				tenDollarsdollars.value = (e.target.value*10).toPrecision(5);
+			}
+			if(e.target.id==="twentyDollars"){
+				let twentyDollarsdollars = document.getElementById("twentyDollarsDollars");
+				twentyDollarsdollars.value = (e.target.value*20).toPrecision(5);
+			}
+			if(e.target.id==="oneHundredDollars"){
+				let oneHundredDollarsdollars = document.getElementById("oneHundredDollarsDollars");
+				oneHundredDollarsdollars.value =(e.target.value*100).toPrecision(5);
+			}
+			
+		}
+		pennies.addEventListener("keyup", keyHandle);
+		nickels.addEventListener("keyup", keyHandle);
+		dimes.addEventListener("keyup", keyHandle);
+		quarters.addEventListener("keyup", keyHandle);
+		dollars.addEventListener("keyup", keyHandle);
+		fiveDollars.addEventListener("keyup", keyHandle);
+		tenDollars.addEventListener("keyup", keyHandle);
+		twentyDollars.addEventListener("keyup", keyHandle);
+		oneHundredDollars.addEventListener("keyup", keyHandle);
+
+		function handleSubmit(e){
+			e.preventDefault();
+			let pennies = document.getElementById("penny").value*0.01;
+			let nickels = document.getElementById("nickel").value*0.05;
+			let dimes = document.getElementById("dime").value*0.1;
+			let quarters = document.getElementById("quarter").value*0.25;
+			let dollars = document.getElementById("dollars").value*1;
+			let fiveDollars = document.getElementById("fiveDollars").value*5;
+			let tenDollars = document.getElementById("tenDollars").value*10;
+			let twentyDollars = document.getElementById("twentyDollars").value*20;
+			let oneHundredDollars = document.getElementById("oneHundredDollars").value*100;
+
+
+			let arr = [["PENNY", pennies], ["NICKEL", nickels], ["DIME", dimes], ["QUARTER", quarters], ["ONE", dollars], ["FIVE", fiveDollars], ["TEN", tenDollars], ["TWENTY", twentyDollars], ["ONE HUNDRED", oneHundredDollars]];
+			let price = document.getElementById("price").value;
+			let payment = document.getElementById("payment").value;
+			console.log(arr);
+
+			let changeObj = checkCashRegister(price, payment, arr);
+			console.log(changeObj);
+			let displayChangeDiv = document.getElementById("change");
+			let changeStr = "";
+			changeObj.change.forEach(elem=>{
+				changeStr += `<li> ${elem[0]}: ${elem[1]} </li>`;
+			})
+			console.log(changeStr);
+			displayChangeDiv.innerHTML = `Status: ${changeObj.status} <br> Change:  <ul>${changeStr}</ul>`;
+			e.target.reset();
+			if(changeObj.status!="INSUFFICIENT_FUNDS"){
+
+				let pennydollars = document.getElementById("pennyDollars");
+				pennydollars.value=arr[0][1];
+
+				let nickelDollars = document.getElementById("nickelDollars");
+				nickelDollars.value=arr[1][1];
+
+				let dimeDollars = document.getElementById("dimeDollars");
+				dimeDollars.value=arr[2][1];
+
+				let quarterDollars = document.getElementById("quarterDollars");
+				quarterDollars.value=arr[3][1];
+
+				let dollarDollars = document.getElementById("dollarDollars");
+				dollarDollars.value=arr[4][1];
+
+				let fiveDollarsDollars = document.getElementById("fiveDollarsDollars");
+				fiveDollarsDollars.value=arr[5][1];
+
+				let tenDollarsDollars = document.getElementById("tenDollarsDollars");
+				tenDollarsDollars.value=arr[6][1];
+
+				let twentyDollarsDollars = document.getElementById("twentyDollarsDollars");
+				twentyDollarsDollars.value=arr[7][1];
+
+				let oneHundredDollarsDollars = document.getElementById("oneHundredDollarsDollars");
+				oneHundredDollarsDollars.value=arr[8][1];
+			}
+
+
+
+			//console.log(pennies);
+		}
+		form.addEventListener("submit", handleSubmit);
+		function checkCashRegister(price, cash, cid) {
+		  
+		  var changeObj = {"status":"OPEN", "change":[]};
+		  let diff = cash - price;
+		  let changeTempObj = {};	 
+
+		  let totalCashInRegister = (cid[0][1]+cid[1][1]+cid[2][1]+cid[3][1]+cid[4][1]+cid[5][1]+cid[6][1]+cid[7][1]+cid[8][1]).toPrecision(5);
+
+		  console.log("totalCashInRegister:", totalCashInRegister);
+
+		  if(totalCashInRegister-diff<0){
+		  	changeObj["status"] = "INSUFFICIENT_FUNDS";
+		  	changeObj["change"] =  [];
+		  	return changeObj;
+		  }
+		  else if(totalCashInRegister-diff===0){
+		  	changeObj["status"] = "CLOSED";
+		  	changeObj["change"] = cid;
+		  	return changeObj;
+		  }else{
+		  	function cashRegister(diff){
+		  		
+		  		if(diff>=100&&cid[8][1]-100>=0){
+			  	
+			  		  cid[8][1] = (cid[8][1]-100).toFixed(4);
+			  		  diff = (diff-100).toFixed(4);
+			  		  if(changeTempObj.hasOwnProperty("ONE HUNDRED")){
+			  		  	changeTempObj['ONE HUNDRED']+=100;
+			  		  }
+			  		  else
+			  		  	changeTempObj['ONE HUNDRED'] = 100;
+			  		  cashRegister(diff)
+
+			  	 
+		    	}
+		    	else if(diff>=20&&cid[7][1]-20>=0){
+		    		
+			  		  cid[7][1] = (cid[7][1]-20).toFixed(4);
+			  		  diff = (diff-20).toFixed(4);
+			  		  if(changeTempObj.hasOwnProperty("TWENTY")){
+			  		  	changeTempObj['TWENTY']+=20;
+			  		  }
+			  		  else
+			  		  	changeTempObj['TWENTY'] = 20;
+			  		  cashRegister(diff)
+
+			  	
+		    	}
+		    	else if(diff>=10&&cid[6][1]-10>=0){
+		    	
+			  		  cid[6][1] = (cid[6][1]-10).toFixed(4);
+			  		  diff = (diff-10).toFixed(4);
+			  		  if(changeTempObj.hasOwnProperty("TEN")){
+			  		  	changeTempObj['TEN']+=10;
+			  		  }
+			  		  else
+			  		  	changeTempObj['TEN'] = 10;
+			  		  cashRegister(diff)
+
+			  	
+		    	}
+		    	else if(diff>=5&&cid[5][1]-5>=0){
+		    	
+			  		  cid[5][1] = (cid[5][1]-5).toFixed(4);
+			  		  diff = (diff-5).toFixed(4);
+			  		  if(changeTempObj.hasOwnProperty("FIVE")){
+			  		  	changeTempObj['FIVE']+=5;
+			  		  }
+			  		  else
+			  		  	changeTempObj['FIVE'] = 5;
+			  		  cashRegister(diff)
+
+			  
+		    	}
+		    	else if(diff>=1&&cid[4][1]-1>=0){
+		    	
+			  		  cid[4][1] = (cid[4][1]-1).toFixed(4);
+			  		  diff = (diff-1).toFixed(4);
+			  		  if(changeTempObj.hasOwnProperty("ONE")){
+			  		  	changeTempObj['ONE']+=1;
+			  		  }
+			  		  else
+			  		  	changeTempObj['ONE'] = 1;
+			  		  cashRegister(diff)
+
+			
+		    	}
+		    	
+		    	else if(diff>=0.25&&cid[3][1]-0.25>=0){
+		    		
+			  		  cid[3][1] = (cid[3][1]-0.25).toFixed(4);
+			  		  diff = (diff-0.25).toFixed(4);
+
+			  		  
+			  		  if(changeTempObj.hasOwnProperty("QUARTER")){
+			  		  	changeTempObj['QUARTER']+=0.25;
+			  		  }
+			  		  else
+			  		  	changeTempObj['QUARTER'] = 0.25;
+			  		  
+			  		  cashRegister(diff)
+			  		  
+
+			
+		    	}
+		    	else if(diff>=0.10&&cid[2][1]-0.10>=0){
+		    	
+			  		  cid[2][1] = Number.parseFloat((cid[2][1]-0.10).toPrecision(5),10);
+			  		  diff = Number.parseFloat((diff-0.10).toPrecision(5),10);
+			  		  if(changeTempObj.hasOwnProperty("DIME")){
+			  		  	changeTempObj['DIME']+=0.10;
+			  		  }
+			  		  else
+			  		  	changeTempObj['DIME'] = 0.10;
+			  		  //console.log(diff);
+			  		  cashRegister(diff)
+
+			
+		    	}
+		    	else if(diff>=0.05&&cid[1][1]-0.05>=0){
+		    	
+			  		  cid[1][1] = (cid[1][1]-0.05).toFixed(4);
+			  		  diff = (diff-0.05).toFixed(4);
+			  		  if(changeTempObj.hasOwnProperty("NICKEL")){
+			  		  	changeTempObj['NICKEL']+=0.05;
+			  		  }
+			  		  else
+			  		  	changeTempObj['NICKEL'] = 0.05;
+			  		  cashRegister(diff)
+
+			
+		    	}
+		    	else if(diff>=0.01&&cid[0][1]-0.01>=0){
+		    			
+		    		  cid[0][1] = Number.parseFloat((cid[0][1]-0.01).toPrecision(4),10);
+
+			  		  diff = (diff-0.01).toPrecision(4);//gives string
+			  		  diff = Number.parseFloat(diff,10)
+			  		  //console.log(diff);
+			  		 // console.log(diff);
+			  		  if(changeTempObj.hasOwnProperty("PENNY")){
+			  		  	changeTempObj['PENNY']+=0.01;
+			  		  }
+			  		  else
+			  		  	changeTempObj['PENNY'] = 0.01;
+			  		  cashRegister(diff);
+
+			  		  //console.log(diff);
+		  			  //console.log(cid[0][1]);
+
+	
+		    	}
+		    	
+		    	else if(diff!=0&&cid[0][1]==0){
+		    		//console.log("here");
+		    		for(let key in changeTempObj){
+		    			delete changeTempObj[key];
+		    		}
+		    		changeObj["status"] = "INSUFFICIENT_FUNDS";
+		  			changeObj["change"] =  [];
+
+		  			
+
+		    	}
+
+
+		  	}
+		  	cashRegister(diff);
+		}
+		  //console.log("diff",diff);
+		  //console.log("cid:", cid);
+		  //console.log(changeTempObj);
+		  
+		  for(let key in changeTempObj){
+		  	changeObj["change"].push([key, changeTempObj[key]]);
+		  }
+		  
+
+		  return changeObj;
+		}
+
+		// Example cash-in-drawer array:
+		// [["PENNY", 1.01],            0,1
+		// ["NICKEL", 2.05],            1,1
+		// ["DIME", 3.1],               2,1
+		// ["QUARTER", 4.25],           3,1
+		// ["ONE", 90],                 4,1
+		// ["FIVE", 55],                5,1 
+		// ["TEN", 20],                 6,1
+		// ["TWENTY", 60],              7,1
+		// ["ONE HUNDRED", 100]]        8,1
+
+		/*console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));*/
+		/*console.log(checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));*/
+	</script>
+
+</body>
+</html>

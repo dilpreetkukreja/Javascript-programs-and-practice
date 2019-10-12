@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul class="parent">
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+	</ul>
+	<script type="text/javascript">
+		//https://developer.mozilla.org/en-US/docs/Web/API/NodeList
+		//nodeList is not an array but we can use forEach on it
+		//it consist of any node(text nodes,element nodes,comment nodes, document frag,doctype)
+		//it can be static or live
+		//NodeList objects are collections of nodes, usually returned by properties such as Node.childNodes and methods such as document.querySelectorAll().
+
+		//Note: Node.childNodes is live: means that changes in the DOM automatically update the collection. 
+		let parent = document.querySelector('.parent');
+		let child_nodes_list = parent.childNodes;
+		console.log(child_nodes_list);//NodeList(7) [text, li, text, li, text, li, text]
+		console.log(child_nodes_list.length)//7, length is nodeList property
+		child_nodes_list.forEach(function(elem){
+			console.log(elem);
+		});
+
+		//lets add new li to parent
+		let createLi = document.createElement('li');
+		createLi.textContent = "item 4";
+		parent.appendChild(createLi);
+		console.log(child_nodes_list);//NodeList(8) [text, li, text, li, text, li, text, li], it is updated as it is live
+		console.log(child_nodes_list.length);//8
+		child_nodes_list.forEach(function(elem){
+			console.log(elem);
+		});
+
+		//Note:  document.querySelectorAll() returns a static NodeList, static means any changes in the DOM does not affect the content of the collection.
+
+		let return_node_list = parent.querySelectorAll('li');
+		console.log(return_node_list);//NodeList(4) [li, li, li, li]
+		//we can iterate over nodeList using forEach()
+		return_node_list.forEach(function(elem){
+			console.log(elem);
+		});
+		/*
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+		<li>item 1</li>*/
+
+		let createLi2 = document.createElement('li');
+		createLi2.textContent = "item 5";
+		parent.appendChild(createLi2);
+		console.log(return_node_list);//NodeList(4) [li, li, li, li], not updated as it is static
+		//running nodeList methods
+		console.log(return_node_list.item(0));//<li>Item 1</li>
+		//console.log(return_node_list.entries());
+		// Using for..of
+		console.log("Entries...")
+		for(var entry of return_node_list.entries()) { 
+		  console.log(entry);
+		}
+		//console.log(return_node_list.keys());
+		console.log("Keys...")
+		for(var entry of return_node_list.keys()) { 
+		  console.log(entry);
+		}
+		//console.log(return_node_list.values());
+		console.log("Values...")
+		for(var entry of return_node_list.values()) { 
+		  console.log(entry);
+		}
+
+		//console.log(return_node_list.forEach(function(){}));
+		console.log("forEach method to iterate nodes in nodeList");
+		return_node_list.forEach(function(elem){
+			console.log(elem);
+		});
+
+
+
+
+
+	</script>
+
+</body>
+</html>

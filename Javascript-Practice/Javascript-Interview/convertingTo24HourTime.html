@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let time= '09:12PM';
+		function convertTo24HourFormat(time){
+		   return (time.endsWith('AM'))?time.split('AM')[0]:12+Number(time.split(':')[0])+':'+time.split(':')[1].split("PM")[0];
+		}
+		console.log(convertTo24HourFormat(time));
+	</script>
+
+</body>
+</html>

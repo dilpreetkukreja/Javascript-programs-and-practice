@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Normal module pattern
+		let myModule2 = (function () {
+		  function privateMethod (message) {
+		    console.log(message);
+		  }
+
+		  return {
+		    publicMethod: function (message) {
+		      privateMethod(message);
+		    }
+		  };
+		})();
+		//Revelaing module pattern
+		let myModule = (function (){
+		  function privateMethod (message) {
+		    console.log(message);
+		  }
+
+		  function publicMethodInfunc (message) {
+		    privateMethod(message);
+		  }
+
+		  return {//returned object literal with keys that point to data intended to be revealed
+		    publicMethod: publicMethodInfunc//only reveal publicMethodInfunc of parent function to outside world
+		  };
+		})();
+		console.log(myModule.publicMethod);/*
+		ƒ publicMethod (message) {
+		    privateMethod(message);
+		  }*/
+		console.log(myModule.publicMethod('Hi there!'));//Hi there!
+		console.log(myModule.publicMethodInfunc());//error
+		//Advantag eof using revealing module pattern:there is clarity at the end of the module (i.e., the return statement) as to which variables or methods may be accessed publicly. Modules may grow large, and this eases readability for other developers who read your code.
+
+		
+	</script>
+
+</body>
+</html>

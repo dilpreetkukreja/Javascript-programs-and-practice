@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let n=3;
+		let fact = 1;
+		function factorial(n){
+			if(n===1 || n===0)
+				return fact;
+			for(let i=2; i<=n;i++){
+				fact *= i; 
+			}
+			return fact;
+
+		}
+		console.log(factorial(5));
+	</script>
+
+</body>
+</html>

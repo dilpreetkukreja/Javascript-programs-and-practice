@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		(function(){
+			let a=b=100;//here b is not declared, so it is hoisted and declared as global var, where as a is not leaked from its block, it is not accessible outside
+
+			console.log(a, b);//100,100
+		}
+		)();
+		console.log(b);//100
+		console.log(a);//a is not defined
+	</script>
+
+</body>
+</html>

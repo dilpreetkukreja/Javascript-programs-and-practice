@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = 'd1234';
+		let regex = /^\w\d{4}$/;
+		let result = str.match(regex);
+		console.log(result);
+
+		//starts with digit and then 4 words and then ends with '.'
+		let str1 = '1swde.';
+		let regex1 = /^\d\w{4}\.$/;
+		let result1 = str1.match(regex1);
+		console.log(result1);
+	</script>
+
+</body>
+</html>

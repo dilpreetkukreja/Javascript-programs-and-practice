@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+	<title>Roman Numeral Converter</title>
+	<style>
+		body{
+			background-color: rgb(20,115,140);
+		}
+		.title{
+			font-family: 'Dancing Script', cursive;
+			font-size:60px;
+			color:#ffffff;
+		}
+		.btn{
+			background-color:#0d2c30;
+			color:#ffffff;
+			font-weight: bold;
+		}
+		.btn:hover{
+			color:#0d2c30;
+			background-color: #ffffff;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="container">		
+			<div class = "row text mt-5">
+				<div class="col-12">
+					<h1 class="text-center title">Roman Numeral Converter</h1>
+				</div>
+				<div class="col-6 mx-auto mt-5">
+					<form id="form">
+							<div class="form-group">
+								<label class="font-weight-bold" for="text">Enter Number:</label>
+								<input type="text" class="form-control" id="text" placeholder="Enter Number...(eg. 2,100,3999 etc.)">
+							</div>
+					
+							<div class="form-group">
+								<label class="font-weight-bold" for="disabledTextInput">Converted Number:</label>
+								<input id ="disabledTextInput" type="text" class="form-control" disabled="">
+							</div>
+					
+							<button class="btn" type="submit">Convert to Roman Numeral</button>
+						</div>	
+					</form>
+				</div>
+			</div>
+	</div>
+	<script type="text/javascript">
+		
+		let form = document.getElementById("form");
+
+		function handleClick(e){
+			e.preventDefault();
+			let number = document.getElementById("text")
+			let disabledTextInput = document.getElementById("disabledTextInput");
+			//console.log(disabledTextInput);
+			//console.log(typeof number.value);
+			let convertedNumber = convertToRoman(number.value);
+			disabledTextInput.value = convertedNumber;
+
+		}
+
+		form.addEventListener("submit", handleClick);
+
+		function convertToRoman(num) {
+			let obj = {
+				1 : "I",
+				4 : "IV",
+				5 : "V",
+				9 : "IX",
+				10 : "X",
+				40 : "XL",
+				50 : "L",
+				90 : "XC",
+				100 : "C",
+				400 : "CD",
+				500 : "D",
+				900 : "CM",
+				1000 : "M"
+			}
+			//console.log(obj[1]);
+			let str = "";
+			function convert(num){
+				if(obj.hasOwnProperty(num)){
+					//console.log("1");
+					str = str.concat(obj[num]);
+					return str;
+				}
+				else{
+					//console.log("2");
+					if(num>1000){
+						num = num-1000;
+						str = str.concat("M");
+						convert(num);
+					}
+					else if(num > 500 && num < 1000){
+						if(num>900 && num<1000){
+							num= num-900;
+							str = str.concat("CM");
+							convert(num);
+						}
+						else{
+							num = num-500;
+							str = str.concat("D");
+							convert(num);
+						}
+					}
+					else if(num > 100 && num < 500){
+						if(num>400 && num<500){
+							num= num-400;
+							str = str.concat("CD");
+							convert(num);
+						}
+						else{
+							num = num-100;
+							str = str.concat("C");
+							convert(num);
+						}
+					}
+					else if(num > 50 && num < 100){
+						if(num>90 && num<100){
+							num= num-90;
+							str = str.concat("XC");
+							convert(num);
+						}
+						else{
+							num = num-50;
+							str = str.concat("L");
+							convert(num);
+						}
+					}
+					else if(num > 10 && num < 50){
+						if(num>40 && num<50){
+							num= num-40;
+							str = str.concat("XL");
+							convert(num);
+						}
+						else{
+							num = num-10;
+							str = str.concat("X");
+							convert(num);	
+						}
+					}
+
+					else if(num > 5 && num < 10){
+						num = num-5;
+						str = str.concat("V");
+						convert(num);
+					}
+					else if(num > 1 && num < 5){
+						num = num-1;
+						str = str.concat("I");
+						convert(num);
+					}
+
+
+				}
+				return str;
+			}
+			return convert(num);	 
+		}
+
+		
+			
+
+
+	
+	</script>
+
+</body>
+</html>

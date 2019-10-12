@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		console.log(add(2,3));//add is not defined
+
+		(function add(x,y){
+			return x+y;
+		});//this is function expression and it is not hoisted
+		/*
+		IIFE 
+		(function add(x,y){
+			return x+y;
+		})();
+		*/
+	</script>
+
+</body>
+</html>

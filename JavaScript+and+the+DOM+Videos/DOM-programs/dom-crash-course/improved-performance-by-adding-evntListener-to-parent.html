@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const myCustomDiv = document.createElement('div');
+
+		function respondToTheClick(e) {
+			if(e.target.nodeName === 'SPAN'){
+				console.log('A paragraph clicked is: '+e.target.textContent);
+			}
+			else
+				console.log('A paragraph clicked is: '+e.target.textContent);
+		    
+		}
+
+		for (let i = 1; i <= 200; i++) {
+		    const newElement = document.createElement('p');
+		    newElement.textContent = 'This is paragraph number ' + i+'.';
+		    const newSpanElement = document.createElement('span');
+		    newSpanElement.textContent = ' This is span number '+i;
+		    newElement.appendChild(newSpanElement);
+
+		    myCustomDiv.appendChild(newElement);
+		}
+
+		myCustomDiv.addEventListener('click', respondToTheClick);
+
+		document.body.appendChild(myCustomDiv);
+	</script>
+
+</body>
+</html>

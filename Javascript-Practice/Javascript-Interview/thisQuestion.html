@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const obj = {
+			x:1,
+			getX(){
+				const inner = function(){
+					console.log(this.x);
+				}
+				inner();
+			}
+		}
+		obj.getX();//undeined, refactor the code to return 1
+
+		const obj1 = {
+			x:1,
+			getX(){
+				const inner = function(){
+					console.log(this.x);
+				}
+				inner.call(this);
+			}
+		}
+		obj1.getX();//1
+
+		const obj2 = {
+			x:1,
+			getX(){
+				const inner = () => console.log(this.x)
+				inner();
+			}
+		}
+		obj2.getX();
+
+		const obj3 = {
+			x:1,
+			getX(){
+				const that = this;
+				const inner = () => console.log(that.x)
+				inner();
+			}
+		}
+		obj3.getX();
+	</script>
+
+</body>
+</html>

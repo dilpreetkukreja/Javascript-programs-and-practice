@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*const sym2 = Symbol('banana');
+		const sym3 = Symbol('banana');
+		console.log(sym2, sym3);
+		console.log(sym2 == sym3);//false
+		console.log(sym2 === sym3);//false*/
+		const bowl = {
+		  [Symbol('apple')]: { color: 'red', weight: 136.078 },
+		  [Symbol('banana')]: { color: 'yellow', weight: 183.15 },
+		  [Symbol('orange')]: { color: 'orange', weight: 170.097 },
+		  [Symbol('banana')]: { color: 'yellow', weight: 176.845 }
+		};
+		console.log(bowl);
+		let sym1 = Symbol('apple');
+		let sym2 = Symbol('banana');
+		let sym3 = Symbol('orange');
+		let sym4 = Symbol('banana');
+		const bowl2 = {
+		  [sym1]: { color: 'red', weight: 136.078 },
+		  [sym2]: { color: 'yellow', weight: 183.15 },
+		  [sym3]: { color: 'orange', weight: 170.097 },
+		  [sym4]: { color: 'yellow', weight: 176.845 }
+		};
+		console.log(bowl2);
+		console.log(bowl2[sym2]);
+		console.log(bowl2[sym4]);
+
+	</script>
+
+</body>
+</html>

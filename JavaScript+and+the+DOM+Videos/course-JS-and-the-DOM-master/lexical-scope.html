@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>hello</title>
+</head>
+<body>
+<script> 
+var object = {
+    data: [1,2,3],
+    dataDouble: [1,2,3],
+    double: function() {
+        console.log("this inside of outerFn double()");
+        console.log("outer function this:"+this);//object
+        return this.data.map(function(item) {
+            console.log("inner normal function this:"+this);      // window
+            return item * 2;
+        });
+    },
+    doubleArrow: function() {
+        console.log("this inside of outerFn doubleArrow()");
+        console.log("outer function this:"+this);//object
+        return this.dataDouble.map(item => {
+            console.log("inner arrow function this:"+this);      // object
+            return item * 2;
+        });
+    }
+};
+
+console.log(object.double());
+console.log(object.doubleArrow());
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function receive1({a,b}){//object destruturing, keep parameters names same as object keys
+			console.log(a, b);
+		}
+
+		let obj1 = {
+			a:1,
+			b:2
+		}
+		receive1(obj1)
+		function receive2(obj,n){//object destruturing, keep parameters names same as object keys
+			console.log(obj);//{a:1, b:2}
+			console.log(n);//undefined
+		}
+		receive2(obj1)
+		function receive3([a,b,c,d=10]){//array destruturing
+			console.log(a, b, c);
+			console.log(d)
+		}
+		let arr = [1,2,3];
+		receive3(arr);
+
+		function receive4(a, b, c=9){//default parameters
+			console.log(a, b);
+			console.log(c)
+		}
+		receive4(1,2);
+
+		function receive5(a, b){//we can use less number of parameters than arguments passed
+			console.log(a,b);
+		}
+		receive5(1,2,3,4);
+
+		function receive5(a, b, c){//we can use more number of parameters than arguments passed
+			console.log(a,b,c);//1,2,undefined
+		}
+		receive5(1,2);
+
+		function receive6(...arr){//rest operator, pack string into array
+			console.log(arr);//[1,2,3]
+		}
+		receive6(1,2,3);
+
+		let arr1 = [1,2,3];
+		console.log(...arr);//spread operator
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

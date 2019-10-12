@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div> hello</div>
+	<script type="text/javascript">
+		let div1= document.querySelector('div');
+		function divClicked(e){
+			console.log('Div is clicked');
+			//console.log(e.target.nodeName);
+			div1.removeEventListener('click', divClicked);//event listener is removed after 1 click
+		}
+		div1.addEventListener('click', divClicked);
+
+	</script>
+
+</body>
+</html>

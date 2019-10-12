@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const arr=[1,2,3,4,5,6,7,8,9];
+		arr.forEach(function(elem){
+			if(elem%2===0){
+				//we cannot use break and continue
+				//continue; //this is error
+			}else
+			console.log(elem);
+		});
+		const digits = [3, 4, 5, 6, 7, 8, 9];
+
+		for (const digit of digits) {
+		  if (digit % 2 === 0) {
+		    break;//we can use continue too
+		  }
+		  console.log(digit);
+		}
+	</script>
+
+</body>
+</html>

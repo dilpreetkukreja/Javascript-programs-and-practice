@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//http://luxiyalu.com/object-prototype-tostring-call/
+		let a=[1,2];
+		let b={name:"dilpreet"};
+		let c= "dilpret";
+		let x= 7;
+		console.log(typeof a);
+		//"object"
+		console.log(typeof b);
+		//"object"
+		console.log(typeof c);
+		//string
+		console.log(typeof x);
+		//number
+		console.log(typeof true);
+		//boolean
+		console.log(typeof null);
+		//object
+		console.log(typeof undefined);
+		//undefined
+		//How to check if an object is an array or not?
+		let arrayList=[1,2];
+		let person = {
+			name:"dilpreet"
+		}
+		if(Object.prototype.toString.call(arrayList) === '[object Array]') {
+		  console.log('Array!');
+		}
+		if(Object.prototype.toString.call(person) === '[object Object]') {
+		  console.log('Object!');
+		}
+		console.log(Array.isArray(arrayList));//true
+		console.log(Array.isArray(person));//true
+
+	</script>
+
+</body>
+</html>

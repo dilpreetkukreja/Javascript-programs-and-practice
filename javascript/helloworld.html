@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fahrenheit From Celsius</title>
+</head>
+<body>
+    <script>
+        var cTemp = 100; // temperature in Celsius
+        // Let's be generous with parentheses
+        var hTemp = ((cTemp * 9) /5 ) + 32;
+        document.write("Temperature in Celsius: " + cTemp + " degrees<br/>");
+        document.write("Temperature in Fahrenheit: " + hTemp + " degrees<br/>");
+        function sayHello() {
+    		alert("Hello");
+    		// ... more statements can go here ...
+		}
+		function sayHello() {
+    		alert("hello, lastest func executed!");
+    		// ... more statements can go here ...
+		}
+		function cube(x) {
+			//const x = 300;
+    		//x = 400;   // an error is generated at this line
+    		alert(x * x * x);
+		}
+		function addTax(subtotal, taxRate) {
+    		var total = subtotal * (1 + (taxRate/100));
+    		return total;
+    	}
+    	function myFunction(x) {
+		    var y = x;
+		    if(x > 50) {
+		        //var y = 10;
+		        let y = 10;
+        		alert("Inner y = " + y);  // alerts 10
+    		}
+    		alert("Outer y = " + y);  // alerts 10
+    	
+		}
+		var mydate = new Date();
+		var year = mydate.getFullYear(); // four-digit year e.g. 2018
+		var month = mydate.getMonth(); // month number 0 - 11; 0 is Jan, etc.
+		var date = mydate.getDate(); // day of the month 1 - 31
+		var day = mydate.getDay(); // day of the week 0 - 6; Sunday = 0, etc.
+		var hours = mydate.getHours(); // hours part of the time, 0 - 23
+		var minutes = mydate.getMinutes(); // minutes part of time, 0 - 59
+		var seconds = mydate.getSeconds(); // seconds part of time, 0 - 59
+		//alert("Year:"+year+ " Hours:"+hours +" Date:"+date)
+		var d2 = new Date(95,9,22)
+		var month = d2.getMonth();
+		//alert("Month: "+month);
+		with (Math) {
+		    var myRand = random();
+		    var biggest = max(3,4,5);
+		    var height = round(76.35);
+		}
+		alert(myRand+" "+biggest+" "+height);
+    	
+
+    </script>
+   <input type="button" onclick="alert('You clicked the button!')" value="Click Me" /><br/>
+      <input type="button" onclick="sayHello()" value="Click to say hello" /><br/>
+      <input type="button" onclick="cube(3)" value="cube of 3" /><br/>
+	<img src="image1.jpg" alt="tick" onmouseover="this.src='image2.jpg'"
+    onmouseout="this.src='image1.jpg'" width=200px height=150px/>
+    <br/>
+    <img src="image1.jpg" alt="image 1" onmouseover="alert('You entered the image!')" width=200px height=150px /><br/>
+    <script>
+    	var invoiceValue = addTax(50, 10);
+		//alert("Total :" + invoiceValue); // works correctly
+		//alert(total); // doesn't work
+		//myFunction(100);
+    </script>
+  
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const duck = {
+		  hasBill: true,
+		  feet: 'orange'
+		};
+		const beaver = {
+		  hasTail: true
+		};
+		const otter = {
+		  hasFur: true,
+		  feet: 'webbed'
+		};
+
+		const platypus = Object.assign({}, duck, beaver, otter);//if name collions, variable with get the last assegned value, thats why --feet:'webbed'
+
+		console.log(platypus);
+		//{hasBill: true, feet: "webbed", hasTail: true, hasFur: true}
+		//After merging an empty target object (i.e., an object without properties of its own) with the properties from duck, beaver, and otter, the target object is returned with all four properties. It is important to note that the platypus object is not prototype-linked to the three other objects! That is, platypus doesn't exist in any of the three source objects' prototype chains, and vice versa:
+		platypus.constructor;
+		// Object()
+
+		platypus.isPrototypeOf(duck);
+		// false
+
+		platypus.hasOwnProperty('hasFur');
+		//true
+
+		duck.isPrototypeOf(platypus);
+		// false
+
+		platypus.isPrototypeOf(beaver);
+		// false
+
+		beaver.isPrototypeOf(duck);
+		// false
+
+		platypus.isPrototypeOf(otter);
+		// false
+
+		otter.isPrototypeOf(platypus);
+		// false
+		//as compare to object obj --otter is copied into __proto__ of obj
+		//it is prototyped-linked
+		const obj = Object.create(otter);
+		obj.hasOwnProperty('hasFur');
+		//false
+		////////////next example///
+		let target = { letter: 'a', number: 11 };
+
+		let source = { number: 7 };
+
+		Object.assign(target, source);
+
+		console.log(target);
+		// { letter: 'a', number: 7 }
+	</script>
+
+</body>
+</html>

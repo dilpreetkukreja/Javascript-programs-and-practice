@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		//valid javascript code 
+		//https://classroom.udacity.com/courses/ud803/lessons/a7c5b540-51a6-44dc-b2f2-515c9dd6ca4f/concepts/86acf25e-7511-4f3a-927e-050899ec87da
+		sayHi("Julia");
+		function sayHi(name) {
+		  console.log(greeting + " " + name);
+		  var greeting = 10;
+		}
+		/* above code is same as---->
+
+		function sayHi(name) {// func declaration hoised to top of current scope
+		var greeting;// var declaration hoised to top of current scope
+		  console.log(greeting + " " + name);
+		  greeting = 10;// var assignment is not hoised
+		}
+		sayHi("Julia");
+		*/
+		//hoisting in function expressions
+		///https://classroom.udacity.com/courses/ud803/lessons/a7c5b540-51a6-44dc-b2f2-515c9dd6ca4f/concepts/d5db8bf6-029e-4a22-bc65-2346b810d019
+
+		function cat(){
+			console.log(purr());//purr! - function purr() is hoisted to top
+			console.log(meow());//ReferenceError: meow not defined. This is because,function expresssion is not hoisted
+			function purr(){
+				return "purr!";
+			}
+			const meow = function(){
+				return "meow";
+			}
+		}
+		cat();
+
+
+	</script>
+
+</body>
+</html>

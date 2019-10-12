@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		for (let i = 1; i <= 200; i++) {
+	    const newElement = document.createElement('p');
+	    newElement.textContent = 'This is paragraph number ' + i;
+
+	    document.body.appendChild(newElement);
+	    }
+	    */
+
+		//Above code in improved way
+		/*const myCustomDiv = document.createElement('div');
+
+		for (let i = 1; i <= 200; i++) {
+		  const newElement = document.createElement('p');
+		  newElement.innerText = 'This is paragraph number ' + i;
+
+		  myCustomDiv.appendChild(newElement);
+		}
+
+		document.body.appendChild(myCustomDiv);*/
+
+		/*How do we know it has improved performance, we use performance.now() method to check time between it first start  and finish.*/
+
+		/*const t0 = performance.now();
+		const myCustomDiv = document.createElement('div');
+
+		for (let i = 1; i <= 200; i++) {
+		  const newElement = document.createElement('p');
+		  newElement.innerText = 'This is paragraph number ' + i;
+
+		  myCustomDiv.appendChild(newElement);
+		}
+
+		document.body.appendChild(myCustomDiv);
+		const t1 = performance.now();
+		const difference = t1-t0;
+		console.log(`This code took: ${difference} milliseconds.`);//This code took: 1.7000000225380063 milliseconds.
+		*/
+		//below code took more time than the above
+		const t0 = performance.now();
+		for (let i = 1; i <= 200; i++) {
+		  const newElement = document.createElement('p');
+		  newElement.innerText = 'This is paragraph number ' + i;
+		  document.body.appendChild(newElement);
+		}
+
+		
+		const t1 = performance.now();
+		const difference = t1-t0;
+		console.log(`This code took: ${difference} milliseconds.`);//This code took: 7.199999992735684 milliseconds. 
+
+
+
+	</script>
+
+</body>
+</html>

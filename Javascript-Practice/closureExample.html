@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//////////////////////////////////
+		function invokeTwice(cb){
+			cb();
+		}
+		const dog = {
+		  age: 5,
+		  growOneYear: function () {
+		    this.age += 1;
+		  }
+		};
+		invokeTwice(dog.growOneYear);//this will not change age in dog object, it actually creates window.age = window.age+1
+		//window.age = undefined+1; //NAN
+		console.log(dog.age);//5
+		console.log(window.age);//NAN
+
+
+		invokeTwice(function () { 
+	  		dog.growOneYear(); 
+		});
+
+		console.log(dog.age);//6
+		//////////////////////////////using bind
+		const dog1 = {
+		  age: 5,
+		  growOneYear: function () {
+		    this.age += 1;
+		  }
+		};
+		invokeTwice(dog1.growOneYear.bind(dog1));
+		//line:dog1.growOneYear.bind(dog1) will return function where this is bind to dog1
+		console.log(dog1.age);//6
+	</script>
+
+</body>
+</html>

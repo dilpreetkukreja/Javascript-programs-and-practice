@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*an immediately-invoked function expression is used to immediately run a function. This function runs and returns an anonymous function that is stored in the myFunction variable.
+		Note that the function that is being returned closes over (i.e., captures) the hi variable. This allows myFunction to maintain a private, mutable state that cannot be accessed outside the function! What's more: because the function expressed is called immediately, the IIFE wraps up the code nicely so that we don't pollute the global scope.
+
+		If any of this sounds familiar -- it's because IIFE's are very closely related to everything you've learned about scope and closures!*/
+		const myFunction = (
+		  function () {
+		    const hi = 'Hi!';
+		    return function () {
+		      console.log(hi);
+		    }
+		  }
+		)();
+		myFunction();
+		const myFunction1 = (
+		  function () {
+		    const hi = 'Hi!';
+		    return function (firstname, lastname) {
+		      console.log(hi, firstname, lastname);
+		    }
+		  }
+		)();
+		myFunction1("dilpreet","kaur");
+
+		//alternative syntax, works same
+		(function sayHi(){
+		   alert('Hi there!');
+		}());
+
+
+	</script>
+
+</body>
+</html>

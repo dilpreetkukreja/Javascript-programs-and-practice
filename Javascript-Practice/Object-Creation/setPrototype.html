@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		////using setPrototypeOf
+		function displayName(){
+			console.log(this.name);
+		}
+
+		let person = {
+			displayName: displayName
+		}
+
+
+
+		let actualPerson = {
+			name: "dilpreet"
+		}
+		Object.setPrototypeOf(actualPerson, person);
+		actualPerson.displayName();//dilpreet
+		console.log(actualPerson);
+		//changing perototype after setting prototype
+		person.displayName = function(){
+			console.log("i'm changed");
+		}
+		actualPerson.displayName();//dilpreet
+		console.log(actualPerson);
+		///////////////////////////////////
+		//using object.create
+		function displayName2(){
+			console.log(this.name);
+		}
+
+		let person2 = {
+			displayName: displayName
+		}
+
+		actualPerson2 = Object.create(person2);
+		//actualPerson2 proto is refer to person2
+		console.log(actualPerson2);
+		actualPerson2.name = "anter";
+		actualPerson2.displayName();
+		//changind prototype
+		person2.displayName2 = function(){
+			console.log("i'm changed see!");
+		}
+		actualPerson2.displayName2();
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

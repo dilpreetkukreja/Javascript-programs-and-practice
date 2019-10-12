@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*Object.create() takes in a single object as an argument, and returns a new object with its __proto__ property set to what argument is passed into it. From that point, you simply set the returned object to be the prototype of the child object's constructor function. Let's check out an example!*/
+		const mammal = {
+		  vertebrate: true,
+		  earBones: 3
+		}
+		const rabbit = Object.create(mammal);
+		console.log(rabbit);// {}
+		/*However, rabbit should now be secretly linked to mammal. That is, its __proto__ property should point to mammal:*/
+
+		console.log(rabbit.__proto__ === mammal);
+
+		// true
+		/*Great! This means that now, rabbit extends mammal (i.e., rabbit inherits from mammal). As a result, rabbit can access mammal's properties as if it were its own!*/
+
+		console.log(rabbit.vertebrate);
+		// true
+
+		console.log(rabbit.earBones);
+		// 3
+		/*Object.create() gives us a clean method of establishing prototypal inheritance in JavaScript. We can easily extend the prototype chain this way, and we can have objects inherit from just about any object we want!*/
+
+		////////////////////////////////////////
+		function Animal (name) {
+		  this.name = name;
+		}
+
+		Animal.prototype.walk = function () {
+		  console.log(`${this.name} walks!`);
+		};
+
+		function Cat (name) {
+		  Animal.call(this, name);
+		  this.lives = 9;
+		}
+
+		Cat.prototype = Object.create(Animal.prototype);
+		//Cat.prototype's __proto__ has Animal.prototype
+
+		Cat.prototype.constructor = Cat;
+
+		Cat.prototype.meow = function () {
+		  console.log('Meow!');
+		};
+
+		const bambi = new Cat('Bambi');
+
+		bambi.meow();//Meow!
+		bambi.walk();//Bambi walks!
+
+		console.log(bambi.name);//Bambi
+		console.log(bambi.lives);//9
+
+
+
+	</script>
+
+</body>
+</html>

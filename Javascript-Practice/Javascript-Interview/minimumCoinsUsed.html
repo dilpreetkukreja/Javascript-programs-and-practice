@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const til = {
+			penny:12,
+			nickel:10,
+			dime:2,
+			quarter:12,
+			dollar:30
+		};
+		/*const formatter = new Intl.NumberFormat('en-US', {
+		  style: 'currency',
+		  currency: 'USD',
+		  minimumFractionDigits: 2
+		})
+		console.log(formatter.format(1000)) */
+
+		//pay:20.47 with minimum numbers of coins used
+		let amount = 20.50;
+		let arr = (amount.toFixed(2)+"").split(".");
+		console.log(arr);
+		let dollars = Number(arr[0]);
+		let cents = Number(arr[1]);
+		console.log(dollars, cents);
+		console.log(`${dollars} dollars used`)
+		til.dollar = til.dollar-dollars;
+
+		//console.log(til.dollar);
+
+		if(cents>=25){
+			til.quarter = til.quarter-Math.floor(cents/25);
+			console.log(`${Math.floor(cents/25)} quaters used`)
+			cents = cents%25;
+			console.log(til.quarter, cents);
+		}
+		if(cents>=10){
+			til.dime = til.dime-Math.floor(cents/10);
+			console.log(`${Math.floor(cents/10)} dimes used`)
+			cents = cents%10;
+			console.log(til.dime, cents);
+		}
+		if(cents>=5){
+			til.nickel = til.nickel-Math.floor(cents/5);
+			console.log(`${Math.floor(cents/5)} nickels used`)
+			cents = cents%5;
+			console.log(til.nickel, cents);
+		}
+		if(cents>=1){
+			til.penny = til.penny-Math.floor(cents/1);
+			console.log(`${Math.floor(cents/1)} cents used`)
+			cents = cents%1;
+			console.log(til.penny, cents);
+		}
+		console.log(til);
+	</script>
+
+</body>
+</html>

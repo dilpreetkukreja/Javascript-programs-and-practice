@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+		function destroyer(arr) {
+		  // Remove all the values
+		  console.log(Object.values(arguments));
+		  let valuesToRemove = Object.values(arguments);
+		  valuesToRemove.shift();//remove the first element
+		  console.log(valuesToRemove);
+		  let updatedArr = arr.filter(elem=>!valuesToRemove.includes(elem));
+
+		  return updatedArr;
+		}
+
+		console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+	</script>
+
+</body>
+</html>

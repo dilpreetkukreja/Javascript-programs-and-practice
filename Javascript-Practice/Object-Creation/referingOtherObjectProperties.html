@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function displayName(){
+			console.log(this.name);
+		}
+		let person = {
+			name: "anonymous",
+			displayName : displayName
+
+		}
+		let actualPerson = {
+			name: "dilpreet",
+			displayName: person.displayName
+		}
+
+		actualPerson.displayName();//dilpreet
+	</script>
+
+</body>
+</html>

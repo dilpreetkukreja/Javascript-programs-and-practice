@@ -1,0 +1,20 @@
+<html>
+<head>
+<style type='text/css'>
+/*div span { border : solid red 1px;} /* works IE,Moz*/
+/*div.outer span.inner { border : solid red 1px;} /* works IE,Moz*/
+/*div > span { border : solid red 1px;} /* works neither*/
+/*div.outer span#innerId { border : solid red 1px;} /* works IE,Moz*/
+/*div#outerId span#innerId { border : solid red 1px;} /* works IE,Moz*/
+/*div[moniker] { border : solid red 1px;} /* works Moz*/
+/*div[moniker='out'] { border : solid red 1px;} /* works Moz*/
+</style>
+</head>
+<body>
+
+<div class='outer' id='outerId' moniker='out'>
+  hello <span class='inner' id='innerId'>world</span>
+</div>
+
+</body>
+</html>

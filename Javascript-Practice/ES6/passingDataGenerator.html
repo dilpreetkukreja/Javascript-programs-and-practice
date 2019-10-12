@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function* getEmployee() {
+		    console.log('the function has started');
+
+		    const names = ['Amanda', 'Diego'];
+		    let response=[];
+		    for (const name of names) {
+		        response.push(yield name);
+		    }
+
+	    	console.log('the function has ended');
+	    	return response;
+		}
+
+		const generatorIterator = getEmployee();
+		let name1 = generatorIterator.next().value;
+		console.log(name1);//Amanda
+		let name2 = generatorIterator.next('dilpreet').value;
+		console.log(name2);//Diego
+		let response = generatorIterator.next('anter').value;
+		console.log(response);//["dilpreet","anter"]
+
+	</script>
+
+</body>
+</html>

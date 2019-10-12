@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		function callAndReturn(n, callbackFunc){
+			return n+callbackFunc();
+		}
+		function returnThree(){
+			return 3;
+		}
+		console.log(callAndReturn(2, returnThree));//5
+		///Another Example///
+		function each(array, callback) {
+		  for (let i = 0; i < array.length; i++) {
+		    if (callback(array[i])) {
+		      console.log(array[i]);
+		    }
+		  }
+		}
+		function isPositive(n) {
+		  return n > 0;
+		};
+
+		each([-2, 7, 11, -4, -10], isPositive);// 7,11
+
+		///Another Example - ///
+		//// forEach
+		const arr = [1, 3, 4, -1];
+		//Array's forEach() method takes in a callback function and invokes that function for each element in the array.
+		arr.forEach(function callbackFunc(CurrentValue, index, array){
+			console.log(`Array: ${array} index: ${index} current Value: ${CurrentValue}`);
+		});
+		// can also use without name for callback func
+		/*arr.forEach(function(CurrentValue, index, array){
+			console.log(`Array: ${array} index: ${index} current Value: ${CurrentValue}`);
+		});*/
+		// map
+		const names = ['David', 'Richard', 'Veronika'];
+
+		const nameLengths = names.map(function(name) {
+		  return name.length;
+		});
+		console.log(`Names length: ${nameLengths}`);
+		// another Example
+
+		const shortNames = names.filter(function(name) {
+		  return name.length < 6;
+		});
+		console.log(shortNames);
+	</script>
+
+</body>
+</html>

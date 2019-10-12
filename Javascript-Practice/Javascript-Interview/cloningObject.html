@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		Shallow Clone -
+		1) Spread operator
+		2) Object.assign
+		Deep Clone - 
+		1) JSON.stringify and JSON.parse methods
+		2) Using custom iteration function
+		*/
+
+		//using just copy
+		let orig1 = {
+			a:1,
+			b:{
+				x:1
+			}
+		};
+
+		let copy1 = orig1
+		console.log(copy1);//{a: 1,b: {x: 1}}
+
+		copy1.a = 5;
+		copy1.b.x = 5;
+		console.log(orig1);//{a: 5,b: {x: 5}}//changing both properties, so this method doesn't work
+		console.log(copy1);//{a: 5,b: {x: 5}}
+
+		//Shallow Clone examples
+		//Spread operator
+		let orig = {
+			a:1,
+			b:{
+				x:1
+			}
+		};
+
+		let copy = {...orig};
+		console.log(copy);//{a: 1,b: {x: 1}}
+
+		copy.a = 5;
+		copy.b.x = 5;
+		console.log(orig);//{a: 1,b: {x: 5}}
+		console.log(copy);//{a: 5,b: {x: 5}}
+		//Object.assign
+		let orig2 = {
+			a:1,
+			b:{
+				x:1
+			}
+		};
+		let copyOAssign = Object.assign({},orig2);
+		console.log(copyOAssign);//{a: 1,b: {x: 1}}
+		copyOAssign.a = 5;
+		copyOAssign.b.x = 5;
+		console.log(orig2);//{a: 1,b: {x: 5}}
+		console.log(copyOAssign);//{a: 5,b: {x: 5}}
+		//Deep Clone 
+		//JSON methods
+		//limitation, Orignal object should be in JSON format
+		let orig3 = {
+			a:1,
+			b:{
+				x:1
+			}
+		};
+
+		let copyJSON = JSON.parse(JSON.stringify(orig3));
+		console.log(copyJSON);//{a: 1,b: {x: 1}}
+		copyJSON.a = 5;
+		copyJSON.b.x = 5;
+		console.log(orig3);//{a: 1,b: {x: 1}}
+		console.log(copyJSON);//{a: 5,b: {x: 5}}
+		//Custom iteration Function
+		let orig4 = {
+			a:1,
+			b:{
+				x:1
+			},
+			getb(){
+				console.log(this.b);
+			}
+		};
+		function customCopy(orig){
+			let target = {};
+			for(let prop in orig){
+				let type = typeof orig[prop];
+				if (orig.hasOwnProperty(prop)) {
+					if(type ==='object' || type ==='function' && !!orig){
+					target[prop] = customCopy(orig[prop]);
+					}
+					else
+						target[prop] = orig[prop];
+					}
+				}
+			return target;
+		}
+		let copyCustom = customCopy(orig4);
+		console.log(copyCustom);
+		copyCustom.a = 5;
+		copyCustom.b.x = 5;
+		console.log(orig4);//{a: 1,b: {x: 1}}
+		console.log(copyCustom);//{a: 5,b: {x: 5}}
+
+
+
+
+	</script>
+
+</body>
+</html>

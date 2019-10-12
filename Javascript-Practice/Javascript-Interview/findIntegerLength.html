@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//finding integer length without converting into string
+		let int = 1234;//length = 4
+
+		let count=0;
+		let quotient;
+
+		do{
+			quotient = int/10;
+
+			count++;
+			int = quotient;
+	
+
+		}while(Math.floor(quotient)!==0)
+		console.log(count);
+	</script>
+
+</body>
+</html>

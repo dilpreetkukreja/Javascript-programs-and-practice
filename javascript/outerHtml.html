@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<div id="container"><div id="d">This is a div.(click me!)</div></div>
+	<script>
+
+		container = document.getElementById("container");
+		d = document.getElementById("d");
+		console.log(container.firstChild.nodeName); // logs "DIV"
+
+		container.addEventListener("click",myFunction);
+
+		function myFunction(){
+
+			d.outerHTML = "<p>This paragraph replaced the original div.</p>";
+			alert(container.outerHTML);
+			console.log(container.firstChild.nodeName); // logs "P"
+			// The #d div is no longer part of the document tree,
+			// the new paragraph replaced it.
+		}
+
+	</script>
+
+</body>
+</html>

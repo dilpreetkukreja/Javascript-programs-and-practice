@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		//https://jratzenboeck.com/web/2018/01/06/exiting-callback-hell.html
+		//callback hell
+		function callbackHell(number, cb) {
+			setTimeout(function() {
+				if (isNaN(number)) {
+					return cb(number + ' is not a number');
+				}
+				return cb(null, number * 2);
+			}, 500);
+		}
+
+		callbackHell(1, function(err, result) {
+			if (err) 
+				return console.log(err);
+			else 
+				callbackHell(result, function(err, result) {
+					if (err)
+						return console.log(err);
+					else
+						callbackHell(result, function(err, result) {
+							if (err)
+								return console.lgo(err);
+							else 
+								console.log('Result: ' + result);
+						});
+				});
+		});
+
+		console.log('Calculating...');
+		*/
+
+
+		////////////////////////Promises//////////////////
+		//equivalent code using Promises
+		//exiting callback-hell
+		function calculate(number) {
+			return new Promise((resolve, reject) => {
+				setTimeout(() => {
+					if (isNaN(number)) {
+						reject(`${number} is not a number`);
+					}
+					resolve(number * 2);
+				}, 500);
+			});
+		}
+
+		calculate(1)
+			.then((result) => { return calculate(result); })
+			.then((result) => { return calculate(result); })
+			.then((result) => { 
+				console.log(`Result: ${result}`);
+			})
+			.catch((err) => { console.log(err); });
+		console.log('Calculating...');
+	</script>
+
+</body>
+</html>

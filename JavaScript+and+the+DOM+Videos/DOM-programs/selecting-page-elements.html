@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="div1">this is div element with class=div1</div>
+	<p class="address">this is 1st p element with class=address</p>
+	<p class="address">this is 2st p element with class=address</p>
+	<section><p id="name">this is p element with id=name</p></section>
+	<script type="text/javascript">
+		let name = document.getElementById('name');
+		console.log(name);
+		/*console.log(name.innerHTML);
+		console.log(name.outerHTML);
+		name.outerHTML = "<div> changed to div</div>";
+		console.log(name.outerHTML);*/
+
+		let elems = document.getElementsByClassName('address');//beware of 's'(getElementsByClassName)
+		//elems is not array, its HTMLCollection
+		for(let i=0;i<elems.length;i++){
+			console.log(elems[i]);
+		}
+		console.log("********************************************");
+		let elems2 = document.getElementsByTagName('p');//beware of 's'(getElementsByTagName)
+		//elems is not array, its HTMLCollection
+		for(let i=0;i<elems2.length;i++){
+			console.log(elems2[i]);
+		}
+		
+	</script>
+
+</body>
+</html>

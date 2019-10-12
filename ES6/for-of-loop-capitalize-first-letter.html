@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*1) in 'for of' loop we dont need counter and exit consition, we only need index
+		2) extra function added to Array prototype will not appear in loop
+		//we can use break, continue 
+		*/
+		const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+		// your code goes here
+		for (let day of days){
+		    day = day.charAt(0).toUpperCase() + day.slice(1);
+		    console.log(day);
+		}
+	</script>
+
+</body>
+</html>

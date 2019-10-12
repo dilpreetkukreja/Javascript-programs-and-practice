@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="addArticle"></div>
+	<script type="text/javascript">
+		const searchedForText = 'articles';
+		let data;
+		function addArticles () 
+		{
+			/*A common use of JSON is to exchange data to/from a web server.
+			When receiving data from a web server, the data is always a string.
+			Parse the data with JSON.parse(), and the data becomes a JavaScript object.*/
+			data = JSON.parse(this.responseText);
+			//console.log(data);
+			//console.log(data.response.docs[0].lead_paragraph);
+			let htmlContent = '<ol>'+ data.response.docs.map(article=>`<li class="article"> <h2><a href="${article.web_url}">${article.headline.main}</a></h2><p>${article.snippet}</p> </li>`).join('')+'</ol>';
+			const elem = document.getElementById("addArticle");
+			elem.innerHTML= htmlContent;
+			console.log(data);
+
+		}
+		const articleRequest = new XMLHttpRequest();
+		articleRequest.onload = addArticles;
+		articleRequest.open('GET', `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=Y9IfAGjgOeO24tcESQvCfjnJewn8VTc7`);
+		articleRequest.send();
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Animal() { }
+		Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
+		function Dog() { 
+			//we can add bark here
+		    /*this.bark = function(){
+		    console.log("Woof!");
+			}*/
+		}
+
+		// Add your code below this line
+		Dog.prototype = Object.create(Animal.prototype);
+		Dog.prototype.constructor = Dog;
+		//we can add bark here
+		/*Dog.prototype.bark = function(){
+    		console.log("Woof!");
+		}*/
+
+
+		// Add your code above this line
+
+		let beagle = new Dog();
+		//we can add bark here
+		beagle.bark = function(){
+    		console.log("Woof!");
+		}
+
+
+		beagle.eat(); // Should print "nom nom nom"
+		beagle.bark(); // Should print "Woof!"
+	</script>
+
+</body>
+</html>

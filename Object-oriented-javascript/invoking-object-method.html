@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const developer = {
+		  name: 'Andrew',
+		  sayHello: function () {
+		    console.log('Hi there!');
+		  },
+		  favoriteLanguage: function (language) {
+    		console.log(`My favorite programming language is ${language}`);
+  		  }
+		};
+		developer.sayHello();//Hi there!
+		developer['sayHello']();//Hi there!
+		developer.favoriteLanguage('javascript');
+		/*--- Another Example ---*/
+
+		/* Ques: Write an expression that invokes the alerter() function in the following array, myArray:*/
+
+		const myArray = [ function alerter() { alert('Hello!'); } ];
+		/* answer */
+		myArray[0]();
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let person = {
+				name:"dilpreet",
+				age:"31",
+				address:"sanders st"
+		}
+
+		//method 1:
+		//console.log(Object.keys(person));//["name", "age", "address"]
+		console.log(Object.keys(person).length);
+
+		//method 2:
+		let count=0;
+		for(key in person){		
+			if(person.hasOwnProperty(key)){
+				count+=1;
+			}
+		}
+		console.log(count);
+
+		//method 3:
+		console.log(Object.getOwnPropertyNames(person).length); // Output 3
+	</script>
+
+</body>
+</html>

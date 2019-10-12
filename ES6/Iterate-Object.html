@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let obj = {
+		  key1: "value1",
+		  key2: "value2",
+		  key3: "value3",
+		  key4: "value4",
+		  key5 : function(){
+		  	console.log("hello");
+		  },
+		  [Symbol.iterator]() {
+		        let counter = 0;
+		        let keys =Object.keys(this);//we can obj in place of this too
+		        let values = Object.values(this);
+		        return {
+		            next() {
+		                if (counter <keys.length) {
+		                counter++;
+		                return { done: false, value: `${keys[counter-1]} : ${values[counter-1]}`};
+		                } else {
+		                return { done: true, value: undefined };
+		                }
+		            }
+		        }
+		    }
+		}
+
+		//method 1
+		console.log(Object.entries(obj).forEach(function(entry){
+			console.log(entry[0],":", entry[1]);
+		}));
+
+		//method 2
+		Object.keys(obj).forEach(key => {
+		  let value = obj[key];
+		  console.log(value);
+		});
+
+		//method 3
+		Object.values(obj).forEach(value => {
+		  console.log(value);
+		});
+
+        //method 4
+		for (const key in obj) {
+		  //console.log("keys:",key);
+		  let value = obj[key];
+		  
+		  //optional check for properties from prototype chain
+		  if (obj.hasOwnProperty(key)) {
+		    console.log(key, value);    
+		  }else{
+		    console.log("prototype chain key:"+key);
+		  }
+		}
+
+		////method 5
+		Object.getOwnPropertyNames(obj).forEach(key => {
+		  let value = obj[key];
+		  //use key and value here
+		});
+
+		//method 6
+		console.log("**************************************")
+		for (const x of obj) {
+		//if we use above line without defining [Symbol.iterator] property it will generate error obj is not iterable
+		    console.log(x);
+		}
+
+
+	</script>
+
+</body>
+</html>

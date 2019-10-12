@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fahrenheit From Celsius</title>
+</head>
+<body>
+	<a href="https://www.w3.org/" id="id1" >World Wide Web
+	Consortium (W3C)</a>
+	<form action="/action_page.php">
+	  First name:<br>
+	  <input id = "form_input_1" type="text" name="firstname" value="Mickey">
+	  <br>
+	  Last name:<br>
+	  <input type="text" name="lastname" value="Mouse">
+	  <br><br>
+	  <input type="submit" value="Submit">
+	</form>
+<script>
+	var myLink = document.getElementById('id1');
+	/*myLink.onclick = function() {
+    	alert('hello W3C!');
+	}*/
+	
+	function sayHello() {
+    	alert('hello W3C!');
+	}
+	myLink.onclick = sayHello;
+
+	var myInputField = document.getElementById("form_input_1");
+	
+	myInputField.addEventListener('keydown', myFunction);
+	function myFunction(e) {
+	    var kc = e.keyCode;
+	    if (kc == 27) {
+	        alert ("Possible values for this field are: .... ");
+	    }
+	}
+
+	/*document.getElementById("form_input_1").addEventListener("input", myFunction1);
+
+	function myFunction1() {
+  		alert("The value of the input field was changed.");
+	}*/
+	
+</script>
+</body>
+</html>

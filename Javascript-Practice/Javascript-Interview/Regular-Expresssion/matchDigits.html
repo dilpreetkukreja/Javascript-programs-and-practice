@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		valid numbers should be:
+		12345678
+		12-34-56-87
+		Invalis:
+		1-234-56-78
+		12-45-7810
+		*/
+		let str = "12-34-56-87";
+		Regex_Pattern = /^\d{2}(-?)\d{2}\1\d{2}\1\d{2}$/;
+		let result  = str.match(Regex_Pattern);
+		console.log(result);
+	</script>
+
+</body>
+</html>

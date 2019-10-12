@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = '23 2 -3 -18 -2437 986';
+		let regex = /(?<!-)(?<!\d)\d+/g;
+		let result = str.match(regex);
+		console.log(result);
+	</script>
+
+</body>
+</html>

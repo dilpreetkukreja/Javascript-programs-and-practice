@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<button id="btn1">Submit(handler:normal function)</button>
+	<button id="btn2">Submit(handler:arrow func)</button>
+	<script type="text/javascript">
+
+	var age = 31;
+
+	function displayName1(){
+		console.log(this);//button
+		console.log(this.age);//undefined
+	}
+
+	let button1 = document.getElementById("btn1");
+	button1.addEventListener("click", displayName1);
+
+	let arrowDisplayName = () => {
+		console.log(this);//window
+		console.log(this.age);//31
+	}
+
+	let button2 = document.getElementById("btn2");
+	button2.addEventListener("click", arrowDisplayName);
+
+
+	</script>
+
+</body>
+</html>

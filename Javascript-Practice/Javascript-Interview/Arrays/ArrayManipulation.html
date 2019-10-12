@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*The first line contains two space-separated integers n and m, the size of the array and the number of operations. 
+		Each of the next m lines contains three space-separated integers a, b and k, the left index, right index and summand.*/
+		let input  = `4 3
+2 3 603
+1 1 286
+4 4 882`;
+
+	let arr = input.split('\n');
+	console.log(arr);
+	let lengthOfArray = parseInt(arr[0].split(" ")[0],10);
+	//console.log(lengthOfArray);//5
+	//console.log(typeof lengthOfArray);
+	let numOperations = parseInt(arr[0].split(" ")[1]);
+	console.log(numOperations);//3
+	let emptyArrOfZeros = new Array(lengthOfArray).fill(0);
+	console.log(emptyArrOfZeros);
+	for(let i=1;i<=numOperations;i++){
+		arr[i] = arr[i].split(" ").map(elem=>parseInt(elem));
+	}
+
+	console.log(arr);
+	let arrAfteroperation;
+	for(let j=1;j<arr.length;j++){
+		emptyArrOfZeros = emptyArrOfZeros.map((elem,index)=>{
+				if (index>=arr[j][0]-1&&index<=arr[j][1]-1)return (elem+arr[j][2]);
+				else
+					return elem;
+			})
+			console.log(emptyArrOfZeros);
+	}
+	console.log(emptyArrOfZeros);
+
+			
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

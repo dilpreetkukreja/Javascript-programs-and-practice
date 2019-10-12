@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		const parrot = {
+		  group: 'bird',
+		  feathers: true,
+		  chirp: function () {
+		    console.log('Chirp chirp!');
+		  }
+		};
+
+		const pigeon = {
+		  group: 'bird',
+		  feathers: true,
+		  chirp: function () {
+		    console.log('Chirp chirp!');
+		  }
+		};
+		console.log(parrot === pigeon);//false
+		const myBird = parrot;
+		console.log(myBird === parrot);//true
+		const myBirt2 = parrot
+		console.log(myBird === myBirt2);//true
+
+
+
+
+	</script>
+
+</body>
+</html>

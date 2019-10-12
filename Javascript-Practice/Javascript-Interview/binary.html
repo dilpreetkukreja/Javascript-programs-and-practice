@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//find maximum number of conscutive one's
+		let n=55;
+		//convert n into binary
+		//n.toString(2)//will not work, use let n=5 and then use n.toString(2), toString func expects number
+		let binary = n.toString(2);
+		console.log(binary);//typeod binary: string
+		let regex = /[1]+/g;
+		let result = binary.match(regex);
+		console.log(result);
+		let max = Math.max(...result);
+		console.log(max.toString(10).length);
+		///////////////////////////////////
+		let arr = binary.split('0');
+		console.log(arr);
+		let lengthArr = arr.map(elem=>elem.length);
+		console.log(lengthArr);
+		console.log(Math.max(...lengthArr));
+		/////////////////////////////////
+		var binaryArray = binary.split('');
+	    console.log(binaryArray);
+	  	let maxOnes=0;
+	    var runningTotal = 0;
+	    for(var i = 0; i < binary.length; i++) {
+	                
+	        if(binary[i] === '1') {
+	            runningTotal++;
+	        }else {
+	            runningTotal = 0;
+	        }
+	        //console.log(binaryArray[i], runningTotal);
+	        if(runningTotal > maxOnes) {
+	            maxOnes = runningTotal;
+	        }        
+	    
+    	}
+    	console.log(maxOnes);
+
+
+
+	</script>
+
+</body>
+</html>

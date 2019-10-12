@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body{
+			width:100vw;
+		}
+		.btn{
+		    width:100px;
+		    height:48px;
+		    font-size:24px;
+		    color:red;
+		}
+		.btns{
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="btns">
+        <button class="btn" id="1">1</button>
+        <button class="btn" id="2">2</button>
+        <button class="btn" id="3">3</button><br/>
+        <button class="btn" id="4">4</button>
+        <button class="btn" id="5">5</button>
+        <button class="btn" id="6">6</button><br/>
+        <button class="btn" id="7">7</button>
+        <button class="btn" id="8">8</button>
+        <button class="btn" id="9">9</button><br/>
+    </div>
+	<script type="text/javascript">
+		let arr = [1,2,3,6,9,8,7,4];
+		function shiftRight(arr)
+		{
+			var temp = new Array();
+			temp.push(arr[arr.length-1]);
+			for (i = 0; i <= arr.length-2; i++) temp.push(arr[i]);
+			return temp;
+		}
+
+		let btn1 = document.getElementById(1);
+		let btn2 = document.getElementById(2);
+		let btn3 = document.getElementById(3);
+		let btn4 = document.getElementById(4);
+		let btn5 = document.getElementById(5);
+		let btn6 = document.getElementById(6);
+		let btn7 = document.getElementById(7);
+		let btn8 = document.getElementById(8);
+		let btn9 = document.getElementById(9);
+
+		btn5.addEventListener('click', handleClick);
+		function handleClick(e){
+			console.log("click");
+			btn1.innerHTML = arr[arr.length-1];
+			btn2.innerHTML = arr[0];
+			btn3.innerHTML = arr[1];
+			btn6.innerHTML = arr[2];
+			btn9.innerHTML = arr[3];
+			btn8.innerHTML = arr[4];
+			btn7.innerHTML = arr[5];
+			btn4.innerHTML = arr[6];
+
+			arr = shiftRight(arr);
+			console.log(arr);
+
+		}
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	</script>
+
+</body>
+</html>

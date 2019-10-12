@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Bird() {
+		  let hatchedEgg = 10; // private property
+
+		  this.getHatchedEggCount = function() { // publicly available method that a bird object can use
+		    return hatchedEgg;
+		  };
+		}
+		let ducky = new Bird();
+		ducky.getHatchedEggCount(); // returns 10
+	</script>
+
+</body>
+</html>

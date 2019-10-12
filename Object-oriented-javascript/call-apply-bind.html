@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const cat = {
+		  name: 'Bailey'
+		};
+		//global function
+		function sayHello(message) {
+		  console.log(`${message}, ${this.name}`);
+		}
+
+		sayHello.call(cat, 'Nice to see you');
+
+		sayHello.apply(cat, ['Hello']);
+		/////////////////////////////
+		const dog = {
+		  showName: function(){
+		  	console.log(this.name);
+		  }
+		};
+		const catObject = {
+			name: "catty",
+			meow: function(){
+				console.log("meow");
+			}
+		}
+		//using call
+		//catObject utilizing showName method of dog
+		dog.showName.call(catObject);//catty
+		/////////////////////////
+
+	</script>
+
+</body>
+</html>

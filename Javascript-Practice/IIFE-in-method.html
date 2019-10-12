@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj = {
+			message:"hello",
+			innerfunc: function(){
+				console.log("i'm called");
+				var self = this;
+				(function(){
+					console.log("message with self:", self.message);
+				})();
+				(function(){
+					console.log("message with this:", this.message)
+					console.log(this);
+				})();
+			}
+		}
+		obj.innerfunc();
+		function person(){
+			console.log("hi");
+			(function(){
+					console.log("I called myself");
+			})();//IIFE dont execute if parent function is not called.
+		}
+		person();
+	</script>
+
+</body>
+</html>

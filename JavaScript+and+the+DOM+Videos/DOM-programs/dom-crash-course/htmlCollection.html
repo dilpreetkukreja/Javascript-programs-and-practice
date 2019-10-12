@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form id="form1" action="/action_page.php">
+	  First name:<br>
+	  <input type="text" name="firstname" value="first name..">
+	  <br>
+	  Last name:<br>
+	  <input type="text" name="lastname" value="last name..">
+	  <br><br>
+	  <input type="submit" value="Submit">
+	</form> 
+	<form id="myForm" class="imclass" action="/action_page.php">
+	  email:<br>
+	  <input type="text" name="firstname" value="email..">
+	  <br>
+	  password<br>
+	  <input type="text" name="lastname" value="Password..">
+	  <br><br>
+	  <input type="submit" value="Submit">
+	</form> 
+	<script type="text/javascript">
+		//HTMLCollection is return by Element.getElementsByTagName(), Element.getElementsByClassName(),Element.getElementsByTagNameNS(), Element.children, doument.forms
+		//it consist of elements only
+		//it is live
+
+		var elem1, elem2;
+
+		// document.forms is an HTMLCollection
+
+		let htmlCollection = document.forms;
+		console.log(htmlCollection);
+
+		elem1 = document.forms[0];
+		elem2 = document.forms.item(0);
+		console.log(elem1);
+		console.log(elem2);
+
+		console.log(elem1 === elem2); // shows: "true"
+
+		elem1 = document.forms.myForm;
+		elem2 = document.forms.namedItem("myForm");
+
+		console.log(elem1 === elem2); // shows: "true"
+
+		elem1 = document.forms["named.item.with.periods"];
+	</script>
+
+</body>
+</html>

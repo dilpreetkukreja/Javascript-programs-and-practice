@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//using document.write
+		function staircase1(n) {  
+		    for (var i = 1;i<= n; i++) {
+		            for (var k = n - i; k >= 1; k--) {
+		            	document.write('&nbsp&nbsp');
+		            }
+		            for (var m = 1; m <= i; m++){
+		                document.write("*");
+		            }
+		    document.write('<br>');  
+		    }
+		}
+
+		staircase1(6);
+
+		//using console.log
+		function staircase2(n) {
+ 			let arr = []	  
+		    for (var i = 1;i<= n; i++) {
+		            for (var k = n - i; k >= 1; k--) {
+		            	arr.push(" ");
+		            }
+		            for (var m = 1; m <= i; m++){
+		                arr.push("*");
+		            }
+		     console.log(arr.join("")); 
+		     arr = []; 
+		    }
+
+		}
+
+		staircase2(6);
+
+
+	</script>
+</body>
+</html>

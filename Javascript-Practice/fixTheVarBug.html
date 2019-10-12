@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = [10, 32, 65, 2];
+		for (var i = 0; i < arr.length; i++) {
+		  setTimeout(function() {
+		    console.log('The index of this number is: ' + i);
+		  }, 1000);
+		}
+		/*
+		output:
+		The index of this number is: 4
+		The index of this number is: 4
+		The index of this number is: 4
+		The index of this number is: 4
+		*/
+		let l;
+		for (l = 0; l < arr.length; l++) {
+		  setTimeout(function() {
+		    console.log('The index of this number is(let): ' + l);
+		  }, 1000);
+		}
+
+		for (let l = 0; l < arr.length; l++) {
+		  setTimeout(function() {
+		    console.log('The index of this number is(let inside): ' + l);
+		  }, 1000);
+		}
+		/*
+		output:
+		The index of this number is: 1
+		The index of this number is: 2
+		The index of this number is: 3
+		The index of this number is: 4
+
+		*/
+
+		//without ES6
+		for (var i = 0; i < arr.length; i++) {
+		  setTimeout((function(j){
+		  		return function() {
+		    		console.log('The index of this number is: ' + j);
+		    	}
+		  })(i), 1000);
+		}
+		/*
+		output:
+		The index of this number is: 1
+		The index of this number is: 2
+		The index of this number is: 3
+		The index of this number is: 4
+
+		*/
+
+	</script>
+
+</body>
+</html>

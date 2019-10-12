@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let promise1 = function printName(){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					console.log("dilpreet");
+					resolve("Resolved: Name");
+				},4000);
+			});	
+		}
+		let promise2 = function printaddress(){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					console.log("sanders st.");
+					resolve("Resolved: Address");
+				},1000);
+				
+			});		
+		}
+		let promise3 = function printhouseNo(){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					console.log("205");
+					resolve("Resolved: House number");
+				},2000);
+				
+			});	
+		}
+
+		Promise.all([promise1() ,promise2(), promise3()])
+		.then(function(result){
+			console.log(result);
+		})
+	</script>
+
+</body>
+</html>

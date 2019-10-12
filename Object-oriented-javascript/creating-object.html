@@ -1,0 +1,75 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		const cat = {
+			age: 2,
+			name: "bailey",
+			meow : function(){
+				console.log("Meow!");
+			},
+			greet: function(){
+				console.log(`Hello ${this.name}`);
+			}
+
+		};
+		console.log(`Cat's age: ${cat.age}`);
+		cat.greet();
+
+		/* objects are mutable, not only can we modify existing properties (or even add new ones) -- we can also delete properties from objects.*/
+
+		/* modify properties */
+		cat.age += 1;
+		console.log(`Modified Cat's age: ${cat.age}`);
+
+		/* adding new properties */
+		cat.color = "black";
+		console.log(`Cat's color: ${cat.color}`);
+
+		/* removing properties */
+		delete cat.age;//delete only works on objects not on number, strings, functions
+		console.log(cat.age); //undefined
+		////////////////////
+		function bark(){// bark declared globally
+			console.log("outside bark");
+		}
+		
+		const dog = {
+		  bark: function () {
+		    console.log('Woof!');
+		  },
+		  barkTwice: function () {
+		  	//what will happen if we don't use "this"
+		  	bark();
+		    //bark();The function would have first looked for a local variable named bark in the scope of barkTwice. If bark isn't found, it would have looked further up the scope chain.
+		    this.bark();
+		    catObject.meow();//meow
+		  },
+		  showName: function(){
+		  	console.log(this.name);
+		  }
+		};
+
+		const catObject = {
+			name: "catty",
+			meow: function(){
+				console.log("meow");
+			}
+		}
+		dog.barkTwice();
+		/*Functions, objects, and this are all interconnected. When invoking constructor functions with the new operator, a this variable is set to the newly-created object. When invoking a method on an object, this is set to that object itself. And when invoking a function in a browser environment, this is set to window, otherwise known as the global object.*/
+		//using call
+		//catObject utilizing showName method of dog
+		dog.showName.call(catObject);//catty
+
+
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .lastResult {
+        color: black;
+        padding: 3px;
+      }
+      .form input{
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Number guessing game</h1>
+
+    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+
+    <div class="form">
+      <label for="guessField">Enter a guess: </label>
+      <input type="text" id="guessField" class="guessField">
+      <input type="submit" value="Submit guess" class="guessSubmit">
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    <script>
+
+      // Your JavaScript goes here
+      var randomNum = Math.floor((Math.random()*(100))+1);
+       alert("random num generated:"+randomNum);
+      const guessField = document.querySelector(".guessField");
+      const guessSubmit = document.querySelector(".guessSubmit");
+      var  guesses= document.querySelector(".guesses");
+      const  lastResult= document.querySelector(".lastResult");
+      const  lowOrHi= document.querySelector(".lowOrHi");
+
+      var count = 1;
+      var resetBtn;
+      guessField.focus();
+
+      function submitQuery(){
+       
+          var guessValue = Number(guessField.value);
+          
+          if(count === 1){
+             guesses.textContent = guesses.textContent+"Previous entered value: ";
+          }
+          guesses.textContent = guesses.textContent+guessValue+" ";
+          if(count >10){
+              lastResult.textContent = "Game Over";
+              lowOrHi.textContent = '';
+              disabledFunc();
+          }else if(guessValue === randomNum){
+              lastResult.textContent = "Congratulations! You win the game.";
+              lastResult.style.backgroundColor = "green";
+              lowOrHi.textContent = '';
+              disabledFunc();
+          }else if(guessValue > randomNum){
+            lastResult.textContent = "Wrong!";
+            lastResult.style.backgroundColor = "red";
+              lowOrHi.textContent = "You enetered a higher number than generated number.";
+              
+          }else if(guessValue < randomNum){
+            lastResult.textContent = "Wrong!";
+            lastResult.style.backgroundColor = "red";
+              lowOrHi.textContent = "You enetered a lower number than generated number.";
+             
+          }
+          count++;
+          guessField.value = '';
+          guessField.focus();
+      }
+      function disabledFunc(){
+        guessField.disabled = true;
+        guessSubmit.disabled = true;
+        resetBtn = document.createElement("button");
+        resetBtn.textContent = "Reset";
+        document.body.appendChild(resetBtn);
+        resetBtn.style.border = "2px solid black";
+        resetBtn.addEventListener('click', resetFunc);
+
+      }
+      function resetFunc(){
+        guessField.disabled = false;
+        guessSubmit.disabled = false;
+        count = 1;
+        lastResult.style.backgroundColor = "white";
+        
+        var para = document.querySelectorAll(".resultParas p");
+        for(i=0;i<para.length;i++){
+            para[i].textContent = '';
+        } 
+        guessField.value = "";
+        guessField.focus();
+        
+        resetBtn.parentNode.removeChild(resetBtn);
+          randomNum = Math.floor((Math.random()*(100))+1);
+          alert("random num generated:"+randomNum);
+      }
+      guessSubmit.addEventListener('click', submitQuery);
+
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+

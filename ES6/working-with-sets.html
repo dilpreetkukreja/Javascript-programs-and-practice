@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const months = new Set(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']);
+		//Use the .size property to return the number of items in a Set:
+		console.log(months.size);//12
+
+		//checking if an item exist
+		console.log(months.has('September'));//true
+		console.log(months.has('september'));//false- we used lowercase 's', so values in sets are case-sensitive
+		months.add('january');
+		console.log(months);//Set(13) {"January", "February", "March", "April", "May",'June', 'July', 'August', 'September', 'October', 'November', 'December', 'january'}
+		months.delete('january');
+		
+		//Retrieving All Values
+		// The return value of the .values() method is a SetIterator object.
+		console.log(months.values());//SetIterator {'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'}
+
+		//adding object
+		months.add({name:'dilpreet', address:"sanders st"});
+		console.log(months);
+		console.log(months.values());
+
+
+
+	</script>
+
+</body>
+</html>

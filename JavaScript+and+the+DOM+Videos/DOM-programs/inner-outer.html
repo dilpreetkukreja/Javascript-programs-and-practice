@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<section><p id="name">this is p element with id=name</p></section>
+	<div id="address">Sanders st</div>
+	<script type="text/javascript">
+		//https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML
+		let sec = document.getElementsByTagName('section');
+		let name = document.getElementById('name');
+		console.log(name);
+		console.log(`inner html: ${name.innerHTML}`);
+		console.log(`outer html: ${name.outerHTML}`);
+		console.log(sec[0].firstChild.nodeName);//p
+		name.outerHTML = "<div> changed to div</div>";
+		console.log(name.outerHTML);//p, while the element will be replaced in the document, the variable whose outerHTML property was set will still hold a reference to the original element:
+		console.log(sec[0].firstChild.nodeName);//div
+
+		let address = document.getElementById('address');
+		address.outerHTML=" <p>this address is changed</p>";
+
+		var div = document.createElement("div");
+		document.body.appendChild(div);
+		div.className = "addedclass";
+		div.outerHTML = "<div class=\"test\">test</div>";
+		console.log(div.outerHTML); // output: <div class="addedclass"></div>, div variable retains the value of old element
+		
+		let getorig = document.getElementsByClassName('addedclass');
+		console.log(getorig[0]);//undefined, no more in the dom tree
+		let getchanged = document.getElementsByClassName('test');
+		console.log(getchanged[0]);//<div class="test">test</div>"
+	</script>
+
+</body>
+</html>

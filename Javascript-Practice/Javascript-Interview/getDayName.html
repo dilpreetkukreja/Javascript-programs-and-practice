@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function getDayName(dateString) {
+		    let dayName;
+		    console.log(dateString);
+		    // Write your code here
+		    var weekdays = new Array(7);
+		    weekdays[0] = "Sunday";
+		    weekdays[1] = "Monday";
+		    weekdays[2] = "Tuesday";
+		    weekdays[3] = "Wednesday";
+		    weekdays[4] = "Thursday";
+		    weekdays[5] = "Friday";
+		    weekdays[6] = "Saturday";
+		    dayName = weekdays[dateString.getDay()];
+		    
+		    return dayName;
+		}
+		console.log(getDayName(new Date('10/11/2009')));
+	</script>
+
+</body>
+</html>

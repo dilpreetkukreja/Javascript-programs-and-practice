@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//convert object to array with only values
+		let x = {
+			a:1,
+			b:2
+		}
+		let valuesArray = Object.values(x);
+		console.log(valuesArray);
+		//convert object to array with key,value pair
+		let keys = Object.keys(x);
+		let keyValuePair = keys.map((key)=>[key,x[key]]);
+		console.log(keyValuePair);
+
+		//second way
+
+		let keyValuePair2 = Object.entries(x).map(entry=>entry)
+		console.log(keyValuePair2);
+
+	</script>
+
+</body>
+</html>

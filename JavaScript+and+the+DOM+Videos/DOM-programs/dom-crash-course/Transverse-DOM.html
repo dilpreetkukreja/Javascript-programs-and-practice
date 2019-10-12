@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<section>
+		<div style="border:2px solid red">
+			<p>I'm prev paragraph</p>
+			<ul id="ulList" style="border:2px solid red">
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+				<li>Item 4</li>
+			</ul>
+			<p style="border:2px solid red">i'm next paragraph</p>
+		</div>
+	</section>	
+	<script type="text/javascript">
+		let ulList = document.getElementById('ulList');
+		//parentNode
+		console.log(ulList.parentNode);//div
+		console.log(ulList.parentNode.parentNode);//section
+		//ulList.parentNode.style.backgroundColor = 'yellow';
+		//parentElement
+		console.log(ulList.parentElement);//div
+		console.log(ulList.parentElement.parentElement);//section
+		//ulList.parentElement.style.backgroundColor = 'red';
+
+		//childNodes
+		console.log(ulList.childNodes);//NodeList(9) [text, li, text, li, text, li, text, li, text], it shows empty space a textnode
+		//to get only actual elements, we use children
+		//children
+		console.log(ulList.children);//HTMLCollection(4) [li, li, li, li]
+		//ulList.children[1].style.backgroundColor = 'yellow';
+		//firstChild
+		console.log(ulList.firstChild);//text
+		//firstElementChild
+		console.log(ulList.firstElementChild);//<li>Item 1</li>
+		//ulList.firstElementChild.textContent = 'Hello 1';
+		//lastChild
+		console.log(ulList.lastChild);//text
+		//lastElementChild
+		console.log(ulList.lastElementChild);//<li>Item 4</li>
+		//ulList.lastElementChild.textContent = 'Hello 4';
+
+		//nextSibling
+		console.log(ulList.nextSibling);
+		//nextElementSibling
+		console.log(ulList.nextElementSibling);
+
+		//previousSibling
+		console.log(ulList.previousSibling);
+		//previousElementSibling
+		console.log(ulList.previousElementSibling);
+
+
+
+
+
+	</script>
+
+</body>
+</html>

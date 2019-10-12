@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = `2
+Hacker
+Rank`;
+
+	let arr = str.split('\n');
+	//console.log(arr);
+	for(let i=1;i<=arr[0];i++){
+		let evenStr = "";
+		let oddStr = "";
+		let newArr = arr[i].split("");
+		//console.log(newArr);
+		newArr.forEach((elem,index)=>{
+			if(index%2===0){
+				evenStr = evenStr.concat(elem);
+				//console.log(evenStr);
+			}
+			else
+				oddStr = oddStr.concat(elem);
+		});	
+		console.log(`${evenStr} ${oddStr}`);
+	}
+	</script>
+
+</body>
+</html>

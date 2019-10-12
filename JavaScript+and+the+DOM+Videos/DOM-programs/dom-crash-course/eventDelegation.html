@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul id="myList">
+		<li>apple</li>
+		<li>banana</li>
+		<li>orange</li>
+	</ul>
+	<script type="text/javascript">
+		//A way you can add event listenr once for multiple elements with support for adding extra chirdren
+		let myList = document.getElementById('myList');
+		//first way of doing
+		/*myList.addEventListener('click', function(e){
+			if((e.target).matches('li')){
+				e.target.style.background = 'red';
+			}
+		});*/
+		//second way of doing
+		myList.addEventListener('click', function(e){
+			if((e.target).nodeName ==='LI'){//note: we use capital 'LI'
+				e.target.style.background = 'red';
+			}
+		});
+		
+
+		
+
+		let newLi = document.createElement('li');
+		newLi.textContent = 'dilpreet';
+		myList.appendChild(newLi);
+		
+	</script>
+
+</body>
+</html>

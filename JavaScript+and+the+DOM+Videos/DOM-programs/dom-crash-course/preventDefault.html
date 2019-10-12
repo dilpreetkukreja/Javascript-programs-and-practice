@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<a href="https://classroom.udacity.com/courses/ud117/lessons/f270dbcf-eb43-4ce3-b7be-a74d26023496/concepts/5fdd280f-9bf8-4c13-b544-24cd9a4fb63e">Go to udacity</a>
+	<a href="https://www.youtube.com/watch?v=0ik6X4DJKCc&list=PLillGF-RfqbYE6Ik_EuXA2iZFcE082B3s">Go to Youtube</a>
+	<a href="https://github.com/">Go to Github</a>
+	
+	<script type="text/javascript">
+
+		const links = document.querySelectorAll('a');
+		const thirdLink = links[2];
+
+		thirdLink.addEventListener('click', function (event) {
+		    event.preventDefault();
+		    console.log("Look, ma! We didn't navigate to a new page!");
+		});
+	</script>
+
+</body>
+</html>

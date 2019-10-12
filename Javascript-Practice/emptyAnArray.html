@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*There are a couple of ways by which we can empty an array, So let's discuss all the possible way by which we can empty an array.
+
+		Method 1
+		arrayList = [];
+		The code above will set the variable arrayList to a new empty array. This is recommended if you don't have references to the original array arrayList anywhere else because It will actually create a new empty array. You should be careful with this way of empty the array, because if you have referenced this array from another variable, then the original reference array will remain unchanged, Only use this way if you have only referenced the array by its original variable arrayList.
+
+		For instance:*/
+
+		var arrayList1 = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
+		var anotherArrayList1 = arrayList1;  // Referenced arrayList by another variable
+		arrayList1 = []; // Empty the array
+		console.log(anotherArrayList1); // Output ['a', 'b', 'c', 'd', 'e', 'f']
+		console.log(anotherArrayList1.length)
+		/*Method 2
+		arrayList.length = 0;
+		The code above will clear the existing array by setting its length to 0. This way of emptying an array will also update all the reference variables that point to the original array.
+
+		For instance:*/
+
+		var arrayList2 = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
+		var anotherArrayList2 = arrayList2;  // Referenced arrayList by another variable
+		arrayList2.length = 0; // Empty the array by setting length to 0
+		console.log(anotherArrayList2); // Output []
+		console.log(anotherArrayList2.length)
+		/*Method 3
+		arrayList.splice(0, arrayList.length);
+		Above implementation will also work perfectly. This way of empty the array will also update all the references of the original array.*/
+
+		var arrayList3 = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
+		var anotherArrayList3 = arrayList3;  // Referenced arrayList by another variable
+		arrayList3.splice(0); // Empty the array by setting length to 0
+		console.log(anotherArrayList3); // Output []
+		console.log(anotherArrayList3.length)
+		/*Method 4*/
+		var arrayList4 = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
+		var anotherArrayList4 = arrayList4;  // Referenced arrayList by another variable
+		while(arrayList4.length) {
+		  arrayList4.pop();
+		}
+		console.log(anotherArrayList4); // Output []
+		console.log(anotherArrayList4.length)
+
+		var arrayList5 = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
+		var anotherArrayList5 = arrayList5;  // Referenced arrayList by another variable
+		for(let i=0;i<arrayList5.length;i++){
+			delete arrayList5[i];
+		}
+		console.log(anotherArrayList5); // (6) [empty × 6]
+		console.log(anotherArrayList5.length)//6
+
+
+
+
+	</script>
+
+</body>
+</html>

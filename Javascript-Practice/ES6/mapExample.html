@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Create a function unique(arr) that should return an array with unique items of arr.
+		function unique(arr) {
+		  return Array.from(new Set(arr));
+		}
+
+		let values = ["Hare", "Krishna", "Hare", "Krishna",
+		  "Krishna", "Krishna", "Hare", "Hare"
+		];
+
+		console.log( unique(values) ); // Hare, Krishna
+
+		//Write a function aclean(arr) that returns an array cleaned from anagrams.
+		/*	nap, pan -> anp
+			ear, era, are -> aer
+			cheaters, hectares, teachers -> aceehrst
+			...*/
+		function aclean(arr) {
+		  let map = new Map();
+
+		  for (let word of arr) {
+		    // split the word by letters, sort them and join back
+		    let sorted = word.toLowerCase().split('').sort().join(''); // (*)
+		    map.set(sorted, word);
+		  }
+		  //console.log(map.values());//object, MapIterator, not array
+		  return Array.from(map.values());
+		}
+
+		let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+		console.log( aclean(arr) );
+
+		//We’d like to get an array of map.keys() in a variable and then do apply array-specific methods to it, e.g. .push.
+
+		let map = new Map();
+
+		map.set("name", "John");
+		//keys = map.keys();
+		// Error: keys.push is not a function
+		//keys.push("more");
+
+		let keys = Array.from(map.keys());
+
+		keys.push("more");
+
+		alert(keys); // name, more
+	</script>
+
+</body>
+</html>

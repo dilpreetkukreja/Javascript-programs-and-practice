@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style> .focused { background-color: pink } </style>
+	<title></title>
+</head>
+<body>
+	<form id="form1">
+		  <input type="text" name="name" value="Name">
+		  <input type="text" name="surname" value="Surname">
+	</form>
+	<form id="form2">
+		  <input type="text" name="name" value="Name">
+		  <input type="text" name="surname" value="Surname">
+	</form>
+	<form id="form3">
+		  <input type="text" name="name" value="Name">
+		  <input type="text" name="surname" value="Surname">
+	</form>
+	<script type="text/javascript">
+		//below code wont work, becoause focus event dont bubble
+		let form1 = document.getElementById("form1");
+		form1.addEventListener(
+			"focus",
+			(event)=>event.target.classList.add("focused")
+		)
+		form1.addEventListener(
+			"blur",
+			(event)=>event.target.classList.remove("focused")
+		)
+		//below code will work, we use capture phase, and ffocus/blur do not bubble up, but propagate down on the capturing phase.
+		let form2 = document.getElementById("form2");
+		form2.addEventListener(
+			"focus",
+			(event)=>event.target.classList.add("focused")
+		,true)
+		form2.addEventListener(
+			"blur",
+			(event)=>event.target.classList.remove("focused")
+		,true)
+		//focusin and focusout, they bubble
+		let form3 = document.getElementById("form3");
+		form3.addEventListener(
+			"focusin",
+			(event)=>event.target.classList.add("focused")
+		)
+		form3.addEventListener(
+			"focusout",
+			(event)=>event.target.classList.remove("focused")
+		)
+
+		
+	</script>
+
+</body>
+</html>

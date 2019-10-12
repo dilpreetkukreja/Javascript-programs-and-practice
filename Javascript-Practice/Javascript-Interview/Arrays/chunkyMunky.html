@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		chunkArrayInGroups(["a", "b", "c", "d"], 2) should return [["a", "b"], ["c", "d"]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3) should return [[0, 1, 2], [3, 4, 5]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2) should return [[0, 1], [2, 3], [4, 5]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4) should return [[0, 1, 2, 3], [4, 5]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3) should return [[0, 1, 2], [3, 4, 5], [6]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4) should return [[0, 1, 2, 3], [4, 5, 6, 7], [8]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2) should return [[0, 1], [2, 3], [4, 5], [6, 7], [8]].*/
+		function chunkArrayInGroups(arr, size) {
+			let subArr=[];
+			let newArr=[];
+			while(arr.length>0){
+				for(let i=0;i<size;i++){
+					//console.log(i);
+					if(arr.length>0)
+						subArr.push(arr.shift());
+					else 
+						break;
+				}
+				newArr.push(subArr);
+				subArr=[];			
+			}
+
+		  // Break it up.
+		  return newArr;
+		}
+
+		console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3));
+		/////////////////////////////////
+		function chunkArrayInGroups1(arr, size) {
+		      // Break it up.
+		      var arr2 = [];
+		      for (var i = 0; i < arr.length; i+=size) {
+		    	arr2.push(arr.slice(i , i+size));
+		      }
+		      return arr2;
+		}
+		console.log(chunkArrayInGroups1([0, 1, 2, 3, 4, 5, 6], 3));
+		/////////////////////////
+		 function chunkArrayInGroups2(arr, size) {
+		      var newArr = [];
+		      while (arr.length) {
+		        newArr.push(arr.splice(0,size));
+		      }
+		      return newArr;
+		}
+		console.log(chunkArrayInGroups2([0, 1, 2, 3, 4, 5, 6], 3));
+	</script>
+
+</body>
+</html>

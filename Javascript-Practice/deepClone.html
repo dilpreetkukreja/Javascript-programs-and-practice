@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var personalDetail = {
+			name : 'Nishant',
+			address : {
+			  location: 'xyz',
+			  zip : '123456',
+			  phoneNumber : {
+			    homePhone: 8797912345,
+			    workPhone : 1234509876
+			  }
+			}
+		}
+		let newObj = {}
+		function deepClone(obj){
+			for(key in obj){
+				if(obj[key]==='object' && obj[key]!==null){	
+					newObj[key] = deepClone(obj[key]);
+				}
+				else
+					newObj[key] = obj[key]
+			}
+		}
+		deepClone(personalDetail);
+		console.log(newObj);
+		//Shallow clone
+		let newObj1 = {}
+		function notDeepClone(obj){
+			for(key in obj){
+					newObj1[key] = obj[key]
+			}
+		}
+		notDeepClone(personalDetail);
+		console.log(newObj1);
+
+	</script>
+
+</body>
+</html>

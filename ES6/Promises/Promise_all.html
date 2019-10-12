@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//if any of these promises return reject then reject func is all and all other resolved promises will be rejected
+		let firstname = function(){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					resolve("dilpreet");
+				},4000);
+			});
+		};
+		let middlename = function(){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					resolve("K.");
+				},2000);
+			});
+		};
+		let lastname = function(){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					resolve("Kukreja");
+				},5000);
+			});
+		};
+
+		//Promise.all is static method, it it method on Promise constructor
+		//when all the promises are resolved then Promise.all is executed and first func is called
+		//if any of these promises return reject then second func is all and all other resolved promises will be rejected
+
+		Promise.all([firstname(),middlename(),lastname()]).then(function(fullname){
+			console.log(fullname);//takes a total of 5 seconds
+		},function(err){
+			console.log("Error: "+err);
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<button id="btn">Click me</button>
+	<script type="text/javascript">
+		//A callback is a function which is called back after something has finsihed executed(in this case is 2 sec). After 2 sec callback func(func_Callback) is called.
+		//Example 1
+		function func_Callback(){
+			console.log("func_Callback was called back");
+		}
+
+		setTimeout(func_Callback,2000);
+
+		/*
+		Above code is same as below
+		setTimeout(function(){
+			console.log("func_Callback was called back");
+		},2000);
+		*/
+
+		//Example 2-  Event listener
+
+		let btn = document.getElementById('btn');
+		btn.addEventListener('click',clickfunc);
+
+		function clickfunc(e){
+			console.log("Button was clicked");
+		}
+		//create your own callback
+
+		let studentData =[{name:"dilpreet",score:70,school:"east"},{name:"jasnoor",score:90,school:"east"},{name:"anter",score:50,school:"west"},{name:"random",score:30,school:"east"}
+		];
+
+		function accessStudent(data,callback){
+			for(let i=0;i<data.length;i++){
+				if(data[i].school.toLowerCase()==="east"){
+					callback(data[i]);
+				}
+			}
+		}
+
+		accessStudent(studentData,printPassFail);
+
+		function printPassFail(obj){
+			if(obj.score>60)
+				console.log(obj.name +" is passed");
+			else
+				console.log(obj.name +" is failed");
+		}
+
+
+		let determineTotal = function(){
+			let total=0, count=0;
+			accessStudent(studentData, function(obj){//this func closes over total and count 
+				total =total+obj.score;
+				count++;
+			});
+			console.log("Total score:"+total+" count: "+count);
+
+		};
+		determineTotal();
+
+
+
+	</script>
+
+</body>
+</html>

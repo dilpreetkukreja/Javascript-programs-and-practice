@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*Translate the provided string to pig latin.
+
+		Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an "ay".
+
+		If a word begins with a vowel you just add "way" to the end.
+
+		Input strings are guaranteed to be English words in all lowercase.*/
+		function translatePigLatin(str) {
+			let returnStr="";
+			let regex = /[^aeiou]+/g;
+			let arrOfConsonent = str.match(regex);
+			console.log(arrOfConsonent);
+			///get the length of first consonent
+			let length = arrOfConsonent[0].length;
+			let regex2 = /[aeiou]/;
+
+		  	if(str[0].match(regex2)){
+		  		returnStr = str.concat("way");
+		  	}
+		  	else{
+		  		let arr = str.split("");
+		  		let removedFirstConsonent = arr.splice(0,length).join("");
+		  		//update str after removing first consonent
+		  		str = arr.join("");
+		  		//updatedStrWithConsonentAtEnd
+		  		returnStr = str.concat(removedFirstConsonent,"ay");
+
+		  	}
+		  	return returnStr
+		}
+
+		console.log(translatePigLatin("glove"));
+		////////////////////////////////////
+		function translatePigLatin2(str) {
+		  // Create variables to be used
+		  var pigLatin = '';
+		  var regex = /[aeiou]/gi;
+
+		  // Check if the first character is a vowel
+		  if (str[0].match(regex)) {
+		    pigLatin = str + 'way';
+
+		  } else if(str.match(regex) === null) {
+		    // Check if the string contains only consonants
+		    pigLatin = str + 'ay';
+		  } else {
+
+		    // Find how many consonants before the first vowel.
+		    var vowelIndice = str.indexOf(str.match(regex)[0]);
+
+		    // Take the string from the first vowel to the last char
+		    // then add the consonants that were previously omitted and add the ending.
+		    pigLatin = str.substr(vowelIndice) + str.substr(0, vowelIndice) + 'ay';
+		  }
+
+		  return pigLatin;
+		}
+
+		// test here
+		console.log(translatePigLatin2("glove"));
+	</script>
+
+</body>
+</html>

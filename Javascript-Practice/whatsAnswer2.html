@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function myFunc(){
+			console.log(myFunc.message);
+		}
+		myFunc.message = "Hi John";
+		console.log(typeof myFunc);
+			
+		console.log(myFunc());
+		////////////////////////
+		function Person(age){
+			this.age = age;
+			/*this.displayAge = function(){
+				console.log(this.age);
+			}*/
+		}
+		Person.prototype.address ="sanders st";
+
+		Person.age = 24;
+		Person.displayAge = function(){
+			console.log(this.age);
+		}
+
+		var person1 = new Person(31);
+		//person1.displayAge();//error
+		person1.constructor.displayAge();//24
+		Person.displayAge();//24
+	</script>
+
+</body>
+</html>

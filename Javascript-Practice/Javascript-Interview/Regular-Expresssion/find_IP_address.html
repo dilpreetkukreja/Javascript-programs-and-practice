@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = '01:32:54:67:89:AB';
+
+		let regex = /^[a-f0-9]{2}(:[a-f0-9]{2}){5}$/i;
+		let result = str.match(regex);
+		console.log(result);
+	</script>
+
+</body>
+</html>

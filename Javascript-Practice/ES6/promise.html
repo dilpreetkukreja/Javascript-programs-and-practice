@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let newPromise = new Promise((resolve, reject)=>{
+			setTimeout(function(){
+				if(false)
+					resolve("I'm resolved");
+				else
+					reject("Rejected!!!");
+			},1000)			
+		});
+		newPromise.then((resolveMsg)=>console.log(resolveMsg), (rejectMsg)=>console.log(rejectMsg));
+
+		console.log("I'm running")
+	</script>
+
+</body>
+</html>

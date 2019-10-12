@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function createBase(n){
+			return function(b){
+				return n+b;
+			}
+		}
+		var addSix = createBase(6);
+		console.log(addSix(10));//16
+		console.log(addSix(21));//27
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// the global variable
+		var globalTitle = " Winter Is   Coming";
+
+		// Add your code below this line
+		function urlSlug(title) {
+		  
+		  let lower = title.toLowerCase().trim();
+		  let arr = lower.split(/[\W]+/);
+		  console.log(arr);
+		  return arr.join("-");
+		}
+		// Add your code above this line
+
+		var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+		console.log("3"+winterComing+"3");
+	</script>
+
+</body>
+</html>

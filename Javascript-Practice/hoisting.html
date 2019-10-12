@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//hoisting: before any javascript is executed, all variable and function declaration are hoisted to the top of their current scope, Variable assignments are not hoisted.
+
+		add(2,3);//calling func before it is declaraed, does not produce error
+		function add(x,y){
+			console.log(x+y);
+		}
+		////////////////////////
+		function func(){
+			console.log(str);
+			var str = "hello";//only variable declaration is hoisted not assignment
+		}
+		func();//undefined
+		////////////////////
+
+		//sayHello();//error sayHello is not defined
+		x();//error- x is not func
+		var x = function sayHello(){
+			console.log("Say hello");
+		}
+
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//str.match(reg), no “g” flag
+		/*
+		The behavior of str.match varies depending on whether reg has g flag or not.
+
+		First, if there’s no g flag, then str.match(reg) looks for the first match only.
+
+		The result is an array with that match and additional properties:
+
+		index – the position of the match inside the string,
+		input – the subject string.
+		*/
+		let str = "Fame is the thirst of youth";
+
+		result = str.match(/fame/i);//i flag means case-insensitive
+		console.log(result);//first match with details
+		console.log(Array.isArray(result));//true
+
+		console.log( result[0] );    // Fame (the match)
+		console.log( result.index ); // 0 (at the zero position)
+		console.log( result.input ); // "Fame is the thirst of youth" (the string)
+		/*
+		result:
+		[matched-string, index, orig-string]
+		["Fame", index: 0, input: "Fame is the thirst of youth", groups:undefined]
+		*/
+
+		//what if parenthesis are used
+		//If a part of the pattern is delimited by parentheses (...), then it becomes a separate element in the array.
+		result1 = str.match(/fa(me)/i);//i flag means case-insensitive
+		console.log(result1);//first match and paranethesis string with details
+		//["Fame", "me", index: 0, input: "Fame is the thirst of youth", groups: undefined]
+
+		//with global flag
+		let str1 = "HO-Ho-ho!";
+
+		let result2 = str1.match( /ho/ig );
+
+		console.log( result2 ); // [HO, Ho, ho] (array of 3 matches, case-insensitive)
+		/*So, with g flag str.match returns a simple array of all matches, without details.*/
+
+		/*If there are no matches, str.match returns null
+			Please note, that’s important. If there are no matches, the result is not an empty array, but null.*/
+
+		//str.matchAll(regexp)
+
+		let str2 = "Javascript or javaScript? Should we uppercase 'S'?";
+
+		let result3 = str2.matchAll( /javascript/ig );
+		console.log(result3);//iterator
+
+		//using for loop
+		for(let i of result3){
+			console.log(i);
+		}
+		
+		//using array destructuring
+		let str3 = "Javascript or javaScript? Should we uppercase 'S'?";
+		let result4 = str3.matchAll( /javascript/ig );
+		//console.log("Array",Array.from(result4));
+		let [match1,match2] = result4;//or we can use Array.from(result4)
+		console.log(match1);
+		console.log(match2);
+		//using Array.from()
+		let str4 = "Javascript or javaScript? Should we uppercase 'S'?";
+		let result5 = str4.matchAll( /javascript/ig );
+		let [m1,m2] = Array.from(result5);
+		console.log(m1);
+		
+
+
+	</script>
+
+</body>
+</html>

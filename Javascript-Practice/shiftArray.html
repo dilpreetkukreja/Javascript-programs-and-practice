@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function shiftRight(arr)
+		{
+			var temp = new Array();
+			temp.push(arr[arr.length-1]);
+			for (i = 0; i <= arr.length-2; i++) temp.push(arr[i]);
+			return temp;
+		}
+		
+		function shiftLeft(arr)
+		{
+			var temp = new Array();
+			for (i = 1; i <= arr.length-1; i++) temp.push(arr[i]);
+			temp.push(arr[0]);
+			return temp;
+		}
+
+		let arr = [1,2,3];
+		console.log(shiftRight(arr));
+	</script>
+
+</body>
+</html>

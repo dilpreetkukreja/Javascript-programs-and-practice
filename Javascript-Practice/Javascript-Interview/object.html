@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var Person = function(firstAndLast) {
+		   let fullName = firstAndLast;
+		  
+		  // Complete the method below and implement the others similarly
+		  this.getFullName = function() {
+		    return fullName;
+		  };
+		  this.getFirstName = function() {
+		    return fullName.split(" ")[0];
+		  };
+		   this.getLastName = function() {
+		    return fullName.split(" ")[1];;
+		  };
+		  this.setFirstName= function(firstName){
+		    fullName = firstName+" "+fullName.split(" ")[1];
+		  };
+		  this.setLastName= function(lastName){
+		    fullName = fullName.split(" ")[0]+" "+lastName;
+		  };
+		  this.setFullName= function(fistAndLast){
+		    fullName = fistAndLast;
+		  };
+		};
+
+		var bob = new Person('Bob Ross');
+		console.log(bob.getFullName());
+		console.log(bob.getFirstName());
+		console.log(bob.getLastName());
+		bob.setFullName("dilpreet kaur");
+		console.log(bob.getFullName());
+		bob.setFirstName("anter");
+		bob.setLastName("kukreja");
+		console.log(bob.getFullName());
+
+	</script>
+
+</body>
+</html>

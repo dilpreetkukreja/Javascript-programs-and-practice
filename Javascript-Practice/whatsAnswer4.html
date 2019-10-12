@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		(function(){
+			function sayHello(){
+				var name = "Hi John";
+				return //javascript put semicolon here
+				{//this will be treated as block
+					fullName: name
+				}
+			}
+			console.log(sayHello().fullName);//Cannot read property 'fullName' of undefined
+		})();
+
+		(function(){
+			function sayHello(){
+				var name = "Hi John";
+				return {
+					fullName: name
+				}
+				
+			}
+			console.log(sayHello().fullName);//Hi John
+		})();
+	</script>
+
+</body>
+</html>

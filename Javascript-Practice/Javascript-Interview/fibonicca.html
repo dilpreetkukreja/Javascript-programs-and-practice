@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//printing n=5 fibonacci numbers
+		let num1 = 0;
+		let num2 = 1;
+		console.log(num1);
+		console.log(num2);
+		let fibo;
+
+		for(let i=2;i<5;i++){
+			fibo = num1+num2;
+			console.log(fibo);
+			num1 = num2;
+			num2 = fibo;
+		}
+
+		/////////////////////////
+		/*
+		Given a positive integer num, return the sum of all odd Fibonacci numbers so that sum is less than or equal to num.*/
+		function sumFibs(num) {
+			let num1 = 0;
+			let num2 = 1;
+			let fibo;
+			let sum=1;
+			let tempSum = 1;
+
+			while(tempSum<=num){
+				sum = tempSum;
+				fibo = num1+num2;
+				if(!(fibo%2===0)){
+					console.log("fibo:",fibo);
+					tempSum=tempSum+fibo;
+					console.log("tempSum:", tempSum);
+				}
+				num1 = num2;
+				num2 = fibo;		
+			}
+			return sum;	
+		}
+
+		console.log("sum:",sumFibs(4));
+		/////////////////////////////////
+		//Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+		function sumFibs2(num) {
+			let num1 = 0;
+			let num2 = 1;
+			let fibo=1;
+			let sum=1;
+			let tempSum = 1;
+
+			while(fibo<=num){
+				sum = tempSum;
+				fibo = num1+num2;
+				if(!(fibo%2===0)){
+					console.log("fibo:",fibo);
+					tempSum=tempSum+fibo;
+					console.log("tempSum:", tempSum);
+				}
+				num1 = num2;
+				num2 = fibo;		
+			}
+			return sum;	
+		}
+		console.log("sum:",sumFibs2(4));
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+
+<html>
+<head>
+<title>hello</title>
+</head>
+<body>
+<script>    
+    var name = "Jay Global";
+    var person = {
+        name: 'Jay Person',
+        details: {
+            name: 'Jay Details',
+            print: function() {
+                return this.name;
+            }
+        },
+        print: function() {
+            return this.name;
+        }
+    };
+    console.log(person.details.print());  // Jay Details
+    console.log(person.print());          // Jay Person
+
+    var name1 = person.print;
+    var name2 = person.details;
+
+    console.log(name1()); // Jay Global
+    console.log(name2.print());// Jay Details
+    ////////////////self invoking func////////////////////////
+    (function() {
+       "use strict";
+        console.log(this);
+    })();
+
+    (function() {
+        // Without strict mode
+        console.log(this);
+    })();
+    /////////////////////////////////////////
+    (function() {
+    // "use strict";
+    var item = {
+        document: "My document",
+        getDoc: function() {
+            console.log("this is:"+this);//window 
+            return this.document;//window.document
+        }
+    }
+    var getDoc = item.getDoc;
+    console.log(getDoc());
+    })();
+    //////////////////JavaScript this and bind/////////////////////
+    var bobObj = {
+    name: "Bob"
+    };
+
+    function print() {
+        return this.name;
+    }
+
+    // explicitly set this to point at "bobObj"
+    var printNameBob = print.bind(bobObj);
+    console.log(printNameBob());    // this points at bobObj, so logs "Bob"
+    //////////////////////////////////
+    var obj1 = {
+    data: [1,2,3],
+    printFirstData: function() {
+        if (this.data.length)
+            return this.data[0];
+    }
+    };
+
+    var obj2 = {
+        data: [4,5,6],
+        printSecondData: function() {
+            if (this.data.length > 1)
+                return this.data[1];
+        }
+    };
+
+    // get access to obj'2 method to use for obj1;
+    var getSecondData = obj2.printSecondData.bind(obj1);
+    console.log(getSecondData());   // prints 2
+    ///////////////////////////////
+    var object1 = {
+    data: [1,2,3],
+    double: function() {
+        this.data.forEach(function() {
+            // Get this to point to object.
+            //console.log(this);//without bind to anonymous fucn it wil point to window object, , inner func dont hv access to parent this
+            console.log(this); 
+        }.bind(this));//code added here- this(object1) is bind to anonymous function
+        }
+    };
+    var data = [5,6,7];
+    object1.double();
+    var double = object1.double;
+    console.log(double);
+    double();   // this.data = window.data----data is global variable not object1 var
+    //if global data is not defined then this.data is undefined
+    var double = object1.double.bind(object1);
+    double();  // no more error
+    /////////////JavaScript this and call///////////////
+    //The call method is very similar to bind, but the big difference is that call, as the name implies, immediately calls/executes the function.
+    var item = {
+    name: "I am"
+    };
+
+    function print() {
+        return this.name;
+    }
+
+    // executed right away
+    console.log(print.call(item));
+    /////////////////////////////////////
+    function convertArgs() {
+        var convertedArgs = Array.prototype.slice.call(arguments);
+        console.log(arguments);
+        console.log(Array.isArray(arguments));  // false
+        console.log(convertedArgs);
+        console.log(Array.isArray(convertedArgs)); // true
+    }
+    convertArgs(1,2,3,4);
+    ////////////////////////////
+    Math.min(1,2,3,4); // returns 1
+    Math.min([1,2,3,4]); // returns NaN. Only accepts numbers. 
+    Math.min.apply(null, [1,2,3,4]); // returns 1
+    ////////////////////////
+    function logArgs() {
+    console.log.apply(console, arguments);
+    }
+
+    logArgs(1,3,'I am a string', {name: "jay", age: "1337"}, [4,5,6,7]);
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+.rating {
+ position: relative;
+ border-top: 1px solid #fff;
+}
+.rating p {
+ text-align: center;
+ margin-bottom: 0;
+ line-height: 0;
+}
+.rating ul {
+ list-style: none;
+ position: relative;
+ width: 100px;
+ height: 20px;
+ background: transparent url("../images/stars.gif") -100px 0 no-repeat;
+ padding: 0;
+ left: 50%;
+ margin-left: -50px;
+ overflow: hidden;
+}
+.rating ul.worst {
+ background-position: -80px 0;
+}
+.rating ul.bad {
+ background-position: -60px 0;
+}
+.rating ul.fair {
+ background-position: -40px 0;
+}
+.rating ul.good {
+ background-position: -20px 0;
+}
+.rating ul.best {
+ background-position: 0 0;
+}
+.rating li {
+ margin: 0;
+ padding: 0;
+ float: left;
+}
+.rating li a {
+ display: block;
+ position: absolute;
+ width: 20px;
+ height: 20px;
+ text-indent: -100px;
+ overflow: hidden;
+ z-index: 20;
+}
+.rating a.worst {
+ left: 0;
+}
+.rating a.bad {
+ left: 20px;
+}
+.rating a.fair {
+ left: 40px;
+}
+.rating a.good {
+ left: 60px;
+}
+.rating a.best {
+ left: 80px;
+}
+.rating li a:hover {
+ background: transparent url("../images/star.gif") left top repeat-x;
+ left: 0;
+ z-index: 1;
+}
+.rating a.worst:hover {
+ width: 20px;
+}
+.rating a.bad:hover {
+ width: 40px;
+}
+.rating a.fair:hover {
+ width: 60px;
+}
+.rating a.good:hover {
+ width: 80px;
+}
+.rating a.best:hover {
+ width: 100px;
+}
+.rating img.loading {
+ position: absolute;
+ bottom: 0;
+ margin-left: 50%;
+ left: -57px;
+ z-index: 99;
+}

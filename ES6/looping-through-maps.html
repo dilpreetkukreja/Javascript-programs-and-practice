@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 3 different ways, 
+		1) Maps default iterator
+		2) for...of
+		3) foeEach
+		*/
+
+		const members = new Map();
+
+		members.set('Evelyn', 75.68);
+		members.set('Liam', 20.16);
+		members.set('Sophia', 0);
+		members.set('Marcus', 10.25);
+
+		//using using maps default iterator
+		//Using both the .keys() and .values() methods on a Map will return a new iterator object called MapIterator. You can store that iterator object in a new variable and use .next() to loop through each key or value. Depending on which method you use, will determine if your iterator has access to the Map’s keys or the Map’s values.
+
+
+
+		let iteratorObjForKeys = members.keys();
+		console.log(iteratorObjForKeys.next());//Object {value: 'Evelyn', done: false}
+
+		let iteratorObjForValues = members.values();
+		console.log(iteratorObjForValues.next());//Object {value: 75.68, done: false}
+
+		//using for...of loop
+		for (const member of members) {
+		  console.log(member);//array of key and value
+		}
+		for (const member of members) {
+		    let [key, value]=member;
+		     console.log(key, value);//log just key, value
+		}
+
+		//using forEach
+		members.forEach((value, key) => console.log(key, value));
+
+
+	</script>
+
+</body>
+</html>

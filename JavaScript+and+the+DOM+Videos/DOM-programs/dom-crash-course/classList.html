@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.bold{
+			font-weight:bold;
+		}
+		.background{
+			background: red;
+		}
+		.border-bottom{
+			border-bottom: 2px solid red;
+		}
+		.text-color{
+			color:pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="myDiv">Hello</div>
+	<script type="text/javascript">
+		const myDiv = document.getElementById('myDiv');
+		myDiv.classList.add('bold');
+		myDiv.classList.add('text-color');
+		console.log(myDiv);//<div id="myDiv" class="bold text-color">Hello</div>
+		myDiv.classList.remove('bold');
+		console.log(myDiv);//<div id="myDiv" class="text-color">Hello</div>
+		myDiv.classList.replace('text-color', 'border-bottom');
+		console.log(myDiv);//<div id="myDiv" class="border-bottom">Hello</div>
+		myDiv.classList.toggle('border-bottom');//it will remove class if its there, if its not there it will add class
+		console.log(myDiv);//<div id="myDiv" class="">Hello</div>
+		myDiv.classList.toggle('border-bottom');//it will remove class if its there, if its not there it will add class
+		console.log(myDiv);//<div id="myDiv" class="border-bottom">Hello</div>
+		console.log(myDiv.classList);
+		myDiv.className= "text-color background";//it replaces the prev classes
+		console.log(myDiv);
+		console.log(myDiv.classList);
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>i'm first div</div>
+	<div>i'm second div</div>
+	<div id="container1">
+		<div>container1- box</div>
+	</div>
+	<div id="container2">
+		<div>container2- box</div>
+	</div>
+	<script type="text/javascript">
+		let firstDiv = document.querySelector('div');
+		console.log(firstDiv);//<div>i'm first div</div>
+		//to select the frst div inside container 2
+		let container2 = document.querySelector('#container2');
+		let container2Box = container2.querySelector('div');//we use querySelector method on element instead of document.
+		console.log(container2Box);//<div>container2- box</div>
+
+	</script>
+
+</body>
+</html>

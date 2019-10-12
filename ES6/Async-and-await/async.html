@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let value = async function(){
+			return 1;//async func always return promise
+		};
+
+		let promise = value();
+		console.log(promise);//Promise {<resolved>: 1}
+
+		promise.then((val)=> console.log(val));//1
+
+
+
+
+	</script>
+
+</body>
+</html>

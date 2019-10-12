@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		let obj1 = {
+			name:"dilpreet",
+			age:31
+		}
+		Object.preventExtensions(obj1);
+		//no new properties, but can change existing properties, can delete
+
+		obj1.address = "sanders st";//fails
+		obj1.name = "dilpreet kaur";//works fine
+		delete obj1.age;//works fine
+		console.log(obj1);//{name: "dilpreet kaur"}
+		//////////////////////////////////
+		let obj2 = {
+			name:"dilpreet",
+			age:31
+		}
+
+		Object.freeze(obj2);
+		//no new properties, prevent existng properties from being modified, can't delete
+		obj2.address = "sanders st";//fails
+		obj2.name = "dilpreet kaur";//fails
+		delete obj2.age;//fails
+		console.log(obj2);
+
+		/////////////////////////////////
+		let obj3 = {
+			name:"dilpreet",
+			age:31
+		}
+
+		Object.seal(obj3);
+		//no new properties, prevent existng properties from being modified, can't delete
+		obj3.address = "sanders st";//fails
+		obj3.name = "dilpreet kaur";//works fine
+		delete obj3.age;//fails
+		console.log(obj3);
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

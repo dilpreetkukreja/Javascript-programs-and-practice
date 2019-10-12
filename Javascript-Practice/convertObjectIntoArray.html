@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const iceCreamTotal = {
+			dilpreet:2,
+			Jasnoor:1,
+			anter:10
+		}
+
+		nameArray = Object.keys(iceCreamTotal);
+		console.log("Names", nameArray);
+		iceEaten = Object.values(iceCreamTotal);
+		console.log("Icecream Eaten", iceEaten);
+
+		//another way
+		let name1 = [];
+		let iceEaten1 = []
+		for(name in iceCreamTotal){
+			name1.push(name);
+			iceEaten1.push(iceCreamTotal[name]);//dont use . notation, use only bracket notation
+		}
+		console.log("Name", name1);
+		console.log("Icecream Eaten", iceEaten1 );
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul id="myList"></ul>
+	<script type="text/javascript">
+		function createElement(text){
+			let li = document.createElement('li');
+			li.textContent = text;
+			return li;
+		}
+		function appendChildren(parent, children){
+			children.forEach(function(child){
+				parent.appendChild(child);
+			});
+		}
+
+		let items = [
+			createElement('dilpreet'),
+			createElement('Anter'),
+			createElement('Jasnoor'),
+		];
+
+		let parent = document.getElementById('myList');
+		appendChildren(parent, items);
+		
+	</script>
+
+</body>
+</html>

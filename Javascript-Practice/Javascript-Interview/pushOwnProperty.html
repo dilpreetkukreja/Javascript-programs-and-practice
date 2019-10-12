@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Bird(name) {
+		  this.name = name;
+		  this.numLegs = 2;
+		}
+		Bird.prototype.color = "red";
+
+		let canary = new Bird("Tweety");
+		console.log(canary);
+		let ownProps = [];
+		// Add your code below this line
+		for(let property in canary){
+		  if(canary.hasOwnProperty(property)){
+		    ownProps.push(property);
+		  }
+		}
+		console.log(ownProps);
+	</script>
+
+</body>
+</html>

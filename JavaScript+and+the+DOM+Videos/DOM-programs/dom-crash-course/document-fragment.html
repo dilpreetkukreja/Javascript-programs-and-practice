@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const t0 = performance.now();
+		const fragment = document.createDocumentFragment();  // ← uses a DocumentFragment instead of a <div>
+
+		for (let i = 0; i < 200; i++) {
+		    const newElement = document.createElement('p');
+		    newElement.innerText = 'This is paragraph number ' + i;
+
+		    fragment.appendChild(newElement);
+		}
+		document.body.appendChild(fragment); // reflow and repaint here -- once!
+		//once we append document fragment(meaning we move data in fragment to body, not copy. So as we move the data it is no longer avaible in fragment noe)
+		console.log(fragment);//no elements in it
+		const t1 = performance.now();
+		const difference = t1-t0;
+		console.log(`This code took: ${difference} milliseconds.`);
+		//This code took: 1.5650000423192978 milliseconds.
+	</script>
+
+</body>
+</html>

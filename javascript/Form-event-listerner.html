@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>This example uses the addEventListener() method to attach an "input" event to an input element.</p>
+
+<p>Write something in the text field to trigger a function.</p>
+<form action="/action_page.php">
+	Enter name: <input type="text" id="myInput" value="Mickey">
+</form>
+<script>
+document.getElementById("myInput").addEventListener("input", myFunction);
+
+function myFunction() {
+  alert("The value of the input field was changed.");
+}
+</script>
+
+</body>
+</html>

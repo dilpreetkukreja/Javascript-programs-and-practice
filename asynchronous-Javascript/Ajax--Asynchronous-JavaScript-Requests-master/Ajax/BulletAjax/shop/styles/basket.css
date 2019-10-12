@@ -1,0 +1,9 @@
+#basket thead th {
+ border-bottom: 2px solid #ddd;
+}
+#basket tbody td {
+ border-bottom: 1px solid #eee;
+}
+#basket td.amount {
+ text-align: right;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function whatIsInAName(collection, source) {
+  // What's in a name?
+  		  let sourceLength = Object.keys(source).length;
+  		  console.log(sourceLength);
+		  let keys = Object.keys(source);
+		  let values = Object.values(source);
+		  var arr = [];
+		  // Only change code below this line
+		  arr = collection.filter(elem=>{
+		  	let count=0;
+		  	for(let key in source){
+		  		if(elem.hasOwnProperty(key)){
+		  			if(elem[key]===source[key]){
+		  				count++;
+		  			}
+		  		}
+		  	}
+		  	if(count===sourceLength){
+		  		return true;
+		  	}
+
+		  })
+		  
+		  // Only change code above this line
+		  return arr;
+		}
+
+		console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 }));
+	</script>
+
+</body>
+</html>

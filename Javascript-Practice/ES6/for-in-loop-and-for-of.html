@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		Array.prototype.decimalfy = function(arr) {
+		  for (let i = 0; i < arr.length; i++) {
+		    arr[i] = arr[i].toFixed(2);
+		  }
+		};
+
+		const digits = [0, 1.2333, 2, 3.3445, .4, 5, 6, 7, 8.0290, 9];
+
+		for (const index in digits) {
+		  console.log(digits[index]);
+		}
+
+		let newArr = Array.prototype.decimalfy(digits);
+		console.log(digits);//["0.00", "1.23", "2.00", "3.34", "0.40", "5.00", "6.00", "7.00", "8.03", "9.00"]
+		console.log(newArr);//undefined
+
+		for(digit of digits){
+			console.log(digit);
+		}
+
+	</script>
+
+</body>
+</html>

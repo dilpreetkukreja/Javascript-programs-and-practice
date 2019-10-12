@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let element = "dirt";
+
+		let dragon = {
+			element : "fire",
+			breadth : function(){
+				console.log(`Dragon ${this.element}`)
+			}
+		}
+		dragon.breadth();//Dragon fire
+
+		let button = {
+			onClick: null
+		}
+
+		/*button.onClick = dragon.breadth;
+		button.onClick();//Dragon undefined*/
+
+		button.onClick = dragon.breadth.bind(dragon);
+		button.onClick();//Dragon fire
+
+
+		//unsing arrow func
+		//never use arrow function for objects method
+		let dragon2 = {
+			element : "fire",
+			breadth : () => console.log(`Dragon ${this.element}`)
+		}
+		dragon2.breadth();//Dragon undefined
+
+		let button2 = {
+			onClick: null
+		}
+
+		/*button.onClick = dragon.breadth;
+		button.onClick();//Dragon undefined*/
+		//binding has no effect on arrow func
+		button2.onClick = dragon2.breadth.bind(dragon);
+		button2.onClick();//Dragon undefined
+
+
+		let person1 = {
+			name: "dilpreet",
+			displayName: function(){
+				
+				setTimeout(function(){
+					console.log("regular func");
+					console.log(this)
+				}, 1000)
+			}
+		}
+		let person2 = {
+			name: "dilpreet",
+			displayName: function(){
+				
+				setTimeout(()=>{
+								console.log("arrow func");
+								console.log(this)
+						       }
+				, 1000)
+			}
+		}
+		person1.displayName();
+		person2.displayName();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+
+
+
+</body>
+</html>

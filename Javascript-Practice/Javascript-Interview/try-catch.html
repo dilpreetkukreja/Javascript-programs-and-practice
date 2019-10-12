@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function reverseString(s) {
+			let reverseStr
+		    try {
+		        let arr = s.split('');
+		        let reversedArr = arr.reverse();
+		        reverseStr = reversedArr.join('');
+		    }
+		    catch (e) {
+		        return (console.log(`${e.message}\n${s}`));
+		    }
+		    return (console.log(reverseStr));
+		}
+		reverseString(567);//check for 'abc' too
+
+	</script>
+
+</body>
+</html>

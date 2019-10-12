@@ -1,0 +1,1 @@
+<%@ Page Language="vb" AutoEventWireup="false" Codebehind="Contact.aspx.vb" Inherits="Chapter12VB.Contact"%>

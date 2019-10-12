@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		//Defining javascript in header(not in body)
+		/*Below code will causes error, as it is assessing the element before the DOM is constructed and loaded, so it dont find div elememt and can't set style to null element.*/
+		/*let div1= document.querySelector('div');
+		div1.style.backgroundColor = 'purple';//Cannot read property 'style' of null*/
+		 /*Solution for above problem, When dcument is loaded completley, browser fired event DOMContentLoaded, so we will listen to that event*/
+		document.addEventListener('DOMContentLoaded', function () {
+		  let div1= document.querySelector('div');
+          div1.style.backgroundColor = 'purple';
+      });
+		/*
+		If you're looking at somebody else's code, you may see that their code listens for the load event being used instead (e.g. document.onload(...)). load fires later than DOMContentLoaded -- load waits until all of the images, stylesheets, etc. have been loaded (everything referenced by the HTML.) Many older developers use load in place of DOMContentLoaded as the latter wasn't supported by the very earliest browsers. But if you need to detect when your code can run, DOMContentLoaded is generally the better choice.*/
+		/*However, just because you can use the DOMContentLoaded event to write JavaScript code in the <head> that doesn't mean you should do this. Doing it this way, we have to write more code(all of the event listening stuff) and more code is usually not always the best way to do something. Instead, it would be better to move the code to the bottom of the HTML file just before the closing </body> tag.*/
+
+		
+	</script>
+</head>
+<body>
+	<div>Hello</div>
+	
+
+</body>
+</html>

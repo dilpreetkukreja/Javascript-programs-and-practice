@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let age = 31;//let does not add to global scope
+		let obj = {
+			age: 24,
+			//never use arrow func in method
+
+			displayAge: () => {
+					console.log(this);//window
+					console.log(this.age)//undefined
+				}
+			}
+		obj.displayAge();//undefined
+		////////////////////////////////////////
+
+		var address = "sanders";//var adds to global scope
+		let obj1 = {
+			address: "green ave",
+			//never use arrow func in method
+			displayAddress: () => console.log(this.address)
+		}
+
+		obj1.displayAddress();//sanders
+		//////////////////////////////
+		//arrow func for constrcutor func
+		//never use arrow func for constrcurtor func
+		let displayColor = color => {
+			this.color = color;
+		}
+		//let newObj = new displayColor("red");// TypeError: displayColor is not a constructor
+		///////////////////////////////////
+		class cat{
+			let constructor = (name) => {//error, unexpected identifier
+				this.name = name
+			}
+			/*constructor(name){
+				this.name = name;
+			}*/
+			displayCatName(){
+				console.log(this.name);
+			}
+
+		}
+
+		let objCat = new cat("bailey");
+		objCat.displayCatName();
+		/////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

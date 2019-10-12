@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*Ques: You've seen what this refers to in chameleon.lookAround(); and in whoThis(). Carefully review this code:*/
+
+		const car = {
+		  numberOfDoors: 4,
+		  drive: function () {
+		     console.log(`Get in one of the ${this.numberOfDoors} doors, and let's go!`);
+		  }
+		};
+
+		const letsRoll = car.drive;
+		/*
+		letsRoll
+		ƒ () {
+		     console.log(`Get in one of the ${this.numberOfDoors} doors, and let's go!`);
+		  }
+		*/
+		letsRoll();//Get in one of the undefined doors, and let's go!
+		//What does you think this refers to in the code above?
+		//answer: window object
+	</script>
+
+</body>
+</html>

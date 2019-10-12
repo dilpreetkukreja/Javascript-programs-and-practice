@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// function Dog(age, weight, name) {
+//   this.age = age;
+//   this.weight = weight;
+//   this.name = name;
+//   this.bark = function () {
+//     console.log(`${this.name} says woof!`);
+//   };
+// }
+	//instead of defining bark func inside constructor func, we define it in its prototype property. Proptotype property is actually a object itself which stores properties and methods to be inherited by other objects.
+	function Dog(age, weight, name) {
+	  this.age = age;
+	  this.weight = weight;
+	  this.name = name;
+	}
+
+	Dog.prototype.bark = function () {
+	    console.log(`${this.name} says woof!`);
+	};
+
+	let dog1 = new Dog(2, 60, 'Java');
+
+	let dog2 = new Dog(4, 55, 'Jodi');
+
+	dog1.bark();
+
+	dog2.bark();
+	console.log(dog1.hasOwnProperty('age'));//true
+	console.log(dog1.hasOwnProperty('bark'));//false, its inherited
+
+	console.log(Object.getPrototypeOf(dog1));
+	//console.log(`__ptoto__: ${dog1.__proto__}`);//bark f, constructor f
+	console.log(dog1.__proto__);
+
+	/*Replacing the prototype Object 
+	What happens if you completely replace a function's prototype object? How does this affect objects created by that function? Let's look at a simple Hamster constructor function and instantiate a few objects:*/
+	function Hamster() {
+	  this.hasFur = true;
+	}
+
+	let waffle = new Hamster();
+	let pancake = new Hamster();
+	/*First, note that even after we make the new objects, waffle and pancake, we can still add properties to Hamster's prototype and it will still be able to access those new properties.*/
+
+	Hamster.prototype.eat = function () {
+	  console.log('Chomp chomp chomp!');
+	};
+
+	waffle.eat();
+	// 'Chomp chomp chomp!'
+
+	pancake.eat();
+	// 'Chomp chomp chomp!'
+
+	Hamster.prototype.say = function () {
+	  console.log('Loud voice');
+	};
+	waffle.say();
+	// 'Loud voice'
+
+	pancake.say();
+	// 'Loud voice'
+
+	/*Now, let's replace Hamster's prototype object with something else entirely:*/
+
+
+
+	Hamster.prototype = {
+	  isHungry: false,
+	  color: 'brown'
+	};
+	/*The previous objects don't have access to the updated prototype's properties; they just retain their secret link to the old prototype:*/
+
+	console.log(waffle.color);
+	// undefined
+
+	waffle.eat();
+	// 'Chomp chomp chomp!'
+
+	console.log(pancake.isHungry);
+	// undefined
+	/*As it turns out, any new Hamster objects created moving forward will use the updated prototype:*/
+
+	const muffin = new Hamster();
+
+	//muffin.eat();
+	// TypeError: muffin.eat is not a function
+
+	console.log(muffin.isHungry);
+	// false
+
+	console.log(muffin.color);
+	// 'brown'
+
+
+	/////////////////////////////////////
+	const myArray = [1, 2, 3];
+
+	myArray.join('');//join method is defined on the Array.prototype
+
+	console.dir(myArray);
+	///////////////////////////
+	const rodent = {
+	  favoriteFood: 'Mac-cheese',
+	  hasTail: true
+	};
+	/*Let's now build a Mouse() constructor function, and assign its prototype to rodent:*/
+
+	function Mouse() {
+	  this.favoriteFood = 'cheese';
+	}
+
+	Mouse.prototype = rodent;
+	/*If we create a new Mouse object, its prototype should be the rodent object. Let's confirm:*/
+
+	const ralph = new Mouse();
+
+	const result = rodent.isPrototypeOf(ralph);
+
+	console.log(result);
+	// true
+	console.log(ralph.hasTail);//true
+	const myPrototype = Object.getPrototypeOf(ralph);
+
+	console.log(myPrototype);//{favoriteFood: "Mac-cheese", hasTail: true}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let b=2;
+		let a=b=2;
+		console.log(a);//2
+		console.log(b);//2
+		function User(name) {
+		  this.name = name || "JsGeeks";
+		}
+
+		var person = new User("xyz")["location"] = "USA";
+		console.log(person);//USA
+		/*
+		The output of above code would be "USA". Here new User("xyz") creates a brand new object and created property location on that and USA has been assigned to object property location and that has been referenced by the person.
+
+		Let say new User("xyz") created a object called foo. The value "USA" will be assigned to foo["location"], but according to ECMAScript Specification , pt 12.14.4 the assignment will itself return the rightmost value: in our case it's "USA". Then it will be assigned to person.
+		*/
+
+		var person2;
+		var foo = new User("xyz");
+		foo["location"] = "USA";
+		console.log(foo);//User {name: "xyz", location: "USA"}
+		person2 = foo = "USA";
+		console.log(person2, foo)//USA USA
+	</script>
+
+</body>
+</html>

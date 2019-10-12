@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let setTimeoutP = function(time){
+			return new Promise(function(resolve,reject){
+				if (isNaN(time))
+					reject("Not a number");
+				else
+					resolve("Done");
+			});
+			
+		};
+
+		setTimeoutP(2000).then(function(value){
+			console.log(value)
+		},function(value){
+			console.log(value)
+		});
+	</script>
+
+</body>
+</html>

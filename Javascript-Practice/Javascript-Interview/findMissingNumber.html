@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//finding negative and multiple missing numbers
+		let arr = [-5,-3,0,1, 5, 9];
+		let missingNumbers2 = [];
+		function missing(arr){
+			for(let i=0;i<arr.length;i++){
+				let arrnextnumber = arr[i+1];
+				//console.log(arrnextnumber);
+				if(arrnextnumber!=='undefined'){
+					let diff=arrnextnumber-arr[i];
+					if(diff>1){
+						for(let l=1;l<diff;l++){
+									missingNumbers2.push(arr[i]+l);
+
+						}
+					}	
+				}
+			}
+		
+		}
+		missing(arr);
+		console.log(missingNumbers2);
+
+		//another approach - finding 1 missing number
+		let arrr = [1,2,3,4,5,6,7,9]
+		let max = Math.max(...arrr);//max = N number of items
+		//console.log(max);
+		let total_Of_N_Items = max*(max+1)/2;//total sum with no missing items
+
+		let sum = arrr.reduce((total, x)=> total+x);
+
+		let missingNumber = total_Of_N_Items - sum;
+		console.log(missingNumber);
+		////finding multiple missing numbers
+
+		let arr2 = [1,4,6,8,9];
+		let max2= Math.max(...arr2);
+		let missingNumbers = [];
+		for(let i=0;i<max2;i++){
+			if(arr2.indexOf(i)===-1)
+				missingNumbers.push(i)	
+		}
+		console.log("missing number is:",missingNumbers);
+
+
+		/////for -negative arrays
+		let input  = [-5,-3,0,1, 5, 9]
+
+		function findMissing(input) {
+
+		  var result = [];
+
+		  for (var inputIndex = 0, targetValue = input[0]; targetValue < input[input.length - 1]; targetValue++) {
+		    if (input[inputIndex] != targetValue) {
+		      result.push(targetValue);
+		    }
+		    else {
+		      inputIndex++;
+		    }
+		  }
+
+		  return result
+		 }
+
+		 console.log(findMissing(input));
+
+
+		// -5 -3 0 1 5 9
+		//  0  1 2 3 4 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

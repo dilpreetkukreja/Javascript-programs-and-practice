@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person(isCitizen, hasPassport){
+			this.isCitizen = isCitizen;
+			this.hasPassport = hasPassport;
+		}
+
+		Person.prototype.displayIsCitizen = function(){
+			return this.isCitizen;
+		}
+		Person.prototype.displayHasPassport = function(){
+			return this.hasPassport;
+		}
+
+
+		let person1 = new Person(true,true);
+
+		function Employee(isCitizen, hasPassport, jobDuty){
+			Person.call(this, isCitizen, hasPassport);
+			this.jobDuty = jobDuty;
+		}
+
+		Employee.prototype = Object.create(Person.prototype);
+		Employee.prototype.constructor = Employee;
+		Employee.prototype.displayJobDuty = function(){
+			return this.jobDuty;
+		}
+
+		let employee1 = new Employee(false, false, "teaching");
+		console.log(employee1.isCitizen);//false
+		console.log(employee1.displayIsCitizen());//false
+		console.log(employee1.jobDuty);//teaching
+		console.log(employee1.displayJobDuty());//teaching
+
+
+
+	</script>
+
+</body>
+</html>

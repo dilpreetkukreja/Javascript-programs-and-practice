@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person(name){
+			this.name = name;
+		}
+
+		Person.prototype.displayName = function(){
+			console.log(this.name);
+		}
+
+		let person1 = new Person("dilpreet");
+		person1.displayName();
+		console.log(person1);
+		//////////////////////////////
+
+
+	</script>
+
+</body>
+</html>

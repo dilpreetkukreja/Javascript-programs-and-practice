@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function convertHTML(str) {
+		  // &colon;&rpar;
+		  let updatedStr = str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;')
+		  
+		  return updatedStr;
+		}
+
+		//console.log(convertHTML("Dolce & Gabbana < > \" dilpreet's"));
+		console.log(convertHTML("Hamburgers < Pizza < Tacos"));
+
+	</script>
+
+</body>
+</html>

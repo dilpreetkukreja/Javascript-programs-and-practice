@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var bar = true;
+		console.log(bar + 0);   //1
+		console.log(bar + "xyz"); //truexyz 
+		console.log(bar + true);  //2
+		console.log(bar + false);//1
+
+		console.log(1+"xyz");//1xyz
+		console.log(null+"xyz");//nullxyz
+		console.log(null+1);//1
+		console.log(undefined+"xyz");//undefinedxyz
+		console.log(undefined+1);//NaN
+		console.log(NaN+"xyz");//NaNxyz
+		console.log(NaN+1);//NaN
+		console.log(false+1);//1
+		console.log(""+1);//1 , converted into string
+		/*
+		Number + Number -> Addition
+		Boolean + Number -> Addition
+		Boolean + Boolean -> Addition
+		Number + String -> Concatenation
+		String + Boolean -> Concatenation
+		String + String -> Concatenation
+
+		*/
+	</script>
+
+</body>
+</html>

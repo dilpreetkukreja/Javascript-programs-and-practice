@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function palindrome(str) {
+		  // Good luck!
+		  let regex = /[\W_]/g;
+
+		  let result = str.toLowerCase().replace(regex,"");
+		  console.log(result);
+		  let arr = result.split("");
+		  let origArr = [...arr];
+		  console.log(origArr);
+		  let reverseArr = arr.reverse();
+		  console.log(reverseArr);
+		  if(origArr.join("")===reverseArr.join(""))
+			return true;
+		  else
+		  	return false;
+		}
+		console.log(palindrome("2A3*_3a2"));
+	</script>
+
+</body>
+</html>

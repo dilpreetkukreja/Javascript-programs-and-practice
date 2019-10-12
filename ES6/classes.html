@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//https://classroom.udacity.com/courses/ud356/lessons/3925704a-be38-4b70-8c8b-a4a812b6a309/concepts/87ea1632-2d15-4185-8c4a-2061dcc71fd3
+
+		/*in ES5, we use constructor functions to create new objects and to inherit data and funtionality happens through prototypal inheritance. Just because ECMAScript provides new keywords like class, extends and super, it doesnot mean the entire way the language works has changed.so javascript still uses functions and prootypal inheritance under the hood. we just have a new cleaner way to write the functionality. keep in mind by using classes the underlyting functionality og language hasn't changed.
+		 Points to note:
+		 1) Javascript is not a class-based language
+		 2) It uses functions to create objects and links objects together by prototypal inheritance.
+		 3) Javascript classes are just the thin mirage over regular functions and prototypal inheritance.
+		 */
+
+		/*function Plane(numEngines) {
+		  this.numEngines = numEngines;
+		  this.enginesActive = false;
+		}
+
+		// methods "inherited" by all instances
+		Plane.prototype.startEngines = function () {
+		  console.log('starting engines...');
+		  this.enginesActive = true;
+		};
+
+		var richardsPlane = new Plane(1);
+		richardsPlane.startEngines();
+
+		var jamesPlane = new Plane(4);
+		jamesPlane.startEngines();*/
+
+		//ES6 we use classes, we can create the same above code using classes
+		class Plane {
+		  constructor(numEngines) {//this method is used to initialize objects, its calls automatically when we create new objects.
+		    this.numEngines = numEngines;
+		    this.enginesActive = false;
+		  }
+		  //Commas are not used to separate properties or methods in a Class. If you add them, you'll get a SyntaxError of unexpected token ,
+
+		  startEngines() {//this method ends up in Plane.prototype
+		    console.log('starting engines…');
+		    this.enginesActive = true;
+		  }
+
+		  static badWeather(planes) {//we can just access this method directly on Plane class
+		    for (let plane of planes) {
+		      plane.enginesActive = false;
+		    }
+  }
+		}
+		var richardsPlane = new Plane(1);
+		richardsPlane.startEngines();
+		console.log(richardsPlane.enginesActive);//true
+		var jamesPlane = new Plane(4);
+		jamesPlane.startEngines();
+		console.log(jamesPlane.enginesActive);//true
+
+		//to prove class is just a function
+		console.log(typeof Plane);//function
+		//That's right—it's just a function! There isn't even a new type added to JavaScript.
+
+		Plane.badWeather([richardsPlane, jamesPlane]);
+		console.log(richardsPlane.enginesActive);
+		console.log(jamesPlane.enginesActive);
+
+	</script>
+
+</body>
+</html>

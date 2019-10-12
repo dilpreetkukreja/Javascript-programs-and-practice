@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//https://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6
+		//https://wsvincent.com/javascript-temporal-dead-zone/
+		/*
+			What is the purpose of let keyword?
+			The let statement declares a block scope local variable. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the var keyword used to define a variable globally, or locally to an entire function regardless of block scope. Let's take an example to demonstrate the usage,
+			*/
+
+			let counter = 30;
+			if (counter === 30) {
+			  let counter = 31;
+			  console.log(counter); // 31
+			}
+			console.log(counter); // 30 (because if block variable won't exist here)
+			/*What is the difference between let and var?
+			Let's take an example to see the difference,*/
+
+			function userDetails() {
+			   if(true) {
+			     console.log(salary); // undefined(due to hoisting)
+			     //console.log(name);//error, can't access before initialization, temporal dead zone
+			     //This is the Temporal Dead Zone where we’re trying to access a variable that has not yet been initialized (it has been declared and therefore exists, but has no value, not even undefined)
+			     //console.log(age); // /error, can't access before initialization
+			     const name="dilpreet"
+			     let age = 30;
+			     var salary = 10000;
+			   }
+			   console.log(salary); //10000 (accessible to due function scope)
+			   //console.log(age); //error: age is not defined(due to block scope)
+			}
+
+			//There is another great advantage using let as it creates a new lexical environment and also binds fresh value rather than keeping an old reference.
+			userDetails();
+			for(var i=1; i<6; i++){
+			   setTimeout(function(){
+			      console.log(i);
+			   },1000)
+			}
+
+			for(let i=1; i<6; i++){
+			   setTimeout(function(){
+			      console.log(i);
+			   },1000)
+			}
+			//The first for loop always print the last value, with let it creates a new scope and bind fresh values printing us 1, 2, 3, 4, 5
+
+			//Coming to constants, it work basically like let, the only difference is their value can't be changed. In constants mutation is allowed but reassignment is not allowed.
+
+			const foo = {};
+			foo.bar = 42;
+			console.log(foo.bar); //works
+
+			const name = []
+			name.push("Vinoth");
+			console.log(name); //works
+
+			const age = 100;
+			//age = 20; //Throws Uncaught TypeError: Assignment to constant variable.
+
+			console.log(age);
+			///////////////
+			function func(){
+				//hoisting meaning registering scope of variable
+				//scope of let created, let there is hoisted, hoisting doesnot mean physically moving variable declaration, it means registering variable declaration in memory
+				//console.log("name:",name);//error, can't access name before initialization
+				//TIME between scope created and initialization done is called Temporal Dead Zone, we can't access variable between this time. This is in contrast to var for which scope and initialization done in one step(so no such time), so we can access the var variable before statement - var name;
+				let name;//this statement will cause initialization and set it value to undefined
+				console.log("name:",name);//undefined
+				name = "dilpreet";//assignment
+				console.log("name:", name)
+
+			}
+			func();
+			/////////////////////////////////////////
+			let id;
+			console.log("id:", id);//undefined
+			id=8;
+			//////////////////////////////////////////
+			//console.log(job);// Cannot access 'job' before initialization
+			let job="teaching";
+			///////////////////////////////////////////
+			//color = "brown";////error, can't access color before initialization
+			//console.log(color);
+			let color;
+			////////////////////////////////////////
+			function display(){
+				console.log("cat name:",catsName);
+			}
+			display();//undefined
+			let catsName;//Error, Cannot access 'catsName' before initialization,this statement should move up before display()
+
+
+
+
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		let input = `<h1><a href="http://www.quackit.com/html/tutorial/html_links.cfm">Example Link</a></h1>
+					<div class="more-info"><a href="http://www.quackit.com/html/examples/html_links_examples.cfm">More Link Examples...</a></div>`;
+		
+		let regex = /(?<=\<)[a-zA-Z]+[1-5]?(?=[\s{0,1}\>])/gm;
+
+		let result = input.match(regex);
+		let arr = Array.from(result);
+		console.log(arr);
+		let set = new Set(arr);
+		console.log(set);
+		let sorted = Array.from(set).sort();
+		console.log(sorted);
+		console.log(sorted.join(";"));
+		
+	
+	</script>
+
+
+
+</body>
+</html>

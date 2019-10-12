@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Animal(){
+			this.type = "Animal-type";
+		}
+		Animal.prototype.color = "Animal-color";
+
+		function GuineaPig (name) {
+		  this.name = name;
+		  this.isCute = true;
+		}
+		function Guinea (name) {
+		  this.name = name;
+		  this.isCute = true;
+		}
+
+		Guinea.prototype = Animal.prototype;
+		//console.log(GuineaPig.prototype.type);
+		//console.log(GuineaPig.type);
+		const w = new Guinea("w");
+		const b = new Guinea("b");
+		/*waffle.color = "red";
+		console.log(waffle.color);
+		console.log(banana.color);*/
+		Guinea.prototype.add = "added";
+
+
+		const animal1 = new Animal();
+		GuineaPig.prototype = animal1;
+		const waffle = new GuineaPig('Waffle');
+		const banana = new GuineaPig('Banana');
+		GuineaPig.prototype.second = "second"
+	</script>
+
+</body>
+</html>

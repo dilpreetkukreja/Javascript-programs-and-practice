@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const arr = [1,2,3,4];
+
+		let min = Math.min(...arr);
+		console.log(min);
+		let max = Math.max(...arr);
+		console.log(max);
+
+		let sum = arr.reduce((total,x)=>total+x);
+
+		let minSum = sum-max;
+		let maxSum = sum-min;
+
+	</script>
+
+</body>
+</html>

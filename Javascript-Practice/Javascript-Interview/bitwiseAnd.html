@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*https://www.hackerrank.com/challenges/js10-bitwise/problem
+		*/
+		//get  bitwise AND less than K
+		let n=955;
+		let k=236;
+		
+		let arr = Array(n).fill().map((e,i)=>i+1)
+		console.log(arr);
+		let length = arr.length;
+		let valueLessThanK = [0];
+
+		for(let i=0;i<length;i++){
+			for(let j=i+1;j<length;j++){
+				let bitWiseAND = arr[i] & arr[j];
+				//console.log(bitWiseAND);
+				if(bitWiseAND<k){
+					if(valueLessThanK[0]<bitWiseAND){
+						valueLessThanK.pop();
+						valueLessThanK.push(bitWiseAND);
+					}	
+				}
+			}
+		}
+		console.log(valueLessThanK[0]);
+		//console.log("Max bitwise AND value:", maxValue);
+
+	</script>
+
+</body>
+</html>

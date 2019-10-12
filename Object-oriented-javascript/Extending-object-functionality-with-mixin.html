@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*object's .prototype property points to just one object. This is because JavaScript only supports single inheritance. If there is an object A and an object B, object C can only be prototype-linked to either A or B.
+		If a JavaScript object can only be prototype-linked to a single object, how can we go about extending properties and methods from multiple different sources? A mixin allows us to just that!*/
+		/*A mixin is a technique that takes the properties and methods from one object and copies them over to another object. In other words: a mixin is an technique that provides some useful functionality, but is not meant to be added to the prototype chain.*/
+		/*Object.assign()
+		The simplest way to implement the mixin pattern is to use Object.assign(). Object.assign() is a method that copies an object's own (non-inherited) properties from one or more source objects into a target object, then returns the updated target object. In other words, Object.assign() adds to the target object by merging in the source object(s). Consider the following:*/
+		/*The first argument passed in, target, is the destination that receives the properties copied from the source object, source. Note that Object.assign() does not create and return a new object; it directly modifies then returns the same target object that was passed in! As such, values of existing properties will be overwritten, while properties that don't exist in the source object will remain intact:*/
+
+		let target = { letter: 'a', number: 11 };
+
+		let source = { number: 7 };
+
+		Object.assign(target, source);
+
+		console.log(target);
+		// { letter: 'a', number: 7 }
+
+		let target = {};
+
+		let source = { number: 7 };
+		Object.assign(target, source);
+
+		console.log(target);
+				// { number: 7 }
+		/*In the above example, the value of target's number property was overwritten, while its letter property was ignored.
+
+		Multiple Source Objects
+		Object.assign() can even take in multiple different source objects. Let's create a platypus object by mixing in properties from other animals:*/
+
+		const duck = {
+		  hasBill: true
+		};
+		const beaver = {
+		  hasTail: true
+		};
+		const otter = {
+		  hasFur: true,
+		  feet: 'webbed'
+		};
+
+		const platypus = Object.assign({}, duck, beaver, otter);
+
+		console.log(platypus);
+		// { hasBill: true, hasTail: true, hasFur: true, feet: 'webbed' }
+		/*Great! After merging an empty target object (i.e., an object without properties of its own) with the properties from duck, beaver, and otter, the target object is returned with all four properties. It is important to note that the platypus object is not prototype-linked to the three other objects! That is, platypus doesn't exist in any of the three source objects' prototype chains, and vice versa:*/
+
+		platypus.constructor;
+		// Object()
+
+		platypus.isPrototypeOf(duck);
+		// false
+
+		duck.isPrototypeOf(platypus);
+		// false
+
+		platypus.isPrototypeOf(beaver);
+		// false
+
+		beaver.isPrototypeOf(duck);
+		// false
+
+		platypus.isPrototypeOf(otter);
+		// false
+
+		otter.isPrototypeOf(platypus);
+		// false
+		////////////////////////////////////
+		
+		const duck = {
+		  hasBill: true,
+		  feet: 'orange'
+		};
+		const beaver = {
+		  hasTail: true
+		};
+		const otter = {
+		  hasFur: true,
+		  feet: 'webbed'
+		};
+
+		const platypus = Object.assign({}, duck, beaver, otter);
+
+		console.log(platypus);
+	</script>
+
+</body>
+</html>

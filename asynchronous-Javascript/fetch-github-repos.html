@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+	  fetch('https://api.github.com/users/dilpreetkukreja/repos')
+	  .then(response => response.json())
+	  .then(data => {
+	    // Here's a list of repos!
+	    console.log(data[3]);
+	  });
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Hamster() {
+		  this.hasFur = true;
+		}
+
+		let waffle = new Hamster();
+		let pancake = new Hamster();
+		Hamster.prototype.eat = function () {
+		  console.log('Chomp chomp chomp!');
+		};
+
+		waffle.eat();
+		// 'Chomp chomp chomp!'
+
+		pancake.eat();
+		// 'Chomp chomp chomp!'
+		Hamster.prototype.eat = function(){
+			console.log("i'm changed");
+		}
+		waffle.eat();
+		pancake.eat();
+		Hamster.prototype = {
+		  isHungry: false,
+		  color: 'brown'
+		};
+		console.log(waffle.color);
+		// undefined
+
+		waffle.eat();
+		// 'Chomp chomp chomp!'
+
+		console.log(pancake.isHungry);
+		// undefined
+		
+
+		waffle.eat();
+		//
+
+		pancake.eat();
+
+		const muffin = new Hamster();
+
+		//muffin.eat();
+		// TypeError: muffin.eat is not a function
+
+		console.log(muffin.isHungry);
+		// false
+
+		console.log(muffin.color);
+		// 'brown'
+		console.log(muffin.eat())
+	</script>
+
+</body>
+</html>

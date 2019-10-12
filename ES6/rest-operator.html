@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//bundle multiple elements back into an array
+
+		//assigning the values of an array to variables.
+		const order = [20.17, 18.67, 1.50, "cheese", "eggs", "milk", "bread"];
+		const [total, subtotal, tax, ...items] = order;
+		console.log(total, subtotal, tax, items);//20.17 18.67 1.5 ["cheese", "eggs", "milk", "bread"]
+
+		//variadic function
+		function average(...items) {
+		    let total=0;
+		    let count=0;
+		    if (items === undefined || items.length === 0) 
+		    return 0;
+		    else{
+		        for(const item of items){
+		            total+=item;
+		            count++;
+		            //console.log(item);
+		        }
+		        return(total/count);
+		    }
+		}
+
+		console.log(average(2, 6));
+		console.log(average(2, 3, 3, 5, 7, 10));
+		console.log(average(7, 1432, 12, 13, 100));
+		console.log(average());
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//synchronous code: each line of code execute at a time
+
+		/*function method1(){
+			console.log("Start method 1");
+			alert("click ok");
+			console.log("End method 1");
+		}
+
+		function method2(){
+			console.log("Now I get attention.");
+		}
+
+
+		method1();
+		method2();*/
+		/* 
+		Output:
+		Start method 1
+		alert - click ok
+		End method 1
+		Now I get attention
+		*/
+
+		//Asynchronous code: we dont wait for lengthy code to finish first to execute next line of code. we use callbacks.
+		function method1(){
+			setTimeout(function(){//this is callback function
+				console.log("Start method 1");
+				alert("click ok");
+				console.log("End method 1");
+			},1000);//1 sec delay	
+		}
+
+		function method2(){
+			console.log("Now I get attention.");
+		}
+
+
+		method1();
+		method2();
+		/* 
+		Output:
+		Now I get attention
+		//after 1 sec delay(note if delay is 0 sec, method2 will execute first)
+		//process, method 1 execute(moves into stack) and then callback func is logged to brower and method 1 finsihes and removes from stack. Then method 2 is excuted(moves into stack) and finishes and removes from stack. In the mean time after zero sec , callback go into quene. if nothing is in stack then it moves to stack and get executed.
+		Start method 1
+		alert - click ok
+		End method 1
+		*/
+
+
+	</script>
+
+</body>
+</html>

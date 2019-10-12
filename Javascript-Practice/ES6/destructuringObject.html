@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let ageField = "age";
+		let person = {
+			name:"dilpreet",
+			[ageField]:28,//[] tells value of ageFiled will be person object property, so ageFiled value which is age will become object property
+			address:"sanders",
+			displayName: function(){
+				console.log(this);
+				console.log(this.name);
+			},
+			displayAge: function(){
+				console.log(this);
+				console.log(this.age);
+			},
+
+			children: {
+				son: "jasnoor",
+				daugter: "seerat"
+			}
+
+		}
+		console.log(person);//{name: "dilpreet", age: 28, address: "sanders"}
+		/*let {name, age} = person;
+		console.log(name, age);*/
+
+		////////////
+		let {age, name, address, displayName: outsidefunc, displayAge, phone="default", medicalRecord} = person;
+		console.log(outsidefunc)
+		
+		console.log(age, name, address, phone, medicalRecord);//28 "dilpreet" "sanders" "default" undefined
+
+		let {son, daugter} = person.children;
+		console.log(son, daugter);
+
+		outsidefunc.bind(person)();//dilpreet
+		displayAge();//window, undefined
+
+
+	</script>
+
+</body>
+</html>

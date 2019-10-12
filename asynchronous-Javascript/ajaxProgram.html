@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- adding jquery -->
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		function handleResponse(data) {
+	    console.log('the ajax request has finished!');
+	    console.log(data);
+	}
+
+	$.ajax({
+	    url: 'https://swapi.co/api/people/1/'
+	}).done(handleResponse);
+	</script>
+
+
+
+
+</body>
+</html>

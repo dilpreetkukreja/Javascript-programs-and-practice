@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//normal function
+		/*const upperizedNames = ['Farrin', 'Kagure', 'Asser'].map(function(name) { 
+		  return name.toUpperCase();
+		});*/
+		//arrow function
+		//consise syntax, single expression as the function body(has no curly braces surrounding the function body and automatically returns the expression.)
+		const upperizedNames = ['Farrin', 'Kagure', 'Asser'].map(
+		  name => name.toUpperCase()//no semicolon
+		);
+		/*steps for converting the existing "normal" function into an arrow function.
+
+		1) remove the function keyword
+		2) remove the parentheses
+		3) remove the opening and closing curly braces
+		4) remove the return keyword
+		5) remove the semicolon
+		5) add an arrow ( => ) between the parameter list and the function body*/
+
+		/*use braclets when there is no argument and when there are multiple arguments
+		eg. () => console.log("no argumanets")
+		(name, city, country)=> conosle.log("multiple args");*/
+
+		//Regular functions can be either function declarations or function expressions, however arrow functions are always expressions.
+		//an arrow function is stored in a variable
+		const greet = name => `Hello ${name}!`;
+		console.log(greet('Asser'));//Hello Asser!
+
+		setTimeout(_ =>console.log("starting.."),500);//starting..
+		setTimeout(()=>console.log("starting.."),500);//starting..
+		const display = _ => console.log("display");
+		display();//display
+
+		//block body syntax(it uses curly braces to wrap the function body and a return statement needs to be used to actually return something from the function.)
+		const upperizedNames1 = ['Farrin', 'Kagure', 'Asser'].map( name1 => {
+		  name1 = name1.toUpperCase();
+		  return `${name1} has ${name1.length} characters in their name`;
+		});
+	</script>
+
+</body>
+</html>

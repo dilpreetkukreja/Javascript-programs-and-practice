@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const members = new Map();
+
+		members.set('Evelyn', 75.68);
+		members.set('Liam', 20.16);
+		members.set('Sophia', 0);
+		members.set('Marcus', 10.25);
+
+		console.log(members.has('Xavier'));//false
+		console.log(members.has('Marcus'));//true
+
+		//And you can also retrieve values from a Map, by passing a key to the .get() method.
+
+		console.log(members.get('Evelyn'));//75.68
+	</script>
+
+</body>
+</html>

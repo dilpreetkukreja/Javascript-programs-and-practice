@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Person{
+			constructor(name){
+				this.name = name;
+ 			}
+ 			displayName(){
+ 				console.log(this.name);
+ 			}
+		}
+
+		let person1 = new Person("dilpreet");
+		person1.displayName();
+		console.log(person1);
+
+
+		class Employee extends Person{
+			constructor(name, duty){
+				super(name);
+				this.duty = duty;
+			}
+			displayDuty(){
+				console.log(this.duty);
+			}
+		}
+
+		let employee1 = new Employee("anter", "teaching");
+		employee1.displayName();
+		employee1.displayDuty();
+		console.log(employee1);
+	</script>
+
+</body>
+</html>

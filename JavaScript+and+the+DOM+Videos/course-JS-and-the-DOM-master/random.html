@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>hello</title>
+</head>
+<body>
+<script>
+/*function whoThis () {
+  this.trickyish = true;
+  console.log(this.constructor.name);
+}
+
+whoThis();*/
+const car = {
+  numberOfDoors: 4,
+  drive: function () {
+     console.log(`Get in one of the ${this.numberOfDoors} doors, and let's go!`);
+     console.log(this);
+  }
+};
+
+const letsRoll = car.drive;
+console.log(letsRoll);
+
+letsRoll();
+
+
+var var1 = 'ice cream';
+console.log(var1.constructor.name);
+console.log(window.var1);
+console.log(window.var1 === var1);
+
+let currentlyEating = 'ice cream';
+console.log(currentlyEating.constructor.name);
+console.log(window.currentlyEating);
+console.log(window.currentlyEating === currentlyEating);
+
+
+var iceCreamEaten = 1;
+
+function consume (numberOfGallons) {
+  var result = iceCreamEaten + numberOfGallons;
+  console.log("inside funct "+this);
+
+  function updateTotals (newTotal) {
+  	//debugger
+  	console.log("inside funct "+this);
+    iceCreamEaten = result;
+  }
+console.log(window.updateTotals === updateTotals)
+  updateTotals();
+}
+
+window.consume(3);
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function getClothing1(isCold1) {
+		  if(isCold1) {
+		    var freezing1 = 'Grab a jacket!';
+		  } 
+		  else{
+		    var hot1 = 'It’s a shorts kind of day.';
+		    console.log(`freezing1: ${freezing1}`);//undefined
+		  }
+		}
+		getClothing1(false);//dont use quotes for false
+		/*the above code run time is as below
+		function getClothing1(isCold1) {
+		  var freezing1, hot1;//variable declarations are hoised, which means they're raised to the top of function scope.
+		  if(isCold1) {
+		    freezing1 = 'Grab a jacket!';
+		  } 
+		  else{
+		    hot1 = 'It’s a shorts kind of day.';
+		    console.log(`freezing1: ${freezing1}`);//undefined
+		  }
+		}*/
+
+		////using let
+		function getClothing2(isCold2) {
+			//let vand const ariables are not hoised
+		  if(isCold2) {
+		    let freezing2 = 'Grab a jacket!';
+		  } 
+		  else{
+		    let hot2 = 'It’s a shorts kind of day.';
+		    console.log(`freezing2: ${freezing2}`);//reference error freezing2 is not defined
+		  }
+		}
+		getClothing2(false);
+
+		/*
+		Rules for using let and const
+
+		1) Variables declared with let can be reassigned, but can’t be redeclared in the same scope.
+		2) Variables declared with const must be assigned an initial value, but can’t be redeclared in the same scope, and can’t be reassigned.*/
+	</script>
+
+</body>
+</html>

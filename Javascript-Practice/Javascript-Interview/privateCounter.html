@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function counter(){
+			let count= 0;
+			return {
+						incrementCounter: function(){
+							count+=1;
+							return count;
+						},
+						decrementCounter: function(){
+							count-=1;
+							return count;
+						}
+					}
+
+		}
+
+		let counterObj = counter();
+		console.log(counterObj.incrementCounter());//1
+		console.log(counterObj.incrementCounter());//2
+		console.log(counterObj.decrementCounter());//1
+		console.log(counterObj.decrementCounter());//0
+
+
+	</script>
+
+</body>
+</html>

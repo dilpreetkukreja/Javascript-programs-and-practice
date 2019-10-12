@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function confirmEnding(str, target) {
+		  
+		  return str.endsWith(target);
+		}
+
+		console.log(confirmEnding("Bastian", "an"));
+		/////////////////////////////
+		function confirmEnding1(str, target) {
+		  let length = str.length;
+		  let targetLength = target.length;
+		  let lastElem="";
+
+		  for(let i=targetLength;i>=1;i--){
+		  	lastElem+=str[length-i];
+		  }
+		  console.log(lastElem);
+		  return lastElem===target;
+		}
+
+		console.log(confirmEnding1("Bastian", "an"));
+		/////////////////////////////////////////
+		//using substring
+		function confirmEnding2(str, target) {
+		  let targetLength = target.length;
+		  let lastElem = str.substring(str.length-targetLength,str.length);
+		  console.log(lastElem);
+		  return lastElem===target; 
+		}
+
+		console.log(confirmEnding2("Bastian", "an"));
+
+
+	</script>
+
+</body>
+</html>

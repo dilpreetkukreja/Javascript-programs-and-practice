@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//str.replace(str|reg, str|func)
+
+		// replace a dash by a colon
+		console.log('12-34-56'.replace("-", ":")) // 12:34-56
+		// replace all dashes by a colon
+		console.log( '12-34-56'.replace( /-/g, ":" ) )  // 12:34:56
+		/*
+
+		The second argument is a replacement string. We can use special characters in it:
+
+		Symbol	Inserts
+		$$	"$"
+		$&	the whole match
+		$`	a part of the string before the match
+		$'	a part of the string after the match
+		$n	if n is a 1-2 digit number, then it means the contents of n-th parentheses counting from left to right, otherwise it means a parentheses with the given name*/
+
+		let str = "John Doe John Smith John Bull";
+
+		// for each John - replace it with Mr. and then John
+		console.log(str.replace(/John/g, "Mr.$&"));  // Mr.John Doe, Mr.John Smith and Mr.John Bull
+
+		let strt = "John Smith";
+
+		// swap first and last name
+		console.log(strt.replace(/(john) (smith)/i, '$2, $1')) // Smith, John
+
+		//using functions
+		let i = 0;
+
+		// replace each "ho" by the result of the function
+		console.log("HO-Ho-ho".replace(/ho/gi, function() {
+		  return ++i;
+		})); // 1-2-
+
+		/*The function is called with arguments func(str, p1, p2, ..., pn, offset, input, groups):
+
+		str – the match,
+		p1, p2, ..., pn – contents of parentheses (if there are any),
+		offset – position of the match,
+		input – the source string,
+		groups – an object with named groups (see chapter Capturing groups).
+		If there are no parentheses in the regexp, then there are only 3 arguments: func(str, offset, input).*/
+
+		// show and replace all matches
+		function replacer(str, offset, input) {
+		  console.log(`Found ${str} at position ${offset} in string ${input}`);
+		  return str.toLowerCase();
+		}
+
+		let result = "HO-Ho-ho".replace(/ho/gi, replacer);
+		console.log( 'Result: ' + result ); // Result: ho-ho-ho
+
+		// shows each match:
+		// Found HO at position 0 in string HO-Ho-ho
+		// Found Ho at position 3 in string HO-Ho-ho
+		// Found ho at position 6 in string HO-Ho-ho
+
+	</script>
+
+</body>
+</html>

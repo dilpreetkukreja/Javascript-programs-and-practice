@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function rot13(str) { // LBH QVQ VG!
+		  let arr = str.split(" ");
+		  let convertedArr = []
+		  let updated;
+		 for(let i=0;i<arr.length;i++){
+		    updated = arr[i].split("").map(elem=>{
+		        let hex = elem.charCodeAt(0);
+		        if(hex>=65&&hex<=77)
+		        	hex= hex+13;
+		        else if(hex>=78&&hex<=90)
+		        	hex=hex-13;
+		       
+
+		        let charconverted = String.fromCharCode(hex);
+		        return charconverted;
+		    });
+		    convertedArr.push(updated.join(""));
+
+		 }
+		  return convertedArr.join(" ");
+		}
+
+		// Change the inputs below to test
+		console.log(rot13("SERR PBQR PNZC!"));
+	</script>
+
+</body>
+</html>

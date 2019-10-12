@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//Read this first: https://classroom.udacity.com/courses/ud356/lessons/3925704a-be38-4b70-8c8b-a4a812b6a309/concepts/32f53f68-4b31-40fb-b136-4eda28b8ff57
+		// constructor
+		function IceCream() {
+		    this.scoops = 0;
+			this.addScoop = () => { 
+			  setTimeout(() => {
+			    this.scoops++;
+			    console.log('scoop added!');
+			  }, 0);
+			};
+		}		
+		const dessert = new IceCream();
+		dessert.addScoop();//scoop added
+		console.log(dessert.scoops);//0
+
+		var obj1 = {
+			func: function(){ return this;},
+			display: function(){
+				function another(){
+					return console.log("output:"+this);
+				}
+				another();
+			}
+		};
+		obj1.display();//window
+		console.log(obj1.func() === obj1); //true
+		var obj = {func: ()=>this};
+		console.log(obj.func() === window); //true
+
+	
+
+
+		
+
+	</script>
+
+</body>
+</html>

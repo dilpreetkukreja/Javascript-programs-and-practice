@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var yum ="tasty";
+		function func(){
+			var k=8;
+			if(true){
+				var i=0;
+				let y=10;
+			}			
+			console.log(i);
+			//console.log(y); //y is not defined
+		}
+		func();
+		//console.log(i);//i is not defined
+		//console.log(k);//k is not defined
+		console.log(yum)
+		console.log(window.yum)
+		///////////////////////////////
+		//Which of the following variables and functions will be available on the window object?answer: iceCreamEaten and consume
+		/*Every time a function is called, this will be reset. In a nested (inner) function it does not inherit the value from the enclosing scope the way other (explicitly declared) variables are.
+
+		By default this will be set to window, unless the function is invoked as:
+
+		myObj.func(arg1, ...) or
+		func.call(myObj, arg1, ...) or
+		func.apply(myObj, [arg1, ...])
+		in which case this will be equal to myObj
+
+		A function called any other way, even if it was originally defined as a property of an object (i.e. var func = myObj.func; func() will use window.
+
+		There's also a utility function called .bind which wraps a function reference in such a way that you can provide a specific value which will always be used as this:
+
+		var myFunc = myObj.func;                // obtain reference to func
+		var bound = myFunc.bind(someOtherObj);  // bind it to "someOtherObj"
+
+		bound();                               // this === someOtherObj
+		bound.call(myObj)                      // this still === someOtherObj
+		*/
+		var iceCreamEaten = 1;
+
+		function consume (numberOfGallons) {
+		  var result = iceCreamEaten + numberOfGallons;
+
+		  function updateTotals (newTotal) {
+		  	console.log(this);
+		    iceCreamEatenTotal = result;
+		    console.log(iceCreamEatenTotal);
+		  }
+		  console.log(this);
+		  updateTotals();
+		}
+
+		window.consume(3);
+		console.log(window.consume(4));
+		var obj={
+			objFunc:function(){
+				console.log("hello");
+			}
+		}
+		objFunc();//error
+		
+	</script>
+
+</body>
+</html>

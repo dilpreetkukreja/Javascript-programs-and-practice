@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const a = function(x){
+			this.x = x,
+			this.getX = function(){
+				return this.x;
+			}
+		};
+		const b = function(x,y){
+			a.call(this,x);
+			this.y = y,
+			this.getY = function(){
+				return this.y;
+			}
+		};
+
+		const newB = new b("x","y");
+		console.log(newB.getX());
+		console.log(newB.getY());
+
+	</script>
+
+</body>
+</html>

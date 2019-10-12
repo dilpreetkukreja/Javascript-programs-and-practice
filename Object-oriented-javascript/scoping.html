@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/////////////////////////
+		var width2;
+		function setWidth2() {
+		  width2 = 100;//update the global variable
+		  console.log(width2);//100
+		}
+		setWidth2();
+		console.log(width2);//100
+
+		///////////////////////////
+		function setWidth1() {
+		  var width1 = 100;//width scope is in function onlt, not outside function
+		  console.log(width1);//100
+		}
+		setWidth1();
+		//uncomment below line
+		//console.log(width1);//ReferenceError: width is not defined
+
+		////////////////////////////
+		var age = 100;
+		if(age > 12) {
+		  var dogYears = age * 7;
+		  console.log(`You are ${dogYears} dog years old!`);
+		}
+		console.log(dogYears);//700
+
+		/* If you go to your browser console and call dogYears, you’ll see that it’s leaked outside of the if statement and it is now a global variable that lives on window, which isn’t really what we want. var variables are function scoped and remember, there’s no function here, it’s going to be globally scoped. It’s scoped to the entire window, which is a little bit of a pain here. That is one of the benefits to using let and const. Instead of being scoped to the function, it is block scoped, which is something new.*/
+
+		/*Any time that you see { curly brackets }, that’s a block. Functions are also blocks, let and const are still going to be scoped to a function, but if inside of that function or if inside of some other element that you have, it will be scoped to the closest set of curly brackets.*/
+
+		var age1 = 100;
+		if(age1 > 12) {
+		  let dogYears1 = age1 * 7;
+		  console.log(`You are ${dogYears1} dog years old!`);
+		}
+		console.log(dogYears1); // error because it's scoped only to the above block
+
+		
+
+
+	</script>
+
+</body>
+</html>

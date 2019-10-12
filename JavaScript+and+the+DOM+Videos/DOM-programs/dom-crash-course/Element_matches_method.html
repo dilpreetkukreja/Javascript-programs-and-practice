@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p id="myPara1" data-name="dilpreet">i will write some <em>text</em></p>
+
+
+	<script type="text/javascript">
+		//it checks whether or not a element matches a specified selector
+		/*
+			beforebegin - before element
+			afterbegin - first child
+			beforeend - last child
+			afterend - after element
+		*/
+		let myPara1 = document.getElementById('myPara1');
+		console.log(myPara1.matches('p'));//true
+		console.log(myPara1.matches('#myPara1'));//true
+		console.log(myPara1.matches('.myPara1'));//false
+		console.log(myPara1.matches('[data-name]'));//true
+		
+	</script>
+
+</body>
+</html>

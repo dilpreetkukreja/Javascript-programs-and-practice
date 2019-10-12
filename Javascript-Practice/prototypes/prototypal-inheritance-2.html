@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person(isCitizen, hasPassport){
+			this.isCitizen = isCitizen;
+		}
+
+		Person.prototype.displayIsCitizen = function(){
+			return this.isCitizen;
+		}
+
+		let person1 = new Person(true);
+
+
+		function Employee(jobDuty){
+			this.jobDuty = jobDuty;
+		}
+
+		Employee.prototype = person1;
+		Employee.prototype.displayJobDuty = function(){
+			return this.jobDuty;
+		}
+
+		let employee1 = new Employee("teaching");
+		console.log(person1.isPrototypeOf(employee1));//true
+		console.log(Object.getPrototypeOf(employee1));//Person {isCitizen: true, displayJobDuty: ƒ}
+		console.log(employee1.isCitizen);//true
+		console.log(employee1.displayJobDuty());//teaching
+
+
+	</script>
+
+</body>
+</html>

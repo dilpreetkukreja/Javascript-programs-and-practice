@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//frankenSplice([1, 2, 3], [4, 5], 1) should return [4, 1, 2, 3, 5].
+		//return new array by adding arr1 at position n into arr2 without changing arr2 and arr1
+		function frankenSplice(arr1, arr2, n) {
+		  // It's alive. It's alive!
+		  let A2 = [...arr2];
+		  A2.splice(n,0,...arr1);
+		  return A2;
+		}
+
+		frankenSplice([1, 2, 3], [4, 5, 6], 1);
+	</script>
+
+</body>
+</html>

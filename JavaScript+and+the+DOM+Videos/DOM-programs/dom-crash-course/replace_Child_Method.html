@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul id="myList">
+		<li>apple</li>
+		<li>banana</li>
+		<li>orange</li>
+	</ul>
+	<script type="text/javascript">
+		let myList = document.getElementById('myList');
+		bananaListItem = myList.children[1];
+
+		//create new list item
+
+		newListItem = document.createElement('li');
+		newListItem.textContent = 'Grapes';
+
+		myList.replaceChild(newListItem,bananaListItem);
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		//If you want to create a Set from a list of values, you use an array:
+		let games = new Set(['Super Mario Bros.', 'Banjo-Kazooie', 'Mario Kart', 'Super Mario Bros.']);
+		console.log(games);
+		//Set {'Super Mario Bros.', 'Banjo-Kazooie', 'Mario Kart'}
+
+		//modifying
+		games.add('Banjo-Tooie');
+		games.add('Age of Empires');
+		games.delete('Super Mario Bros.');
+
+		console.log(games);
+		//Set {'Banjo-Kazooie', 'Mario Kart', 'Banjo-Tooie', 'Age of Empires'}
+
+		let newCopy = games;
+		console.log("Created copy..")
+		console.log(newCopy);
+		newCopy.delete('Mario Kart');
+		console.log('changing copy and see effect in original..');
+		console.log(games);
+
+		//to clear all items
+		games.clear();
+		console.log(games);
+
+		games.add('dilpreet');
+		//add returns the Set if item is successfully addes
+		let newSet = games.add('anter');
+		console.log(newSet);
+		console.log(games);
+		//delete retuns true or false depending on successful deletion
+		console.log(newSet.delete('anter'));//true
+		console.log(games);//Set{'dilpreet'}
+		console.log(newSet.clear());
+		console.log(games);//Set{0}
+
+		
+	</script>
+
+</body>
+</html>

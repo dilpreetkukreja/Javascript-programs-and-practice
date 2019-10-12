@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		1)The Module Pattern is commonly used to create private properties in JavaScript.
+		Since JavaScript doesn't have private variables, properties, or methods built-in we can leverage the Module Pattern to enforce such privacy.
+		2)It uses scope, closures and IIFE.
+		3)Keep in mind, however, that you generally use the Module Pattern when you just want one "version" of an object. If you're looking to instantiate unique objects that follow a certain blueprint, you can always still write and invoke a constructor function!*/
+		let diana = (function () {
+		let secretIdentity = 'Diana Prince';
+
+		  return {
+		    introduce: function () {
+		      console.log(`Hi! I am ${secretIdentity}`);
+		    }
+		  };
+		})();
+		console.log(diana.secretIdentity);//undefined, not accessible from outside.
+		/*And because the returned object's introduce() method retains access to its parent function's scope, we are given a public interface to interact with secretIdentity:*/
+		diana.introduce();// 'Hi! I am Diana Prince'
+		////////////////////////////////////
+		let person = (function () {
+		  let name = 'Veronika';
+
+		  return  {
+		    getName: function () {
+		      return name;
+		    },
+		    setName: function (myName){
+		      name = myName;
+		    }
+		  };
+		})();
+
+		console.log(person.name);
+		// undefined
+		console.log(person.getName());
+		// 'Veronika'
+
+		console.log(person.setName('Not Veronika'));
+		console.log(person.getName());
+		// 'Not Veronika'
+		person.name="dilpreet";
+		console.log(person.name);
+		console.log(person.getName());//Not Veronika, beacuse person closes over parents's local variable 'name';
+
+	</script>
+
+</body>
+</html>

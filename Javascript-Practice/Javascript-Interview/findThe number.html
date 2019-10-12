@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*find the number which will give-
+		
+		1) num*num = 0
+		2) num+1 = 1
+		3) num-1 = -1
+		4) num/num = 1
+
+		*/
+
+		let num = Number.MIN_VALUE;
+		console.log("Number is:",num);//5e-324, which is nearly zero
+		console.log(num*num);//0
+		console.log(num+1);//1
+		console.log(num-1);//-1
+		console.log(num/num);//1
+
+		let anotherNum = Number.MAX_VALUE;
+		console.log("Number is:",anotherNum);//1.7976931348623157e+308
+		console.log(anotherNum*anotherNum);//infinity, very large number multiply by very larger num is equal to infinity
+		console.log(anotherNum+1);//1.7976931348623157e+308, didnt much change the number
+		console.log(anotherNum-1);//1.7976931348623157e+308, didnt much change the number
+		console.log(anotherNum/anotherNum);//1
+
+		console.log(555555555555555555); //its 18 5s, so after 16 digits it adds zero
+		console.log(Number.MAX_SAFE_INTEGER);//9007199254740991 , which is 16 digit
+
+	</script>
+
+</body>
+</html>

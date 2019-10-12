@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const bear = {
+		  claws: true,
+		  diet: 'carnivore'
+		};
+
+		function PolarBear(name) { 
+			this.name = name;
+		  // ...
+		}
+		//PlaorBear inheriting bear object
+		PolarBear.prototype = bear;//by assinging it to object means all instances have same value of properties
+
+		const snowball1 = new PolarBear("lima");
+		snowball1.color = 'white';
+		snowball1.favoriteDrink = 'cola';
+		
+		console.log(snowball1.claws);
+		// true
+		console.log(snowball1.diet);
+		// 'carnivore'
+	
+		console.log(snowball1.__proto__);
+		// { claws: true, diet: 'carnivore' }
+		console.log(snowball1.__proto__ === bear);
+		// true
+
+		const snowball2 = new PolarBear("snowy");
+		console.log("snowball2 diet:"+snowball2.diet);//carnivore
+		snowball2.diet = "herbivore";
+		console.log("snowball1 diet after change:"+snowball1.diet);//carnivore
+		console.log("snowball2 diet after change:"+snowball2.diet);//herbovore
+		console.log("snowball1 name"+snowball1.name);
+		console.log("snowball2 name:"+snowball2.name);
+		snowball2.__proto__.diet = "omnivore";
+		console.log("snowball1 diet after change in __proto__:"+snowball1.diet);//omnivore
+		console.log("snowball2 diet after change in __proto__:"+snowball2.diet);//omnivore
+		snowball2.name = "pluto";
+		console.log("snowball2 name:"+snowball2.name);
+
+
+
+		//Let's say we want a Child object to inherit from a Parent object. 
+		//Why shouldn't we just set Child.prototype = Parent.prototype?
+		//First, recall that objects are passed by reference. This means that since the Child.prototype object and the Parent.prototype object refer to the same object -- any changes you make to Child's prototype will also be made to Parent's prototype! We don't want children being able to modify properties of their parents!
+
+		function Animal(){
+			this.type = "Animal-type";
+		}
+		Animal.prototype.color = "Animal-color";
+
+		function GuineaPig (name) {
+		  this.name = name;
+		  this.isCute = true;
+		}
+		GuineaPig.prototype = new Animal();
+		//console.log(GuineaPig.prototype.type);
+		//console.log(GuineaPig.type);
+
+		const waffle = new GuineaPig('Waffle');
+		const banana = new GuineaPig('Banana');
+		console.log(waffle.type);
+		console.log(waffle.color);
+		//waffle.isCute = false;
+		////////some improtant concepts/////
+		waffle.__proto__.__proto__.color = "yellow";//this will change value of color in __proto__.__proto__
+		//waffle.__proto__.color = "yellow";//this is added in the __proto__ as it was not already there, reflected in others objects __proto__ too.
+		//waffle.color = "blue";//property added in waffle
+		console.log(waffle.color);
+		console.log(banana.color);
+		console.log(waffle.isCute);
+		console.log(banana.isCute);
+		console.log(GuineaPig.prototype);
+		console.log(waffle.__proto__);
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let names = ["dilpreet", "anter", "Jasnoor"];
+
+		let [name1, name2, name3, name4] = names;
+		console.log(name1, name2, name3, name4);//dilpreet anter jasnoor
+
+		//we can one item too
+		let [a, ,c] = names;
+		console.log(a, c);//dilpreet jasnoor
+
+		//using rest opertaor
+		let [item1,...restOfItems] = names
+		console.log(item1),//dilpreet
+		console.log(restOfItems);//["anter", "jasnoor"]
+
+		//swap numbers
+
+		let num1 = 1;
+		let num2 = 2;
+		let arr = [num1,num2];
+		[num2, num1] = arr;
+
+		console.log(num2, num1);//1 2
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p id="myPara1">i will write some <em>text</em></p>
+	<p id="myPara2">i will write some <em>text</em></p>
+
+	<script type="text/javascript">
+		//By adding insertAdjacentHTML, there is no effect on parent's child's event listener but by adding innerHTML, the parent's child's listener is removed
+		/*
+			beforebegin - before element
+			afterbegin - first child
+			beforeend - last child
+			afterend - after element
+		*/
+		myPara1 = document.getElementById('myPara1');
+		myPara2 = document.getElementById('myPara2');
+
+		let em1 = myPara1.querySelector('em');
+		let em2 = myPara2.querySelector('em');
+		em1.addEventListener('click', function(){
+			console.log('myPara1 em');
+		});//there is no effect on this event listener by adding insertAdjacentHTML
+		em2.addEventListener('click', function(){
+			console.log('myPara2 em');
+		});//this event listener is removed if we add innerHTML
+
+
+		myPara1.insertAdjacentHTML('beforeend','<strong>Added text</strong>');
+		myPara2.innerHTML += '<strong>Added text</strong>';
+	</script>
+
+</body>
+</html>

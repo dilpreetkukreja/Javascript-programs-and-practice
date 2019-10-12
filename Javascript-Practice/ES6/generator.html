@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function* getEmployee() {
+		    console.log('the function has started');
+
+		    const names = ['Amanda', 'Diego', 'Farrin', 'James', 'Kagure', 'Kavita', 'Orit', 'Richard'];
+
+		    for (const name of names) {
+		        yield name;
+		    }
+
+	    	console.log('the function has ended');
+		}
+
+		const generatorIterator = getEmployee();
+		let result = generatorIterator.next();
+		console.log(result);
+		console.log(result.value);
+	</script>
+
+</body>
+</html>

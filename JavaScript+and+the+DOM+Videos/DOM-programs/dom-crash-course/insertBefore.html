@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul id="myList">
+		<li>Apple</li>
+		<!--insert element here-->
+		<li id="itemOrange">oranges</li>
+		<li>banana</li>
+	</ul>
+	<script type="text/javascript">
+		let myList = document.getElementById("myList");
+		let itemOrange = document.getElementById("itemOrange");
+		let newElem = document.createElement('li');
+		newElem.textContent = "Pear"
+		myList.insertBefore(newElem,itemOrange);
+		console.log(myList);
+		//append child at the beginning
+		let insertAtBegin = document.createElement('li');
+		insertAtBegin.textContent = "Papaya"
+		myList.insertBefore(insertAtBegin,myList.firstChild);
+		
+	</script>
+
+</body>
+</html>

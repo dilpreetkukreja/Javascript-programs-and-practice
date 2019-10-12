@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//lookahead
+		//match cost
+		let str = "15 banana is 22.52$";
+		let regex = /\d+\.\d+(?=\$)/;
+
+		let result = str.match(regex);//22.52
+		console.log(result);
+
+		//not cost but number
+		let regex1 = /\d+(?!\$)/;
+		let result1 = str.match(regex1);//15
+		console.log(result1);
+
+		//lookbehind
+		let str2 = "15 banana is $22.52";
+		let regex2 = /(?<=\$)\d+\.\d+/;
+
+		let result2 = str2.match(regex2);//22.52
+		console.log(result2);
+
+		//match number
+		let regex3 = /(?<!\$)\d+/;
+
+		let result3 = str2.match(regex3);//15
+		console.log(result3);
+
+
+	</script>
+
+</body>
+</html>

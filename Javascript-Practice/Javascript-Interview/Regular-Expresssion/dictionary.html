@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let input = `3
+sam 99912222
+tom 11122222
+harry 12299933
+sam
+edward
+harry`;
+
+	let regex1 = /[a-z]+\s[0-9]{8}/gi;
+	let result = input.match(regex1);
+	let arr1 = Array.from(result);
+	console.log(arr1);
+
+	let regex2 = /[a-z]+(?!.)/gi;
+	let result2 = input.match(regex2);
+	let arr2 = Array.from(result2);
+	console.log(arr2);
+
+
+	let map = new Map();
+	arr1.forEach(elem=>{
+		let regex1 = /[a-z]+/gi;
+		let name = elem.match(regex1)[0];
+		console.log(name);
+		let regex2 = /[0-9]{8}/g;
+		let phone = elem.match(regex2)[0];
+		console.log(phone);
+		map.set(name,phone);
+
+	})
+	console.log(map);
+
+	arr2.forEach(elem=>{
+		if(map.has(elem)){
+			let value = map.get(elem);
+			console.log(`${elem}=${value}`)
+		}
+		else
+			console.log("Not found");
+	})
+
+
+	</script>
+
+</body>
+</html>

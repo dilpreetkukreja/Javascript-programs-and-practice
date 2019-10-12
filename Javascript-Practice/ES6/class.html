@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Plane {
+		  constructor(numEngines) {
+		    this.numEngines = numEngines;
+		    this.enginesActive = true;
+		  }
+
+		  static badWeather(planes) {
+		    for (let plane of planes) {
+		      plane.enginesActive = false;
+		    }
+		  }
+		  static print(){
+		  	console.log("hi");
+		  }
+
+		  startEngines() {
+		    console.log('starting engines…');
+		    this.enginesActive = true;
+		  }
+		}
+
+		let plane1 = new Plane(2);
+		console.log(plane1);
+		plane1.startEngines();
+		//plane1.print();//error,newObj.print is not a function
+		Plane.print();
+		console.log(plane1.enginesActive);//true
+		Plane.badWeather([plane1]);
+		console.log(plane1.enginesActive);//false
+
+
+	</script>
+
+</body>
+</html>

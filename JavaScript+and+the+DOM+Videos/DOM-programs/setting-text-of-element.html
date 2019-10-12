@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<header id="main-header"><div>This is header<span style="display: none;color:red"> this is span</span></div></header>
+	<script type="text/javascript">
+		let headerElem = document.getElementById('main-header');
+		console.log(headerElem.textContent);//although span has displayed none, it is still shown in textContent
+		console.log(headerElem.innerText);
+		console.log(headerElem.innerHTML);
+		headerElem.innerHTML = "<p>hello</p>";//it places p elemnent inside header element
+		console.log(headerElem);
+		console.log(headerElem.innerHTML);
+		console.log(headerElem.outerHTML);
+		headerElem.outerHTML = "<div>I'm changed</div>";
+		//whole header element is replaced with div element
+
+	</script>
+
+</body>
+</html>

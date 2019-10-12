@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div> hello</div>
+	<script type="text/javascript">
+		/*document.addEventListener('click', function () {
+		   console.log('The document was clicked');
+		});//event trigger during bubble phase(trigger 2nd)
+
+		document.body.addEventListener('click', function () {
+		    console.log('The body element was clicked');
+		});//event trigger during bubble phase(trigger 1st if we click body)*/
+		console.log("******************************");
+		/*document.addEventListener('click', function () {
+		   console.log('The document was clicked');
+		}, true);//event trigger during capturing phase(trigger 1nd)
+
+		document.body.addEventListener('click', function () {
+		    console.log('The body element was clicked');
+		});//event trigger during bubble phase(trigger 2st)*/
+		console.log("******************************");
+		document.addEventListener('click', function () {
+		   console.log('The document was clicked');
+		}, true);//event trigger during capturing phase(trigger 1nd)
+
+		document.body.addEventListener('click', function () {
+		    console.log('The body element was clicked');
+		},true);//event trigger during capturing phase(trigger 2st)
+
+	</script>
+
+</body>
+</html>

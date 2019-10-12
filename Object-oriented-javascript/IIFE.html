@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		const returnFunc = (function() {
+		  let count = 0;
+
+		  return function() {
+		    count += 1;
+
+		    if (count === 2) {
+		      count = 0;
+		      return ('This alert appears every other press!');
+		      
+		    }
+		    else
+		    	return (count);
+
+		  };
+		})();//IIFE call func once and store it in returnFunc var
+		console.log(`first call: ${returnFunc()}`);
+		console.log(`second call: ${returnFunc()}`);
+		console.log(`third call: ${returnFunc()}`);
+		console.log(`fourth call: ${returnFunc()}`);
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var age = 100;
+		function printage(){
+			if(age > 12) {
+			  let dogYears = age * 7;
+			  console.log(`You are ${dogYears} dog years old!`);
+			}
+		console.log(`age of dog inside func ${dogYears}`)
+		}
+		printage();// ReferenceError: dogYears is not defined
+		console.log(`age of dog outside func ${dogYears}`);// ReferenceError: dogYears is not defined
+	</script>
+</body>
+</html>

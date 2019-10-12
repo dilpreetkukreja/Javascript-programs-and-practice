@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let element = "dirt";
+
+		let dragon = {
+			element : "fire",
+			breadth : function(){
+				console.log("outer func:", this);//dragon
+				function inside(callback){
+				 
+					console.log("inside function:", this);//window				
+					callback();//dragon
+				}
+				inside(() =>{console.log("arrow func:",this);});
+			}
+		}
+		dragon.breadth();
+		let dragon2 = {
+			element : "fire",
+			breadth : function(){
+				console.log("outer func:", this);//dragon
+				function inside(callback=() =>{console.log("arrow func:",this);}){
+				 
+					console.log("inside function:", this);//window				
+					callback();//window
+				}
+				inside();
+			}
+		}
+		dragon2.breadth();
+		let dragon3 = {
+			element : "fire",
+			breadth : function(){
+				console.log("outer func:", this);//dragon
+				function inside(){
+				 	let callback = () =>{console.log("arrow func:",this);}
+					console.log("inside function:", this);//window				
+					callback();//window
+				}
+				inside();
+			}
+		}
+		dragon3.breadth();
+		let person2 = {
+			name: "dilpreet",
+			displayName: function(){
+				
+				setTimeout(()=>{
+								console.log("arrow func");
+								console.log(this)//person2
+						       }
+				, 1000)
+			}
+		}
+		person2.displayName();
+		let person3 = {
+			name: "dilpreet",
+			displayName: () => {//convert into arrow
+				
+				setTimeout(()=>{
+								console.log("arrow func");
+								console.log(this)//window
+						       }
+				, 1000)
+			}
+		}
+		person3.displayName();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

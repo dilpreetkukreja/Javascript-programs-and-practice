@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="image"></div>
+	<script type="text/javascript">
+		let searchedForText = 'hippo';
+	function addImage(response){
+		console.log(response);
+			console.log(response.urls.small);
+
+
+			const htmlContent = `
+			<img src = "${response.urls.small}" alt = "random">
+			`
+			const elem = document.getElementById("image");
+			elem.innerHTML = htmlContent;
+			console.log(htmlContent);
+			
+	}
+
+	fetch('https://api.unsplash.com/photos/random',
+		{
+	  	  headers: {Authorization:'Client-ID f7a64103f53cc45537eea148e1ed9ea5afa9ba29a93302e0743d3b58d733712e'}
+		}
+	).then(function(response)
+	{
+		console.log(response);
+		return response.json();// The .json() method on a Response object returns a Promise that resolves with a JSON object, so we need to chain on another .then() to actually get and start using the returned data.
+	}).then(addImage);
+	</script>
+
+</body>
+</html>

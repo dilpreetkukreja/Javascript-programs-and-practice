@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		const members = new Set();
+		members.add('Evelyn');
+		members.add('Liam');
+		members.add('Sophia');
+		members.add('Marcus');
+
+		//using MapIterator
+		let keys = members.keys();//returns SetIterator not Array
+		console.log(keys);//SetIterator {"Evelyn", "Liam", "Sophia", "Marcus"}
+		console.log(keys.next());//{value: "Evelyn", done: false}
+
+		//using for-of
+		console.log("##########");
+		for(let item of members){
+			console.log(item);
+		}
+		console.log("##########");
+		//usnig forEach
+		members.forEach((value,index,map)=>
+			console.log(index,":", value));
+		//here index is same as value
+
+		
+		
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

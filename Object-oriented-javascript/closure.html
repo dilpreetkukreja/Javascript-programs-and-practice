@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		const number = 3;
+
+		function myFunction () {
+		  const otherNumber = 1;
+
+		  function logger() {
+		    console.log(otherNumber);
+		  }
+
+		  return logger;
+		}
+
+		const result = myFunction();
+
+		console.log(result());//1
+
+		///////////////////////////////
+		const myName = 'Andrew';
+		function age(){
+			const age = 3;
+			return introduceMyself();
+
+			function introduceMyself() {
+			  const you = 'student';
+
+			  function introduce() {
+			    console.log(`Hello, ${you}, I'm ${myName}!, my age is ${age}`);
+			  }
+
+			  return introduce;
+			}
+		}
+		const intro = age();
+		console.log(intro());
+		////////////////////////
+		function myCounter() {
+		  let count = 0;
+
+		  return function () {
+		    count += 1;
+		    return count;
+		  };
+		}
+
+		let counter = myCounter();
+
+		console.log(counter());
+		// 1
+
+		console.log(counter());
+		// 2
+		//uncomment below, count variable is private now, can't accessed from outside.
+		/*counter.count;
+		// undefined
+
+		count;
+		// count is not defined*/
+		//calling myCounter again
+		let counter2 = myCounter();
+		console.log(counter2());//1
+
+	</script>
+
+</body>
+</html>

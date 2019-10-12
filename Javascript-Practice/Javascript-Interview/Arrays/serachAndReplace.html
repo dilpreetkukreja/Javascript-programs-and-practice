@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function myReplace1(str, before, after) {
+		  // Find index where before is on string
+		  var index = str.indexOf(before);
+		  // Check to see if the first letter is uppercase or not
+		  if (str[index] === str[index].toUpperCase()) {
+		    // Change the after word to be capitalized before we use it.
+		    after = after.charAt(0).toUpperCase() + after.slice(1);
+		  }
+		  // Now replace the original str with the edited one.
+		  str = str.replace1(before, after);
+
+		  return str;
+		}
+
+// test here
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+		///////////////////////////////////
+		function myReplace(str, before, after) {
+			
+			let arr = str.split(" ");			
+			arr.forEach((elem,index,ar)=>{
+				if(elem===before){
+					if(elem[0]===elem[0].toLowerCase()){
+						ar.splice(index,1,after);
+
+					}
+					else
+						ar.splice(index,1,after.substring(0,1).toUpperCase()+after.substring(1));
+
+				}
+			});
+			//console.log(arr);
+		  return arr.join(" ");
+		}
+
+		console.log(myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped"));
+	</script>
+
+</body>
+</html>

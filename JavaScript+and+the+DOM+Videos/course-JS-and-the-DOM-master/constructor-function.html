@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//what makes a normal function a constructor is calling it by new operator.
+		//there is no return type in constructor function
+		function SoftwareDeveloper(name) {
+  			this.favoriteLanguage = 'JavaScript';
+  			this.name = name;
+		}
+		let engineer = new SoftwareDeveloper("dilpreet");
+		let programmer = new SoftwareDeveloper();
+		console.log(engineer.name);
+		console.log(programmer.name);
+		console.log(typeof engineer);//object
+		console.log(engineer instanceof SoftwareDeveloper);//true
+		//Many times, however, it's a bit more complex: the instanceof operator actually tests whether or not that constructor appears in the prototype chain of an object. This means that we can't always check exactly which constructor created that object, but it does give us insight as to what other properties and methods an object may have access to.
+
+		/*function softwareDeveloper(name) {
+  			this.favoriteLanguage = 'JavaScript';
+  			this.name = name;
+		}
+		let engineer = new softwareDeveloper("dilpreet");
+		let programmer = new softwareDeveloper();
+		console.log(engineer.name);
+		console.log(programmer.name);*/
+		//Capitalizing the first letter of a constructor function's name is just a naming convention. Though the first letter should be capitalized, inadvertently leaving it lower-cased still makes the constructor function (i.e., when invoked with the new operator, etc.).
+
+		///if we mis new operator
+		function SoftwareDeveloper2(name) {
+		   this.favoriteLanguage = 'JavaScript';
+		   this.name = name;
+		}
+
+		let coder = SoftwareDeveloper2('David');
+
+		console.log(coder);
+
+		
+		// undefined
+		//What's going on? Without using the new operator, no object was created. The function was invoked just like any other regular function. Since the function doesn't return anything (except undefined, which all functions return by default), the coder variable ended up being assigned to undefined.
+		
+	</script>
+
+</body>
+</html>

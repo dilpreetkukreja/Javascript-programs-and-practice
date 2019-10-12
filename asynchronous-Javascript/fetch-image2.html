@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<img id="img" alt="image"></img>
+	<script type="text/javascript">
+		
+
+	
+		
+	fetch('https://api.unsplash.com/photos/random',
+		{
+	  	  headers: {Authorization:'Client-ID f7a64103f53cc45537eea148e1ed9ea5afa9ba29a93302e0743d3b58d733712e'}
+		}
+	)
+		/*
+		fetch('https://api.box.com/2.0/files/193985454287/thumbnail.png', 
+		{
+   			headers: {Authorization: 'Bearer EqFyi1Yq1tD9mxY8F38sxDfp73pFd7FP'}
+		})*/
+
+		.then((response) => response.blob())
+		.then((blob) => {
+			console.log(blob);
+		    const imageUrl = URL.createObjectURL(blob);
+		    const img = document.querySelector('img');
+		    //img.addEventListener('load', () => URL.revokeObjectURL(imageUrl));
+		    img.src = imageUrl;
+		    console.log(img.src);
+		});
+	</script>
+
+</body>
+</html>

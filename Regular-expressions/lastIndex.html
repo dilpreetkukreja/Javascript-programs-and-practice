@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		let str2 = "Javascript or javaScript? Should we uppercase 'S'?";
+		let regex = /javascript/ig;
+		let result3 = str2.matchAll( regex );
+		console.log(result3);//iterator
+
+		console.log(regex.lastIndex);//0
+
+		//using for loop
+		for(let i of result3){
+			console.log(i);
+		}
+
+		console.log(regex.lastIndex);//0
+
+		console.log(result3.next());//{value: undefined, done: true}
+
+		console.log(Array.from(result3));
+
+		//Same global regexp tested repeatedly may fail to match
+		let str3 = "Javascript Should we uppercase 'S'?";
+		let regex2 = /javascript/i;
+		console.log(regex.lastIndex)//0
+		console.log(regex.test( str3 ));//true
+		console.log(regex.lastIndex)//10
+		console.log(regex.test( str3 ));//false
+		console.log(regex.lastIndex)//0, when it didnt find match it set to 0 again
+		console.log(regex.test( str3 ));//true
+
+		//exec
+		let regexp1 = /love/gi;
+
+		let str = "I love JavaScript";
+		
+		console.log( regexp1.exec(str) ); //["love", index: 2, input: "I love JavaScript", groups: undefined]
+		console.log(regexp1.lastIndex);//6
+
+		console.log( regexp1.exec(str) ); //null
+		console.log(regexp1.lastIndex);//0
+		//serach from index 10
+		regexp1.lastIndex  =10;
+		console.log(regexp1.lastIndex);//10
+		console.log( regexp1.exec(str) );//null
+		console.log(regexp1.lastIndex);//0
+
+		
+
+
+	</script>
+
+</body>
+</html>

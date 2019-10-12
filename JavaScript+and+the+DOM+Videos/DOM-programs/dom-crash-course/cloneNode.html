@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul id="myList">
+		<li>Apple</li>
+		<li id="itemOrange">oranges</li>
+		<li>banana</li>
+	</ul>
+	<script type="text/javascript">
+		let myList = document.getElementById("myList");
+		let itemOrange = document.getElementById("itemOrange");
+		let elemCopy = itemOrange.cloneNode(true);//if we dont put true then only element is copy nut not its child. so the only <li id="itemOrange"></li> is copied
+		myList.appendChild(elemCopy);
+		console.log(myList);
+	</script>
+
+</body>
+</html>

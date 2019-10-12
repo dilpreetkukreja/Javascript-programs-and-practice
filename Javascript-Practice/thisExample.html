@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		Write an expression using bind() that allows us to "borrow" the displayName() method from driver for the car object to use. Note: The expression itself is sufficient (no need to save it to a variable).
+		*/
+		const driver = {
+		  name: 'Danica',
+		  displayName: function () {
+		    console.log(`Name: ${this.name}`);
+		  }
+		};
+
+		const car = {
+		  name: 'Fusion'
+		};
+
+		let carDisplayName = driver.displayName.bind(car);
+		carDisplayName();
+	</script>
+
+</body>
+</html>

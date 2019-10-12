@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<div id="demo1"></div>
+	<script>
+
+		function asyncFunction(callback) {
+			//console.log(callback);
+			
+			/*var numbers = prompt("Enter numbers for addition with space");
+			
+			var arr = numbers.split(" ");
+			var result = [];
+			for (var i=0;i<arr.length;i++){
+
+				result[i]=parseInt(arr[i]);
+			}
+
+			
+
+    		setTimeout(callback, 1000, result[0], result[1]); */
+    		setTimeout(callback, 1000, 2, 3); // passes 2 and 3 to the callback
+		}
+
+		// method 1
+		/*function addition(x, y){
+			document.getElementById("demo1").innerHTML = "Sum is: " + (x+y);
+		}
+		asyncFunction(addition);*/
+
+		// method 2
+		/*var f = function addition(x, y){
+			document.getElementById("demo1").innerHTML = "Sum is: " + (x+y);
+		}
+		asyncFunction(f);*/
+
+		// method 3
+		/*var f = function(x, y){
+			document.getElementById("demo1").innerHTML = "Sum is: " + (x+y);
+		}
+		asyncFunction(f);*/
+
+		// method 4
+		/*asyncFunction(function(x, y){
+			document.getElementById("demo1").innerHTML = "Sum is: " + (x+y);});*/
+
+		// method 5
+		asyncFunction(function addition(x, y){
+			document.getElementById("demo1").innerHTML = "Sum is: " + (x+y);});
+
+		//method 6
+		function movies(messageFunction, name) {
+		  messageFunction(name);
+		}
+
+		// call the movies function, pass in the function and name of movie
+		movies(function displayFavorite(movieName) {
+		  console.log("My favorite movie is " + movieName);
+		}, "Finding Nemo");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 	
+	 </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function telephoneCheck(str) {
+		  // Good luck!
+		  let regex = /^1?\s?((\([0-9]{3}\))|([0-9]{3}))[-\s]?[0-9]{3}[-\s]?[0-9]{4}$/;
+		  let result = str.match(regex);
+		  return result;
+		}
+
+		console.log(telephoneCheck("1 (555)-555-5555"));
+	</script>
+
+</body>
+</html>

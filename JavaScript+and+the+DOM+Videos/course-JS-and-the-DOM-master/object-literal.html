@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		const dog = {
+		  bark: function () {
+		    console.log('Woof!');
+		  },
+		  barkTwice: function () {
+		   bark();//function first look bark in its scope before going up in scope chain
+		   function bark(){
+		   	console.log("im in barktwice");
+		   }
+		   this.bark();
+		    
+		  }
+		};
+		dog.barkTwice();
+	</script>
+
+</body>
+</html>

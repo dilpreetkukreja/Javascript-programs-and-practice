@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let type = 'quartz';
+		let color = 'rose';
+		let carat = 21.29;
+
+		const gemstone = {
+		  //object literal shorthand removes the unnecessary repetition
+		  type,  //instead of type: type
+		  color,  //instead of color: color
+		  carat  //instead of carat: carat
+		};
+
+		console.log(gemstone);
+		console.log(type);
+
+		/// there’s also a shorthand way to add methods to objects.
+		//the function keyword really needed? In ES6, it’s not!
+
+		let type1 = 'quartz';
+		let color1 = 'rose';
+		let carat1 = 21;
+
+		const gemstone1 = {
+		  type1,
+		  color1,
+		  carat1,
+		 calculateWorth1(){ //instead of calculateWorth: function() 
+		    console.log(`cost: ${carat1*2}`)
+		  }
+		};
+		gemstone1.calculateWorth1();
+
+
+	</script>
+
+</body>
+</html>

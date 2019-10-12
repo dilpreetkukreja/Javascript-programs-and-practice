@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Destructuring values from an array
+		const point = [10, 25, -34];
+		const [x, y, z] = point;
+		console.log(x,y,z);// Notice how you don’t have to specify the indexes for where to extract the values from because the indexes are implied.
+
+		//TIP: You can also ignore values when destructuring arrays. For example, const [x, , z] = point; ignores the y coordinate and discards it.
+
+		//Destructuring values from an object
+		const gemstone = {
+		  type: 'quartz',
+		  color: 'rose',
+		  carat: 21.29
+		};
+		const {type, color, carat} = gemstone;//use the same variable same as they are appear in object like type for type in object
+		console.log(type, color, carat);
+		//TIP: You can also specify the values you want to select when destructuring an object. For example, let {color} = gemstone; will only select the color property from the gemstone object.
+		/////////////////////////////////
+		const circle = {
+		  radius: 10,
+		  color: 'orange',
+		  getArea: function() {
+		  	console.log(this.radius);//undefined
+		  	console.log(radius);//10
+		    return Math.PI * this.radius * this.radius;
+		  },
+		  getCircumference: function() {
+		    return 2 * Math.PI * this.radius;
+		  }
+		};
+
+		let {radius, getArea, getCircumference} = circle;
+
+		console.log(getArea());//NAN
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="container">
+		<div id="parent">
+			<button id="child">Child button</button> 
+		</div>
+	</div>
+	<div>
+		Stop Propagation:<input type="checkbox" id="checkbox">
+	</div>
+
+
+	<div id="container1">
+		<ul id="list">
+			<li id="listItem1">Item1 - click me</li>
+			<li id="listItem2">Item2 - click me</li>
+		</ul>
+	</div>
+	<div>
+		Stop Propagation:<input type="checkbox" id="checkbox1">
+	</div>
+
+	<script type="text/javascript">
+		/*
+		event.currentTarget always refers to the element to which the event handler has been attached, as opposed to Event.target, which identifies the element on which the event occurred and which may be its direct descendent.
+		*/
+		/*
+		event.eventPhase
+		1: capture phase
+		2: Target phase
+		3: Bubbling phase
+		*/
+		let container = document.getElementById("container");
+		let parent = document.getElementById("parent");
+		let child = document.getElementById("child");
+		let inputCheckbox = document.getElementById("checkbox");
+
+		function clickHandler(event){
+			console.log(event.currentTarget.id);
+			console.log(event.eventPhase);
+			if(inputCheckbox.checked)
+				event.stopPropagation();
+		}
+		//bubbling
+		container.addEventListener('click', clickHandler);
+		parent.addEventListener('click', clickHandler);
+		child.addEventListener('click', clickHandler);
+
+		//capturing
+
+		function clickHandler1(event){
+			console.log(event.currentTarget.id);
+			console.log(event.eventPhase);
+			if(inputCheckbox1.checked)
+				event.stopPropagation();
+		}
+		let container1 = document.getElementById("container1");
+		let ul = document.getElementById("list");
+		let item1 = document.getElementById("listItem1");
+		let item2 = document.getElementById("listItem2");
+		let inputCheckbox1 = document.getElementById("checkbox1");
+
+		container1.addEventListener('click', clickHandler1,true);
+		list.addEventListener('click', clickHandler1,true);
+		listItem1.addEventListener('click', clickHandler1,true);
+		listItem2.addEventListener('click', clickHandler1,true);
+
+
+		
+	</script>
+
+</body>
+</html>

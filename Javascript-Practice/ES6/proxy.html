@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let richard = {
+			status: "looking for job"
+		};
+		let handler = {
+			get(target, propName){
+				console.log(target);
+				console.log(propName);
+				return target[propName];
+			},
+			set(target, propName, value){
+				if(propName==="payAmount"){
+					value = value * 0.85;
+				}
+				target[propName] = value;
+			}
+		};
+		let agent = new Proxy(richard, handler);
+		agent.status;
+		agent.payAmount = 1000;
+		agent.payAmount;
+	</script>
+
+</body>
+</html>

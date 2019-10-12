@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let n=5;
+		let queries = [[1,2,100],[2,5,100],[3,4,100]];
+
+		let emptyArr = new Array(n+1).fill(0);
+		console.log(emptyArr);
+		let numQueries = queries.length;
+		console.log(numQueries);
+		for(let i=0;i<numQueries;i++){
+			let a = queries[i][0]-1;
+			let b = queries[i][1]-1;
+			let k = queries[i][2];
+			emptyArr[a] += k;
+			emptyArr[b+1] += -k;
+			console.log(emptyArr);
+		}
+		let biggest = emptyArr[0];
+		for(let i=1;i<emptyArr.length;i++){
+			emptyArr[i] += emptyArr[i-1];
+			if(emptyArr[i]>biggest){
+				biggest=emptyArr[i];
+			}
+		}
+		console.log(emptyArr);
+		console.log(biggest);
+	</script>
+
+</body>
+</html>

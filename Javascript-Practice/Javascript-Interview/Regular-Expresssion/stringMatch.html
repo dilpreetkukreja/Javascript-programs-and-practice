@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Your task is to write a regular expression that matches only and exactly strings of form:abc.def.ghi.jkx , where each variable can be any character except the newline.
+
+		//let str = 'abc.def.ghi.jkx';
+		let str = '123.def.ghi.jkx';
+		//fails on '123.def.ghi.jkx.jjk';'1234.def.ghi.jkx';
+		let regex = /^(.{3}\.){3}.{3}$/g;
+		let result = str.match(regex);
+		console.log(result);
+	</script>
+
+</body>
+</html>
